@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RateLimiter
 {
-    internal class CountByIntervalAwaitableConstraint : IAwaitableConstraint
+    public class CountByIntervalAwaitableConstraint : IAwaitableConstraint
     {
         private readonly int _Count;
         private readonly TimeSpan _TimeSpan;

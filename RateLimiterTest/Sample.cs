@@ -21,7 +21,7 @@ namespace RateLimiterTest
         {
             var constraint = new CountByIntervalAwaitableConstraint(5, TimeSpan.FromSeconds(1));
             var constraint2 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
-            var timeconstraint = new TimeLimiter(constraint.Compose(constraint2));
+            var timeconstraint = new RateLimiter.TimeLimiter(constraint.Compose(constraint2));
 
             for(int i=0; i<1000; i++)
             {
