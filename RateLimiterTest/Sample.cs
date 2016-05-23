@@ -17,7 +17,7 @@ namespace RateLimiterTest
         }
 
         [Fact(Skip = "for demo purpose only")]
-        public async Task BasicTestOneThread() {
+        public async Task SimpleUsage() {
             var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
             for (int i = 0; i < 1000; i++) {
