@@ -17,11 +17,20 @@ namespace RateLimiterTest
         }
 
         [Fact(Skip = "for demo purpose only")]
+        public async Task BasicTestOneThread() {
+            var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+
+            for (int i = 0; i < 1000; i++) {
+                await timeconstraint.Perform(ConsoleIt);
+            }
+        }
+
+        [Fact(Skip = "for demo purpose only")]
         public async Task TestOneThread()
         {
             var constraint = new CountByIntervalAwaitableConstraint(5, TimeSpan.FromSeconds(1));
             var constraint2 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
-            var timeconstraint = new RateLimiter.TimeLimiter(constraint.Compose(constraint2));
+            var timeconstraint = new TimeLimiter(constraint.Compose(constraint2));
 
             for(int i=0; i<1000; i++)
             {
