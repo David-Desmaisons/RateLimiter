@@ -16,11 +16,8 @@ Create helper to respect Webservices rate limit constraint.
 ###Basic
 
 ```C#
-    //Create constraint: max five times by second
-    var constraint = new CountByIntervalAwaitableConstraint(5, TimeSpan.FromSeconds(1));
-    
-    //Create Time constraint
-    var timeconstraint = TimeLimiter(composed);
+    //Create Time constraint: max five times by second
+    var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
     //Use it
     for(int i=0; i<1000; i++)
