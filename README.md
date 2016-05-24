@@ -1,13 +1,15 @@
 # RateLimiter
 
-C# rate limiting utility
+C# rate limiting utility.
 
-## motivation
-Create helper to respect Webservices rate limit constraint.
+## Motivation
+The initial motivation was to create helper to respect Web Services rate limit in client application.
+However this helpers can also be also in other scenarios where you need to temporally limit the usage of one shared resource.
 
-## feature
+## Features
 * Easy to use
-* Fully asynchroneous: no need of thread sleep
+* Fully asynchroneous: lower resource usage than thread sleep
+* Cancellable via CancellationToken
 * Thread safe so you can share time contraints object to rate limit diferent threads using the same resource
 * Composable: ability to compose diferent rate limits in one constraint
 
