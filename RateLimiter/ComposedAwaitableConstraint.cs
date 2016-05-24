@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RateLimiter
@@ -15,17 +16,27 @@ namespace RateLimiter
             _AwaitableConstraint2 = awaitableConstraint2;
         }
 
-        public async Task WaitForReadiness()
+        public async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
         {
-            await _Semafore.WaitAsync();
-            await Task.WhenAll(_AwaitableConstraint1.WaitForReadiness(), _AwaitableConstraint2.WaitForReadiness());
-        }
-
-        public void Execute()
-        {
-            _AwaitableConstraint1.Execute();
-            _AwaitableConstraint2.Execute();
-            _Semafore.Release();
+            await _Semafore.WaitAsync(cancellationToken);
+            IDisposable[] diposables;
+            try 
+            {
+                diposables = await Task.WhenAll(_AwaitableConstraint1.WaitForReadiness(cancellationToken), _AwaitableConstraint2.WaitForReadiness(cancellationToken));
+            }
+            catch (TaskCanceledException) 
+            {
+                _Semafore.Release();
+                throw;
+            } 
+            return new DisposeAction(() => 
+            {
+                foreach (var diposable in diposables)
+                {
+                    diposable.Dispose();
+                }
+                _Semafore.Release();
+            });
         }
     }
 }

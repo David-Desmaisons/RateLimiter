@@ -28,30 +28,40 @@ namespace RateLimiter
             _Time = TimeSystem.StandardTime;
         }
 
-        public async Task WaitForReadiness()
+        public async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
         {
-            await _Semafore.WaitAsync();
+            await _Semafore.WaitAsync(cancellationToken);
             var count = 0;
             var now = _Time.GetNow();
             var target = now - _TimeSpan;
-            LinkedListNode<DateTime> Element = _TimeStamps.First, last = null;
-            while ((Element != null) && (Element.Value > target))
+            LinkedListNode<DateTime> element = _TimeStamps.First, last = null;
+            while ((element != null) && (element.Value > target))
             {
-                last = Element;
-                Element = Element.Next;
+                last = element;
+                element = element.Next;
                 count++;
             }
 
             if (count < _Count)
-                return;
+                return new DisposeAction(OnEnded);
 
-            Debug.Assert(Element == null);
+            Debug.Assert(element == null);
             Debug.Assert(last != null);
             var timetoWait = last.Value.Add(_TimeSpan) - now;
-            await _Time.GetDelay(timetoWait);
+            try 
+            {
+                await _Time.GetDelay(timetoWait, cancellationToken);
+            }
+            catch (TaskCanceledException) 
+            {
+                _Semafore.Release();
+                throw;
+            }           
+
+            return new DisposeAction(OnEnded);
         }
 
-        public void Execute()
+        private void OnEnded() 
         {
             _TimeStamps.Push(_Time.GetNow());
             _Semafore.Release();

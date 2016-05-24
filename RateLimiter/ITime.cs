@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RateLimiter
@@ -7,6 +8,6 @@ namespace RateLimiter
     {
         DateTime GetNow();
 
-        Task GetDelay(TimeSpan timespan);
+        Task GetDelay(TimeSpan timespan, CancellationToken cancellationToken);
     }
 }

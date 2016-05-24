@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RateLimiter
@@ -12,40 +13,32 @@ namespace RateLimiter
             _AwaitableConstraint = awaitableConstraint;
         }
 
-        public async Task Perform(Func<Task> perform)
+        public Task Perform(Func<Task> perform) 
         {
-            try
+            return Perform(perform, CancellationToken.None);
+        }
+
+        public Task<T> Perform<T>(Func<Task<T>> perform) 
+        {
+            return Perform(perform, CancellationToken.None);
+        }
+
+        public async Task Perform(Func<Task> perform, CancellationToken cancellationToken) 
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            using (await _AwaitableConstraint.WaitForReadiness(cancellationToken)) 
             {
-                await WaitForReadiness();
                 await perform();
             }
-            finally
-            {
-                SignalExecute();
-            }
         }
 
-        public async Task<T> Perform<T>(Func<Task<T>> perform)
+        public async Task<T> Perform<T>(Func<Task<T>> perform, CancellationToken cancellationToken) 
         {
-            try
+            cancellationToken.ThrowIfCancellationRequested();
+            using (await _AwaitableConstraint.WaitForReadiness(cancellationToken)) 
             {
-                await WaitForReadiness();
                 return await perform();
             }
-            finally
-            {
-                SignalExecute();
-            }
-        }
-
-        private async Task WaitForReadiness()
-        {
-            await _AwaitableConstraint.WaitForReadiness();
-        }
-
-        private void SignalExecute()
-        {
-            _AwaitableConstraint.Execute();
         }
 
         public static TimeLimiter GetFromMaxCountByInterval(int maxCount, TimeSpan timeSpan)

@@ -1,5 +1,6 @@
 ﻿using RateLimiter;
 using System;
+using System.Threading;
 using Xunit;
 using FluentAssertions;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace RateLimiterTest
         [Fact]
         public async Task WaitForReadinessIsSynchroneous_FirstTime()
         {
-            var task = _CountByIntervalAwaitableConstraint1.WaitForReadiness();
+            var task = _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             var timedOut = await TaskHasTimeOut(task, 10);
             timedOut.Should().BeFalse();
         }
@@ -47,16 +48,16 @@ namespace RateLimiterTest
         [Fact]
         public async Task WaitForReadinessDoNotCallDelay_FirstTime()
         {
-            await _CountByIntervalAwaitableConstraint1.WaitForReadiness();
+            await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             _MockTime.GetDelayCount.Should().Be(0);
         }
 
         [Fact]
         public async Task WaitForReadiness_Block_WhenWaitForReadinessHasBeenCalledButNotExecute()
         {
-            await _CountByIntervalAwaitableConstraint1.WaitForReadiness();
+            await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
 
-            var secondTask = _CountByIntervalAwaitableConstraint1.WaitForReadiness();
+            var secondTask = _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             var timedOut = await TaskHasTimeOut(secondTask, 300);
             timedOut.Should().BeTrue();
         }
@@ -64,12 +65,12 @@ namespace RateLimiterTest
         [Fact]
         public async Task WaitForReadiness_UnBlock_WhenExcecuteIsCalled()
         {
-            await _CountByIntervalAwaitableConstraint1.WaitForReadiness();
-            var secondTask = _CountByIntervalAwaitableConstraint1.WaitForReadiness();
+            var disp = await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
+            var secondTask = _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             await TaskHasTimeOut(secondTask, 10);
-            _CountByIntervalAwaitableConstraint1.Execute();
+            disp.Dispose();
 
-            var timedOut = await TaskHasTimeOut(secondTask, 300);
+             var timedOut = await TaskHasTimeOut(secondTask, 300);
             timedOut.Should().BeFalse();
         }
 
@@ -93,7 +94,7 @@ namespace RateLimiterTest
         {
             await SetUpSatured();
             _MockTime.AddTime(TimeSpan.FromMilliseconds(100));
-            await _CountByIntervalAwaitableConstraint1.WaitForReadiness();
+            await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             _MockTime.GetDelayCount.Should().Be(0);
         }
 
@@ -111,25 +112,25 @@ namespace RateLimiterTest
                 await SetUpSatured2();
             }
 
-            await _CountByIntervalAwaitableConstraint2.WaitForReadiness();
+            await _CountByIntervalAwaitableConstraint2.WaitForReadiness(CancellationToken.None);
             _MockTime.GetDelayCount.Should().Be(Wait ? 1 : 0);
         }
 
         private async Task SetUpSatured2()
         {
-            await _CountByIntervalAwaitableConstraint2.WaitForReadiness();
-            _CountByIntervalAwaitableConstraint2.Execute();
+            using (await _CountByIntervalAwaitableConstraint2.WaitForReadiness(CancellationToken.None)) {
+            }
         }
 
         private async Task SetUpSatured()
         {
-            await _CountByIntervalAwaitableConstraint1.WaitForReadiness();
-            _CountByIntervalAwaitableConstraint1.Execute();
+            using (await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None)) {               
+            }
         }
 
         private async Task CheckCompletionInTime()
         {
-            await _CountByIntervalAwaitableConstraint1.WaitForReadiness();
+            await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             _MockTime.GetDelayCount.Should().Be(1);
             _MockTime.Now.Should().Be(_Origin.AddMilliseconds(100));
         }

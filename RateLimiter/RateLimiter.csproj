@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ComposedAwaitableConstraint.cs" />
     <Compile Include="CountByIntervalAwaitableConstraint.cs" />
+    <Compile Include="DisposeAction.cs" />
     <Compile Include="IAwaitableConstraint.cs" />
     <Compile Include="ITime.cs" />
     <Compile Include="IAwaitableConstraintExtension.cs" />

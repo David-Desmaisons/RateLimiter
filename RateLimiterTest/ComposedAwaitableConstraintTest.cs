@@ -1,6 +1,7 @@
 ﻿using NSubstitute;
 using RateLimiter;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using FluentAssertions;
@@ -11,28 +12,34 @@ namespace RateLimiterTest
     {
         private readonly IAwaitableConstraint _IAwaitableConstraint1;
         private readonly IAwaitableConstraint _IAwaitableConstraint2;
+        private readonly IDisposable _Diposable1;
+        private readonly IDisposable _Diposable2;
         private readonly ComposedAwaitableConstraint _Composed;
 
         public ComposedAwaitableConstraintTest()
         {
             _IAwaitableConstraint1 = Substitute.For<IAwaitableConstraint>();
             _IAwaitableConstraint2 = Substitute.For<IAwaitableConstraint>();
+            _Diposable1 = Substitute.For<IDisposable>();
+            _Diposable2 = Substitute.For<IDisposable>();
+            _IAwaitableConstraint1.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Diposable1));
+            _IAwaitableConstraint2.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Diposable2));
             _Composed = new ComposedAwaitableConstraint(_IAwaitableConstraint1, _IAwaitableConstraint2);
         }
 
         [Fact]
         public async Task WaitForReadiness_Call_ComposingElementsWaitForReadiness()
         {
-            await _Composed.WaitForReadiness();
+            await _Composed.WaitForReadiness(CancellationToken.None);
 
-            await _IAwaitableConstraint1.Received(1).WaitForReadiness();
-            await _IAwaitableConstraint2.Received(1).WaitForReadiness();
+            await _IAwaitableConstraint1.Received(1).WaitForReadiness(CancellationToken.None);
+            await _IAwaitableConstraint2.Received(1).WaitForReadiness(CancellationToken.None);
         }
 
         [Fact]
         public async Task WaitForReadiness_Block()
         {
-            await _Composed.WaitForReadiness();
+            await _Composed.WaitForReadiness(CancellationToken.None);
             var timedOut = await WaitForReadinessHasTimeOut();
             timedOut.Should().BeTrue();
         }
@@ -40,15 +47,15 @@ namespace RateLimiterTest
         [Fact]
         public async Task WaitForReadiness_BlockUntillExecuteIsCalled()
         {
-            await _Composed.WaitForReadiness();
-            _Composed.Execute();     
+            using (await _Composed.WaitForReadiness(CancellationToken.None)) {              
+            }  
             var timedOut = await WaitForReadinessHasTimeOut();
             timedOut.Should().BeFalse();
         }
 
         private async Task<bool> WaitForReadinessHasTimeOut()
         {
-            var task = _Composed.WaitForReadiness();
+            var task = _Composed.WaitForReadiness(CancellationToken.None);
             var timeoutTask = Task.Delay(TimeSpan.FromMilliseconds(200));
 
             var taskcomplete = await Task.WhenAny(task, timeoutTask);
@@ -58,14 +65,11 @@ namespace RateLimiterTest
         [Fact]
         public async Task Execute_Call_ComposingElementsExecute()
         {
-            await _Composed.WaitForReadiness();
-            _IAwaitableConstraint1.ClearReceivedCalls();
-            _IAwaitableConstraint2.ClearReceivedCalls();
+            var disp = await _Composed.WaitForReadiness(CancellationToken.None);
+            disp.Dispose();
 
-            _Composed.Execute();
-
-            _IAwaitableConstraint1.Received(1).Execute();
-            _IAwaitableConstraint2.Received(1).Execute();
+            _Diposable1.Received(1).Dispose();
+            _Diposable2.Received(1).Dispose();
         }
     }
 }

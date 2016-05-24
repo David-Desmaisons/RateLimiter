@@ -1,6 +1,7 @@
 ﻿using NSubstitute;
 using RateLimiter;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using FluentAssertions;
@@ -13,12 +14,15 @@ namespace RateLimiterTest
         private readonly IAwaitableConstraint _IAwaitableConstraint;
         private readonly Func<Task> _FuncTask;
         private readonly Func<Task<int>> _FuncTaskInt;
+        private readonly IDisposable _Diposable;
 
         public RateLimiterTest()
         {
             _FuncTask = Substitute.For<Func<Task>>();
             _FuncTaskInt = Substitute.For<Func<Task<int>>>();
             _IAwaitableConstraint = Substitute.For<IAwaitableConstraint>();
+            _Diposable = Substitute.For<IDisposable>();
+            _IAwaitableConstraint.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Diposable));
             _TimeConstraint = new RateLimiter.TimeLimiter(_IAwaitableConstraint);
         }
 
@@ -57,9 +61,9 @@ namespace RateLimiterTest
         private void CheckSequence()
         {
             Received.InOrder(() => {
-                _IAwaitableConstraint.WaitForReadiness();
+                _IAwaitableConstraint.WaitForReadiness(CancellationToken.None);
                 _FuncTask.Invoke();
-                _IAwaitableConstraint.Execute();
+                _Diposable.Dispose();
             });
         }
 
@@ -98,9 +102,9 @@ namespace RateLimiterTest
         private void CheckGenericSequence()
         {
             Received.InOrder(() => {
-                _IAwaitableConstraint.WaitForReadiness();
+                _IAwaitableConstraint.WaitForReadiness(CancellationToken.None);
                 _FuncTaskInt.Invoke();
-                _IAwaitableConstraint.Execute();
+                _Diposable.Dispose();
             });
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using RateLimiter;
 using Xunit;
@@ -22,6 +23,21 @@ namespace RateLimiterTest
 
             for (int i = 0; i < 1000; i++) {
                 await timeconstraint.Perform(ConsoleIt);
+            }
+        }
+
+        [Fact]
+        public async Task SimpleUsageWithcancellation() {
+            var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+            var cts = new CancellationTokenSource();
+            cts.CancelAfter(TimeSpan.FromSeconds(10));
+
+            for (int i = 0; i < 1000; i++) {
+                try {
+                    await timeconstraint.Perform(ConsoleIt, cts.Token);
+                }
+                catch(Exception) {
+                }
             }
         }
 

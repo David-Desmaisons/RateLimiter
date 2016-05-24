@@ -1,5 +1,6 @@
 ﻿using RateLimiter;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RateLimiterTest
@@ -19,7 +20,7 @@ namespace RateLimiterTest
             Now = Now.Add(addedTime);
         }
 
-        public Task GetDelay(TimeSpan timespan)
+        public Task GetDelay(TimeSpan timespan, CancellationToken cancellationToken)
         {
             GetDelayCount++;
             AddTime(timespan);
