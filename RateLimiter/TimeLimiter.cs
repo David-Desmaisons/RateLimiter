@@ -3,42 +3,52 @@ using System.Threading.Tasks;
 
 namespace RateLimiter
 {
-    public class TimeLimiter : IRateLimiter {
+    public class TimeLimiter : IRateLimiter
+    {
         private readonly IAwaitableConstraint _AwaitableConstraint;
 
-        internal TimeLimiter(IAwaitableConstraint awaitableConstraint) {
+        internal TimeLimiter(IAwaitableConstraint awaitableConstraint)
+        {
             _AwaitableConstraint = awaitableConstraint;
         }
 
-        public async Task Perform(Func<Task> perform) {
-            try {
+        public async Task Perform(Func<Task> perform)
+        {
+            try
+            {
                 await WaitForReadiness();
                 await perform();
             }
-            finally {
+            finally
+            {
                 SignalExecute();
             }
         }
 
-        public async Task<T> Perform<T>(Func<Task<T>> perform) {
-            try {
+        public async Task<T> Perform<T>(Func<Task<T>> perform)
+        {
+            try
+            {
                 await WaitForReadiness();
                 return await perform();
             }
-            finally {
+            finally
+            {
                 SignalExecute();
             }
         }
 
-        private async Task WaitForReadiness() {
+        private async Task WaitForReadiness()
+        {
             await _AwaitableConstraint.WaitForReadiness();
         }
 
-        private void SignalExecute() {
+        private void SignalExecute()
+        {
             _AwaitableConstraint.Execute();
         }
 
-        public static TimeLimiter GetFromMaxCountByInterval(int maxCount, TimeSpan timeSpan) 
+        public static TimeLimiter GetFromMaxCountByInterval(int maxCount, TimeSpan timeSpan)
         {
             return new TimeLimiter(new CountByIntervalAwaitableConstraint(maxCount, timeSpan));
         }
