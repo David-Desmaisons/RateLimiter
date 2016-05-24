@@ -60,10 +60,7 @@ Output
     var constraint2 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
     
     //Compose the two constraints
-    var composed = constraint.Compose(constraint2);
-    
-    //Create Time constraint
-    var timeconstraint = TimeLimiter(composed);
+    var timeconstraint = TimeLimiter.Compose(constraint, constraint2);
 
     //Use it
     for(int i=0; i<1000; i++)

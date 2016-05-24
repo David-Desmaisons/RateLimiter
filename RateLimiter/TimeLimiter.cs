@@ -42,5 +42,15 @@ namespace RateLimiter
         {
             return new TimeLimiter(new CountByIntervalAwaitableConstraint(maxCount, timeSpan));
         }
+
+        public static TimeLimiter Compose(params IAwaitableConstraint[] constraints)
+        {
+            IAwaitableConstraint current = null;
+            foreach (var constraint in constraints)
+            {
+                current = (current == null) ? constraint : current.Compose(constraint);
+            }
+            return new TimeLimiter(current);
+        }
     }
 }
