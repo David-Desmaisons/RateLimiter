@@ -2,6 +2,8 @@
 
 C# rate limiting utility.
 
+[Nuget package here](https://www.nuget.org/packages/RateLimiter/)
+
 ## Motivation
 The initial motivation was to create helper to respect Web Services rate limit in client application.
 However this helper can also be also in other scenarios where you need to temporally limit the usage of one shared resource.
