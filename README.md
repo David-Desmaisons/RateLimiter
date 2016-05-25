@@ -4,7 +4,7 @@ C# rate limiting utility.
 
 ## Motivation
 The initial motivation was to create helper to respect Web Services rate limit in client application.
-However this helpers can also be also in other scenarios where you need to temporally limit the usage of one shared resource.
+However this helper can also be also in other scenarios where you need to temporally limit the usage of one shared resource.
 
 ## Features
 * Easy to use
