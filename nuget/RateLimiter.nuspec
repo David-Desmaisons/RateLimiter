@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>RateLimiter</id>
+        <version>1.0.0</version>
+        <title>RateLimiter</title>
+        <authors>David Desmaisons</authors>
+        <projectUrl>https://github.com/David-Desmaisons/RateLimiter</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Utility to respect Web Services rate limit in client application.
+Features:
+* Easy to use
+* Fully asynchroneous: lower resource usage than thread sleep
+* Cancellable via CancellationToken
+* Thread safe so you can share time contraints object to rate limit diferent threads using the same resource
+* Composable: ability to compose diferent rate limits in one constraint</description>
+        <summary>C# client rate limiter</summary>
+        <tags>Asynchroneous, Task, rate limitation</tags>
+    </metadata>
+</package>
