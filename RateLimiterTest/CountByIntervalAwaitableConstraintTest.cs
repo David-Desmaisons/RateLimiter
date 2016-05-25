@@ -63,7 +63,7 @@ namespace RateLimiterTest
         }
 
         [Fact]
-        public async Task WaitForReadiness_UnBlock_WhenExcecuteIsCalled()
+        public async Task WaitForReadiness_UnBlock_WhenDisposeIsCalled()
         {
             var disp = await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             var secondTask = _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
@@ -72,6 +72,69 @@ namespace RateLimiterTest
 
              var timedOut = await TaskHasTimeOut(secondTask, 300);
             timedOut.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task WaitForReadiness_WhenCancelled_DoNotBlock()
+        {
+            var cancellation = new CancellationToken(true);
+            try
+            {
+                await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
+            }
+            catch
+            {
+            }
+            var task = _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
+            var timedOut = await TaskHasTimeOut(task, 50);
+            timedOut.Should().BeFalse();
+        }
+
+        [Fact]
+        public void WaitForReadiness_WhenCancelled_ThrowException()
+        {
+            var cancellation = new CancellationToken(true);
+            Func<Task> act = async () => await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
+            act.ShouldThrow<TaskCanceledException>();
+        }
+
+        [Fact]
+        public async Task WaitForReadiness_WhenCancelledAfterSemaforeTaken_DoNotBlock()
+        {
+            var cancellation = await SetUpForCancelledAfterSemaforeTaken();
+            try
+            {
+                await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
+            }
+            catch
+            {
+            }
+            var task = _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
+            var timedOut = await TaskHasTimeOut(task, 50);
+            timedOut.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task WaitForReadiness_WhenCancelledAfterSemaforeTaken_ThrowException()
+        {
+            var cancellation = await SetUpForCancelledAfterSemaforeTaken();
+            Func<Task> act = async () => await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
+            act.ShouldThrow<TaskCanceledException>();
+        }
+
+        private async Task<CancellationToken> SetUpForCancelledAfterSemaforeTaken()
+        {
+            var cancellationSource = new CancellationTokenSource();
+            _MockTime.OnDelay = (t, c) =>
+            {
+                cancellationSource.Cancel();
+                cancellationSource.Token.ThrowIfCancellationRequested();
+            };
+
+            var disp = await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
+            disp.Dispose();
+
+            return cancellationSource.Token;
         }
 
         [Fact]

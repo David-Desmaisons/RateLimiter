@@ -52,7 +52,7 @@ namespace RateLimiter
             {
                 await _Time.GetDelay(timetoWait, cancellationToken);
             }
-            catch (TaskCanceledException) 
+            catch (Exception) 
             {
                 _Semafore.Release();
                 throw;

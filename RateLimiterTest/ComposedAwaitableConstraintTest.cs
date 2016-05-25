@@ -45,10 +45,34 @@ namespace RateLimiterTest
         }
 
         [Fact]
-        public async Task WaitForReadiness_BlockUntillExecuteIsCalled()
+        public async Task WaitForReadiness_WhenCancelled_DoNotBlock()
         {
-            using (await _Composed.WaitForReadiness(CancellationToken.None)) {              
-            }  
+            var cancellation = new CancellationToken(true);
+            try
+            {
+                await _Composed.WaitForReadiness(cancellation);
+            }
+            catch
+            {
+            }
+            var timedOut = await WaitForReadinessHasTimeOut();
+            timedOut.Should().BeFalse();
+        }
+
+        [Fact]
+        public void WaitForReadiness_WhenCancelled_ThrowException()
+        {
+            var cancellation = new CancellationToken(true);
+            Func<Task> act = async () => await _Composed.WaitForReadiness(cancellation);
+            act.ShouldThrow<TaskCanceledException>();
+        }
+
+        [Fact]
+        public async Task WaitForReadiness_BlockUntillDisposeIsCalled()
+        {
+            var disp = await _Composed.WaitForReadiness(CancellationToken.None);
+            disp.Dispose();
+
             var timedOut = await WaitForReadinessHasTimeOut();
             timedOut.Should().BeFalse();
         }

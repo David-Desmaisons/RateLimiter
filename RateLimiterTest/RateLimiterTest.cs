@@ -58,6 +58,48 @@ namespace RateLimiterTest
             CheckSequence();
         }
 
+        [Fact]
+        public void Perform_WhenCancelled_ThrowException()
+        {
+            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+            act.ShouldThrow<TaskCanceledException>();
+        }
+
+        [Fact]
+        public async Task Perform_WhenCancelled_DoNotCallFunction()
+        {
+            try
+            {
+                await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+            }
+            catch
+            {
+            }
+            await _FuncTask.DidNotReceive().Invoke();
+        }
+
+        [Fact]
+        public void Perform_WhenAwaitableConstraintIsCancelled_ThrowException()
+        {
+            SetUpAwaitableConstraintIsCancelled();
+            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+            act.ShouldThrow<TaskCanceledException>();
+        }
+
+        [Fact]
+        public async Task Perform_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
+        {
+            SetUpAwaitableConstraintIsCancelled();
+            try
+            {
+                await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+            }
+            catch
+            {
+            }
+            await _FuncTask.DidNotReceive().Invoke();
+        }
+
         private void CheckSequence()
         {
             Received.InOrder(() => {
@@ -97,6 +139,53 @@ namespace RateLimiterTest
             }
 
             CheckGenericSequence();
+        }
+
+        [Fact]
+        public void PerformGeneric_WhenCancelled_ThrowException()
+        {
+            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+            act.ShouldThrow<TaskCanceledException>();
+        }
+
+        [Fact]
+        public async Task PerformGeneric_WhenCancelled_DoNotCallFunction()
+        {
+            try
+            {
+                await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+            }
+            catch
+            {
+            }
+            await _FuncTaskInt.DidNotReceive().Invoke();
+        }
+
+        [Fact]
+        public async Task PerformGeneric_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
+        {
+            SetUpAwaitableConstraintIsCancelled();
+            try
+            {
+                await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+            }
+            catch
+            {
+            }
+            await _FuncTaskInt.DidNotReceive().Invoke();
+        }
+
+        [Fact]
+        public void PerformGeneric_WhenAwaitableConstraintIsCancelled_ThrowException()
+        {
+            SetUpAwaitableConstraintIsCancelled();
+            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+            act.ShouldThrow<TaskCanceledException>();
+        }
+
+        private void SetUpAwaitableConstraintIsCancelled()
+        {
+            _IAwaitableConstraint.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(x => { throw new TaskCanceledException(); });
         }
 
         private void CheckGenericSequence()

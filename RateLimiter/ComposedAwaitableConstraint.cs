@@ -24,7 +24,7 @@ namespace RateLimiter
             {
                 diposables = await Task.WhenAll(_AwaitableConstraint1.WaitForReadiness(cancellationToken), _AwaitableConstraint2.WaitForReadiness(cancellationToken));
             }
-            catch (TaskCanceledException) 
+            catch (Exception) 
             {
                 _Semafore.Release();
                 throw;
