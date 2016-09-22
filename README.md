@@ -1,5 +1,7 @@
 # RateLimiter
 
+[![build](https://img.shields.io/appveyor/ci/David-Desmaisons/RateLimiter.svg)](https://ci.appveyor.com/project/David-Desmaisons/RateLimiter)
+
 C# rate limiting utility.
 
 [Nuget package here](https://www.nuget.org/packages/RateLimiter/)
