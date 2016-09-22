@@ -1,10 +1,9 @@
 # RateLimiter
 
 [![build](https://img.shields.io/appveyor/ci/David-Desmaisons/RateLimiter.svg)](https://ci.appveyor.com/project/David-Desmaisons/RateLimiter)
+[![NuGet Badge](https://img.shields.io/nuget/v/RateLimiter.svg)](https://www.nuget.org/packages/RateLimiter/)
 
 C# rate limiting utility.
-
-[Nuget package here](https://www.nuget.org/packages/RateLimiter/)
 
 ## Motivation
 The initial motivation was to create helper to respect Web Services rate limit in client application.
