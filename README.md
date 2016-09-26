@@ -2,6 +2,7 @@
 
 [![build](https://img.shields.io/appveyor/ci/David-Desmaisons/RateLimiter.svg)](https://ci.appveyor.com/project/David-Desmaisons/RateLimiter)
 [![NuGet Badge](https://img.shields.io/nuget/v/RateLimiter.svg)](https://www.nuget.org/packages/RateLimiter/)
+[![MIT License](https://img.shields.io/github/license/David-Desmaisons/RateLimiter.svg)](https://github.com/David-Desmaisons/RateLimiter/blob/master/LICENSE)
 
 C# rate limiting utility.
 
