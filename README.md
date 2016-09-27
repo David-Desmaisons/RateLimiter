@@ -4,7 +4,7 @@
 [![NuGet Badge](https://img.shields.io/nuget/v/RateLimiter.svg)](https://www.nuget.org/packages/RateLimiter/)
 [![MIT License](https://img.shields.io/github/license/David-Desmaisons/RateLimiter.svg)](https://github.com/David-Desmaisons/RateLimiter/blob/master/LICENSE)
 
-C# rate client-side limiting utility.
+C# client-side rate limiting utility.
 
 ## Motivation
 The initial motivation was to create helper to respect Web Services rate limit in client application.
