@@ -17,10 +17,10 @@ namespace RateLimiter
         public CountByIntervalAwaitableConstraint(int count, TimeSpan timeSpan)
         {
             if (count <= 0)
-                throw new ArgumentException("count should be strictly positive", "count");
+                throw new ArgumentException("count should be strictly positive", nameof(count));
 
             if (timeSpan.TotalMilliseconds <= 0)
-                throw new ArgumentException("timeSpan should be strictly positive", "timeSpan");
+                throw new ArgumentException("timeSpan should be strictly positive", nameof(timeSpan));
 
             _Count = count;
             _TimeSpan = timeSpan;

@@ -12,6 +12,14 @@ namespace RateLimiter
 
         Task<T> Perform<T>(Func<Task<T>> perform);
 
-        Task<T> Perform<T>(Func<Task<T>> perform, CancellationToken cancellationTokenf);
+        Task<T> Perform<T>(Func<Task<T>> perform, CancellationToken cancellationToken);
+
+        Task Perform(Action perform, CancellationToken cancellationToken);
+
+        Task Perform(Action perform);
+
+        Task<T> Perform<T>(Func<T> perform);
+
+        Task<T> Perform<T>(Func<T> perform, CancellationToken cancellationToken);
     }
 }

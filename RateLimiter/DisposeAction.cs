@@ -13,9 +13,7 @@ namespace RateLimiter
 
         public void Dispose() 
         {
-            if (_Act != null)
-                _Act();
-
+            _Act?.Invoke();
             _Act = null;
         }
     }

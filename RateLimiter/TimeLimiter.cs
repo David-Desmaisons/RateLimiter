@@ -41,6 +41,40 @@ namespace RateLimiter
             }
         }
 
+        private static Func<Task> Transform(Action act) 
+        {
+            return () => { act(); return Task.FromResult(0); };
+        }
+
+        private static Func<Task<T>> Transform<T>(Func<T> compute) 
+        {
+            return () =>  Task.FromResult(compute()); 
+        }
+
+        public Task Perform(Action perform, CancellationToken cancellationToken) 
+        {
+           var transformed = Transform(perform);
+           return Perform(transformed, cancellationToken);
+        }
+
+        public Task Perform(Action perform) 
+        {
+            var transformed = Transform(perform);
+            return Perform(transformed);
+        }
+
+        public Task<T> Perform<T>(Func<T> perform) 
+        {
+            var transformed = Transform(perform);
+            return Perform(transformed);
+        }
+
+        public Task<T> Perform<T>(Func<T> perform, CancellationToken cancellationToken) 
+        {
+            var transformed = Transform(perform);
+            return Perform(transformed, cancellationToken);
+        }
+
         public static TimeLimiter GetFromMaxCountByInterval(int maxCount, TimeSpan timeSpan)
         {
             return new TimeLimiter(new CountByIntervalAwaitableConstraint(maxCount, timeSpan));

@@ -11,10 +11,9 @@ namespace RateLimiterTest
     public class Sample
     {
 
-        private Task ConsoleIt()
+        private static void ConsoleIt()
         {
-            Trace.WriteLine(string.Format("{0:MM/dd/yyy HH:mm:ss.fff}", DateTime.Now));
-            return Task.FromResult(0);
+            Trace.WriteLine($"{DateTime.Now:MM/dd/yyy HH:mm:ss.fff}");
         }
 
         [Fact(Skip = "for demo purpose only")]
@@ -22,7 +21,7 @@ namespace RateLimiterTest
             var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
             for (int i = 0; i < 1000; i++) {
-                await timeconstraint.Perform(ConsoleIt);
+                await timeconstraint.Perform(() =>ConsoleIt());
             }
         }
 
@@ -34,7 +33,7 @@ namespace RateLimiterTest
 
             for (int i = 0; i < 1000; i++) {
                 try {
-                    await timeconstraint.Perform(ConsoleIt, cts.Token);
+                    await timeconstraint.Perform(() => ConsoleIt(), cts.Token);
                 }
                 catch(Exception) {
                 }
@@ -50,7 +49,7 @@ namespace RateLimiterTest
 
             for(int i=0; i<1000; i++)
             {
-                await timeconstraint.Perform(ConsoleIt);
+                await timeconstraint.Perform(() => ConsoleIt());
             }       
         }
 
@@ -69,7 +68,7 @@ namespace RateLimiterTest
                  {
                      for (int j = 0; j < 10; j++)
                      {
-                         await timeconstraint.Perform(ConsoleIt);
+                         await timeconstraint.Perform(() => ConsoleIt());
                      }
                  }));          
             }
