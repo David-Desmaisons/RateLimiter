@@ -75,6 +75,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="PersistentCountByIntervalAwaitableConstraintTest.cs" />
     <Compile Include="ComposedAwaitableConstraintTest.cs" />
     <Compile Include="CountByIntervalAwaitableConstraintTest.cs" />
     <Compile Include="DisposeActionTest.cs" />

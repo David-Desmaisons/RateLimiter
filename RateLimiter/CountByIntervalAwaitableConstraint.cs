@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,11 +9,13 @@ namespace RateLimiter
 {
     public class CountByIntervalAwaitableConstraint : IAwaitableConstraint
     {
-        private readonly int _Count;
-        private readonly TimeSpan _TimeSpan;
-        private readonly LimitedSizeStack<DateTime> _TimeStamps;
-        private readonly SemaphoreSlim _Semafore = new SemaphoreSlim(1, 1);
-        private readonly ITime _Time;
+        public IReadOnlyList<DateTime> TimeStamps => _TimeStamps.ToList();
+
+        protected int _Count { get; }
+        protected TimeSpan _TimeSpan { get; }
+        protected LimitedSizeStack<DateTime> _TimeStamps { get; }
+        protected SemaphoreSlim _Semafore { get; } = new SemaphoreSlim(1, 1);
+        protected ITime _Time { get; }
 
         public CountByIntervalAwaitableConstraint(int count, TimeSpan timeSpan)
         {
@@ -28,7 +31,7 @@ namespace RateLimiter
             _Time = TimeSystem.StandardTime;
         }
 
-        public async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
+        public virtual async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
         {
             await _Semafore.WaitAsync(cancellationToken);
             var count = 0;
@@ -61,7 +64,7 @@ namespace RateLimiter
             return new DisposeAction(OnEnded);
         }
 
-        private void OnEnded() 
+        protected virtual void OnEnded() 
         {
             _TimeStamps.Push(_Time.GetNow());
             _Semafore.Release();
