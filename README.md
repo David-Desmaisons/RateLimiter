@@ -19,7 +19,7 @@ However this helper can also be also in other scenarios where you need to tempor
 
 ## Sample usage
 
-###Basic
+### Basic
 
 ```C#
     //Create Time constraint: max five times by second
@@ -56,7 +56,7 @@ Output
 ...
 ```
 
-###Composed
+### Composed
 
 ```C#
     //Create first constraint: max five times by second
