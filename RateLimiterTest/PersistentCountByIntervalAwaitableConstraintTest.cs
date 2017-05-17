@@ -24,13 +24,15 @@ namespace RateLimiterTest
                 (await constraint.WaitForReadiness(CancellationToken.None)).Dispose();
             }
 
-            log.Should().HaveCount(5).And.BeInAscendingOrder();
+            log.Should().HaveCount(5);
         }
 
         [Fact]
         public async Task WaitForReadiness_WithInitialState()
         {
-            var log = new List<DateTime> {new DateTime(2000, 1, 1), new DateTime(2001, 1, 1)};
+            var firstTimeStamp = new DateTime(2000, 1, 1);
+            var secondTimeStamp = new DateTime(2001, 1, 1);
+            var log = new List<DateTime> {firstTimeStamp, secondTimeStamp};
 
             var constraint = new PersistentCountByIntervalAwaitableConstraint(7, TimeSpan.FromSeconds(1),
                 timeStamp => log.Add(timeStamp), log);
@@ -40,7 +42,9 @@ namespace RateLimiterTest
                 (await constraint.WaitForReadiness(CancellationToken.None)).Dispose();
             }
 
-            log.Should().HaveCount(7).And.BeInAscendingOrder();
+            log.Should().HaveCount(7);
+            log[0].Should().Be(firstTimeStamp);
+            log[1].Should().Be(secondTimeStamp);
         }
     }
 }
