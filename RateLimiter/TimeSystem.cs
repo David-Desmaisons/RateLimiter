@@ -6,10 +6,7 @@ namespace RateLimiter
 {
     public class TimeSystem : ITime
     {
-        public static ITime StandardTime
-        {
-            get; internal set;
-        }
+        public static ITime StandardTime { get; }
 
         static TimeSystem()
         {

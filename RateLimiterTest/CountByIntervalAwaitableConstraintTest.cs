@@ -18,9 +18,8 @@ namespace RateLimiterTest
         {
             _Origin = new DateTime(2000, 1, 1);
             _MockTime = new MockTime(_Origin);
-            TimeSystem.StandardTime = _MockTime;
-            _CountByIntervalAwaitableConstraint1 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
-            _CountByIntervalAwaitableConstraint2 = new CountByIntervalAwaitableConstraint(5, TimeSpan.FromSeconds(1));
+            _CountByIntervalAwaitableConstraint1 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100), _MockTime);
+            _CountByIntervalAwaitableConstraint2 = new CountByIntervalAwaitableConstraint(5, TimeSpan.FromSeconds(1), _MockTime);
         }
 
         [Fact]

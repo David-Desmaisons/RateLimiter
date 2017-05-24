@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace RateLimiter
 {
@@ -19,7 +18,7 @@ namespace RateLimiter
         /// <param name="saveStateAction">Action is used to save state.</param>
         /// <param name="initialTimeStamps">Initial timestamps.</param>
         public PersistentCountByIntervalAwaitableConstraint(int count, TimeSpan timeSpan,
-            Action<DateTime> saveStateAction, IEnumerable<DateTime> initialTimeStamps) : base(count, timeSpan)
+            Action<DateTime> saveStateAction, IEnumerable<DateTime> initialTimeStamps, ITime time = null) : base(count, timeSpan, time)
         {
             _saveStateAction = saveStateAction;
 
@@ -33,14 +32,11 @@ namespace RateLimiter
         }
 
         /// <summary>
-        /// Add new timestamp, save state, and release semaphore for next iterations.
+        /// Save state
         /// </summary>
-        protected override void OnEnded()
+        protected override void OnEnded(DateTime now)
         {
-            var now = _Time.GetNow();
-            _TimeStamps.Push(now);
             _saveStateAction(now);
-            _Semafore.Release();
         }
     }
 }

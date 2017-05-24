@@ -11,13 +11,14 @@ namespace RateLimiter
     {
         public IReadOnlyList<DateTime> TimeStamps => _TimeStamps.ToList();
 
-        protected int _Count { get; }
-        protected TimeSpan _TimeSpan { get; }
         protected LimitedSizeStack<DateTime> _TimeStamps { get; }
-        protected SemaphoreSlim _Semafore { get; } = new SemaphoreSlim(1, 1);
-        protected ITime _Time { get; }
 
-        public CountByIntervalAwaitableConstraint(int count, TimeSpan timeSpan)
+        private int _Count { get; }
+        private TimeSpan _TimeSpan { get; }
+        private SemaphoreSlim _Semafore { get; } = new SemaphoreSlim(1, 1);
+        private ITime _Time { get; }
+
+        public CountByIntervalAwaitableConstraint(int count, TimeSpan timeSpan, ITime time=null)
         {
             if (count <= 0)
                 throw new ArgumentException("count should be strictly positive", nameof(count));
@@ -28,10 +29,10 @@ namespace RateLimiter
             _Count = count;
             _TimeSpan = timeSpan;
             _TimeStamps = new LimitedSizeStack<DateTime>(_Count);
-            _Time = TimeSystem.StandardTime;
+            _Time = time ?? TimeSystem.StandardTime;
         }
 
-        public virtual async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
+        public async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
         {
             await _Semafore.WaitAsync(cancellationToken);
             var count = 0;
@@ -64,10 +65,16 @@ namespace RateLimiter
             return new DisposeAction(OnEnded);
         }
 
-        protected virtual void OnEnded() 
+        private void OnEnded() 
         {
-            _TimeStamps.Push(_Time.GetNow());
+            var now = _Time.GetNow();
+            _TimeStamps.Push(now);
+            OnEnded(now);
             _Semafore.Release();
+        }
+
+        protected virtual void OnEnded(DateTime now)
+        {
         }
     }
 }
