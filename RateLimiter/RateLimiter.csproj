@@ -4,6 +4,12 @@
     <TargetFramework>netstandard1.1</TargetFramework>
     <AssemblyName>RateLimiter</AssemblyName>
     <RootNamespace>RateLimiter</RootNamespace>
+    <Authors>David Desmaisons</Authors>
+    <Version>1.2.0</Version>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/David-Desmaisons/RateLimiter</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/David-Desmaisons/RateLimiter/blob/master/LICENSE</PackageLicenseUrl>
+    <Description>C# client-side rate limiting utility.</Description>
   </PropertyGroup>
 
 </Project>
