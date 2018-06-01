@@ -1,13 +1,11 @@
-﻿using RateLimiter;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
-using Xunit;
-using FluentAssertions;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Xunit;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class PersistentCountByIntervalAwaitableConstraintTest
     {
