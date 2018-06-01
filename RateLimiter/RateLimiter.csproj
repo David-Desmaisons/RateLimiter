@@ -5,11 +5,21 @@
     <AssemblyName>RateLimiter</AssemblyName>
     <RootNamespace>RateLimiter</RootNamespace>
     <Authors>David Desmaisons</Authors>
-    <Version>1.2.0</Version>
+    <Version>1.1.0</Version>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/David-Desmaisons/RateLimiter</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/David-Desmaisons/RateLimiter/blob/master/LICENSE</PackageLicenseUrl>
-    <Description>C# client-side rate limiting utility.</Description>
+    <Description>C# client-side rate limiting utility.
+
+Features:
+* Easy to use
+* Fully asynchronous: lower resource usage than thread sleep
+* Cancellable via CancellationToken
+* Thread safe so you can share time contraints object to rate limit diferent threads using the same resource
+* Composable: ability to compose diferent rate limits in one constraint</Description>
+    <PackageId>RateLimiter</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>Asynchronous, Task, Rate limiting</PackageTags>
   </PropertyGroup>
 
 </Project>
