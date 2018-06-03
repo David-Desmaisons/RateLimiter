@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFrameworks>netstandard1.1;net45</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>RateLimiter</AssemblyName>
     <RootNamespace>RateLimiter</RootNamespace>
     <Authors>David Desmaisons</Authors>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/David-Desmaisons/RateLimiter</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/David-Desmaisons/RateLimiter/blob/master/LICENSE</PackageLicenseUrl>
@@ -20,6 +21,8 @@ Features:
     <PackageId>RateLimiter</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>Asynchronous, Task, Rate limiting</PackageTags>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
   </PropertyGroup>
 
 </Project>
