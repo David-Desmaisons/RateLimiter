@@ -1,11 +1,10 @@
-﻿using RateLimiter;
-using System;
+﻿using System;
 using System.Threading;
-using Xunit;
-using FluentAssertions;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Xunit;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class CountByIntervalAwaitableConstraintTest
     {
@@ -26,14 +25,14 @@ namespace RateLimiterTest
         public void Constructor_WithNegativeCount_ThrowException()
         {
             Action act = () => new CountByIntervalAwaitableConstraint(-1, TimeSpan.FromSeconds(1));
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]
         public void Constructor_WithNegativeTimeSpan_ThrowException()
         {
             Action act = () => new CountByIntervalAwaitableConstraint(10, TimeSpan.FromSeconds(-1));
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]
@@ -94,7 +93,7 @@ namespace RateLimiterTest
         {
             var cancellation = new CancellationToken(true);
             Func<Task> act = async () => await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
-            act.ShouldThrow<TaskCanceledException>();
+            act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
@@ -118,7 +117,7 @@ namespace RateLimiterTest
         {
             var cancellation = await SetUpForCancelledAfterSemaforeTaken();
             Func<Task> act = async () => await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
-            act.ShouldThrow<TaskCanceledException>();
+            act.Should().Throw<TaskCanceledException>();
         }
 
         private async Task<CancellationToken> SetUpForCancelledAfterSemaforeTaken()

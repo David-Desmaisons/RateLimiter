@@ -1,9 +1,8 @@
 ﻿using System;
 using NSubstitute;
-using RateLimiter;
 using Xunit;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class DisposeActionTest
     {

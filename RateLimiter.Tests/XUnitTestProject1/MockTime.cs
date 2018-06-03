@@ -1,9 +1,8 @@
-﻿using RateLimiter;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class MockTime : ITime
     {

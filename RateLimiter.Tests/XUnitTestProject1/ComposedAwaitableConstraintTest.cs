@@ -1,12 +1,11 @@
-﻿using NSubstitute;
-using RateLimiter;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Xunit;
 using FluentAssertions;
+using NSubstitute;
+using Xunit;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class ComposedAwaitableConstraintTest
     {
@@ -64,7 +63,7 @@ namespace RateLimiterTest
         {
             var cancellation = new CancellationToken(true);
             Func<Task> act = async () => await _Composed.WaitForReadiness(cancellation);
-            act.ShouldThrow<TaskCanceledException>();
+            act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]

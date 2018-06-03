@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using RateLimiter;
 using Xunit;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class Sample
     {

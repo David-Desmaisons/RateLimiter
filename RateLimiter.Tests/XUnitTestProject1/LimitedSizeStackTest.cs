@@ -1,8 +1,7 @@
-﻿using RateLimiter;
+﻿using FluentAssertions;
 using Xunit;
-using FluentAssertions;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class LimitedSizeStackTest
     {

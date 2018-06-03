@@ -1,16 +1,15 @@
-﻿using NSubstitute;
-using RateLimiter;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Xunit;
 using FluentAssertions;
+using NSubstitute;
+using Xunit;
 
-namespace RateLimiterTest
+namespace RateLimiter.Tests
 {
     public class RateLimiterTest
     {
-        private readonly RateLimiter.TimeLimiter _TimeConstraint;
+        private readonly TimeLimiter _TimeConstraint;
         private readonly IAwaitableConstraint _IAwaitableConstraint;
         private readonly Func<Task> _FuncTask;
         private readonly Func<Task<int>> _FuncTaskInt;
@@ -23,7 +22,7 @@ namespace RateLimiterTest
             _IAwaitableConstraint = Substitute.For<IAwaitableConstraint>();
             _Diposable = Substitute.For<IDisposable>();
             _IAwaitableConstraint.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Diposable));
-            _TimeConstraint = new RateLimiter.TimeLimiter(_IAwaitableConstraint);
+            _TimeConstraint = new TimeLimiter(_IAwaitableConstraint);
         }
 
         [Fact]
@@ -37,16 +36,16 @@ namespace RateLimiterTest
         [Fact]
         public void Perform_InCaseOfException_rethrowException()
         {
-            _FuncTask.When(ft => ft.Invoke()).Do(_ => { throw new Exception(); });
+            _FuncTask.When(ft => ft.Invoke()).Do(_ => throw new Exception());
 
             Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask);
-            act.ShouldThrow<Exception>();
+            act.Should().Throw<Exception>();
         }
 
         [Fact]
         public async Task Perform_CallExcecuteInCaseOfException()
         {
-            _FuncTask.When(ft => ft.Invoke()).Do(_ => { throw new Exception(); });
+            _FuncTask.When(ft => ft.Invoke()).Do(_ => throw new Exception());
             try
             {
                 await _TimeConstraint.Perform(_FuncTask);
@@ -62,7 +61,7 @@ namespace RateLimiterTest
         public void Perform_WhenCancelled_ThrowException()
         {
             Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
-            act.ShouldThrow<TaskCanceledException>();
+            act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
@@ -83,7 +82,7 @@ namespace RateLimiterTest
         {
             SetUpAwaitableConstraintIsCancelled();
             Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
-            act.ShouldThrow<TaskCanceledException>();
+            act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
@@ -120,16 +119,16 @@ namespace RateLimiterTest
         [Fact]
         public void PerformGeneric_InCaseOfException_rethrowException()
         {
-            _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => { throw new Exception(); });
+            _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
 
             Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt);
-            act.ShouldThrow<Exception>();
+            act.Should().Throw<Exception>();
         }
 
         [Fact]
         public async Task PerformGeneric_CallExcecuteInCaseOfException()
         {
-            _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => { throw new Exception(); });
+            _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
             try
             {
                 await _TimeConstraint.Perform(_FuncTaskInt);
@@ -145,7 +144,7 @@ namespace RateLimiterTest
         public void PerformGeneric_WhenCancelled_ThrowException()
         {
             Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
-            act.ShouldThrow<TaskCanceledException>();
+            act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
@@ -180,12 +179,12 @@ namespace RateLimiterTest
         {
             SetUpAwaitableConstraintIsCancelled();
             Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
-            act.ShouldThrow<TaskCanceledException>();
+            act.Should().Throw<TaskCanceledException>();
         }
 
         private void SetUpAwaitableConstraintIsCancelled()
         {
-            _IAwaitableConstraint.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(x => { throw new TaskCanceledException(); });
+            _IAwaitableConstraint.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(x => throw new TaskCanceledException());
         }
 
         private void CheckGenericSequence()
