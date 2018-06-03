@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiter", "RateLimiter\RateLimiter.csproj", "{EB70FCC6-051A-4B84-BD28-6B8A14353FA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimiter.Tests", "RateLimiter.Tests\XUnitTestProject1\RateLimiter.Tests.csproj", "{4E2D601D-692E-44C2-BF4B-060121A30DCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiter.Tests", "RateLimiter.Tests\RateLimiter.Tests.csproj", "{A42DCD64-6A45-405C-A50A-EEF9660FDC00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{EB70FCC6-051A-4B84-BD28-6B8A14353FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB70FCC6-051A-4B84-BD28-6B8A14353FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB70FCC6-051A-4B84-BD28-6B8A14353FA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E2D601D-692E-44C2-BF4B-060121A30DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E2D601D-692E-44C2-BF4B-060121A30DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E2D601D-692E-44C2-BF4B-060121A30DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E2D601D-692E-44C2-BF4B-060121A30DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A42DCD64-6A45-405C-A50A-EEF9660FDC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42DCD64-6A45-405C-A50A-EEF9660FDC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42DCD64-6A45-405C-A50A-EEF9660FDC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42DCD64-6A45-405C-A50A-EEF9660FDC00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

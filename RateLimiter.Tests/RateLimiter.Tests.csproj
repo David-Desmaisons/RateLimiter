@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RateLimiter\RateLimiter.csproj" />
+    <ProjectReference Include="..\RateLimiter\RateLimiter.csproj" />
   </ItemGroup>
 
 </Project>
