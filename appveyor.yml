@@ -1,4 +1,7 @@
 before_build:
+ - dotnet --version
+ - dotnet restore ./RateLimiter/RateLimiter.csproj --verbosity m
+ - dotnet restore ./RateLimiter.Tests/RateLimiter.Tests.csproj --verbosity m
  - nuget restore
 build_script:
  - msbuild /verbosity:quiet "RateLimiter.sln"
