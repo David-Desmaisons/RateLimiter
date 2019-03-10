@@ -6,6 +6,8 @@
 
 C# client-side rate limiting utility.
 
+http://david-desmaisons.github.io/RateLimiter/api/RateLimiter
+
 ## Motivation
 The initial motivation was to create helper to respect Web Services rate limit in client application.
 However this helper can also be also in other scenarios where you need to temporally limit the usage of one shared resource.
