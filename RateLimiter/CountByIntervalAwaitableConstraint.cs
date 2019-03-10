@@ -17,6 +17,9 @@ namespace RateLimiter
         /// </summary>
         public IReadOnlyList<DateTime> TimeStamps => _TimeStamps.ToList();
 
+        /// <summary>
+        /// Stack of the last time stamps
+        /// </summary>
         protected LimitedSizeStack<DateTime> _TimeStamps { get; }
 
         private int _Count { get; }
@@ -97,6 +100,10 @@ namespace RateLimiter
             _Semaphore.Release();
         }
 
+        /// <summary>
+        /// Called when action has been executed
+        /// </summary>
+        /// <param name="now"></param>
         protected virtual void OnEnded(DateTime now)
         {
         }
