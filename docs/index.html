@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RateLimiter </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="RateLimiter ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  
+  <a href="https://github.com/NeutroniumCore/Neutronium" target="_blank">
+    <img style="position: fixed; top: 0; right: 0; border: 0; z-index:99999" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1">
+  </a>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ratelimiter">RateLimiter</h1>
+
+<p><a href="https://ci.appveyor.com/project/David-Desmaisons/RateLimiter"><img src="https://img.shields.io/appveyor/ci/David-Desmaisons/RateLimiter.svg" alt="build"></a>
+<a href="https://www.nuget.org/packages/RateLimiter/"><img src="https://img.shields.io/nuget/v/RateLimiter.svg" alt="NuGet Badge"></a>
+<a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/LICENSE"><img src="https://img.shields.io/github/license/David-Desmaisons/RateLimiter.svg" alt="MIT License"></a></p>
+<p>C# client-side rate limiting utility.</p>
+<h2 id="motivation">Motivation</h2>
+<p>The initial motivation was to create helper to respect Web Services rate limit in client application.
+However this helper can also be also in other scenarios where you need to temporally limit the usage of one shared resource.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Easy to use</li>
+<li>Fully asynchroneous: lower resource usage than thread sleep</li>
+<li>Cancellable via CancellationToken</li>
+<li>Thread safe so you can share time contraints object to rate limit diferent threads using the same resource</li>
+<li>Composable: ability to compose diferent rate limits in one constraint</li>
+</ul>
+<h2 id="sample-usage">Sample usage</h2>
+<h3 id="basic">Basic</h3>
+<pre><code class="lang-C#">    //Create Time constraint: max five times by second
+    var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+
+    //Use it
+    for(int i=0; i&lt;1000; i++)
+    {
+        await timeconstraint.Perform(ConsoleIt);
+    }       
+    
+    ....
+    private Task ConsoleIt()
+    {
+        Trace.WriteLine(string.Format(&quot;{0:MM/dd/yyy HH:mm:ss.fff}&quot;, DateTime.Now));
+        return Task.FromResult(0);
+    }
+
+</code></pre>
+<p>Output</p>
+<pre><code>05/23/2016 00:14:44.791
+05/23/2016 00:14:44.958
+05/23/2016 00:14:44.959
+05/23/2016 00:14:44.959
+05/23/2016 00:14:44.960
+05/23/2016 00:14:45.959
+05/23/2016 00:14:45.960
+05/23/2016 00:14:45.961
+05/23/2016 00:14:45.961
+05/23/2016 00:14:45.962
+05/23/2016 00:14:46.973
+...
+</code></pre>
+<h3 id="composed">Composed</h3>
+<pre><code class="lang-C#">    //Create first constraint: max five times by second
+    var constraint = new CountByIntervalAwaitableConstraint(5, TimeSpan.FromSeconds(1));
+    
+    //Create second constraint: one time each 100 ms
+    var constraint2 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
+    
+    //Compose the two constraints
+    var timeconstraint = TimeLimiter.Compose(constraint, constraint2);
+
+    //Use it
+    for(int i=0; i&lt;1000; i++)
+    {
+        await timeconstraint.Perform(ConsoleIt);
+    }       
+</code></pre>
+<p>Output</p>
+<pre><code>05/21/2016 23:52:48.573
+05/21/2016 23:52:48.682
+05/21/2016 23:52:48.809
+05/21/2016 23:52:48.922
+05/21/2016 23:52:49.024
+05/21/2016 23:52:49.575
+05/21/2016 23:52:49.685
+05/21/2016 23:52:49.810
+05/21/2016 23:52:49.942
+...
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter.Documentation/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

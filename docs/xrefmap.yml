@@ -1,0 +1,440 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: RateLimiter
+  name: RateLimiter
+  href: api/RateLimiter.html
+  commentId: N:RateLimiter
+  fullName: RateLimiter
+  nameWithType: RateLimiter
+- uid: RateLimiter.AwaitableConstraintExtension
+  name: AwaitableConstraintExtension
+  href: api/RateLimiter.AwaitableConstraintExtension.html
+  commentId: T:RateLimiter.AwaitableConstraintExtension
+  fullName: RateLimiter.AwaitableConstraintExtension
+  nameWithType: AwaitableConstraintExtension
+- uid: RateLimiter.AwaitableConstraintExtension.Compose(RateLimiter.IAwaitableConstraint,RateLimiter.IAwaitableConstraint)
+  name: Compose(IAwaitableConstraint, IAwaitableConstraint)
+  href: api/RateLimiter.AwaitableConstraintExtension.html#RateLimiter_AwaitableConstraintExtension_Compose_RateLimiter_IAwaitableConstraint_RateLimiter_IAwaitableConstraint_
+  commentId: M:RateLimiter.AwaitableConstraintExtension.Compose(RateLimiter.IAwaitableConstraint,RateLimiter.IAwaitableConstraint)
+  fullName: RateLimiter.AwaitableConstraintExtension.Compose(RateLimiter.IAwaitableConstraint, RateLimiter.IAwaitableConstraint)
+  nameWithType: AwaitableConstraintExtension.Compose(IAwaitableConstraint, IAwaitableConstraint)
+- uid: RateLimiter.AwaitableConstraintExtension.Compose*
+  name: Compose
+  href: api/RateLimiter.AwaitableConstraintExtension.html#RateLimiter_AwaitableConstraintExtension_Compose_
+  commentId: Overload:RateLimiter.AwaitableConstraintExtension.Compose
+  isSpec: "True"
+  fullName: RateLimiter.AwaitableConstraintExtension.Compose
+  nameWithType: AwaitableConstraintExtension.Compose
+- uid: RateLimiter.CountByIntervalAwaitableConstraint
+  name: CountByIntervalAwaitableConstraint
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html
+  commentId: T:RateLimiter.CountByIntervalAwaitableConstraint
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint
+  nameWithType: CountByIntervalAwaitableConstraint
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan)
+  name: CountByIntervalAwaitableConstraint(Int32, TimeSpan)
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint__ctor_System_Int32_TimeSpan_
+  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan)
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.CountByIntervalAwaitableConstraint(System.Int32, TimeSpan)
+  nameWithType: CountByIntervalAwaitableConstraint.CountByIntervalAwaitableConstraint(Int32, TimeSpan)
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.#ctor*
+  name: CountByIntervalAwaitableConstraint
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint__ctor_
+  commentId: Overload:RateLimiter.CountByIntervalAwaitableConstraint.#ctor
+  isSpec: "True"
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.CountByIntervalAwaitableConstraint
+  nameWithType: CountByIntervalAwaitableConstraint.CountByIntervalAwaitableConstraint
+- uid: RateLimiter.CountByIntervalAwaitableConstraint._TimeStamps
+  name: _TimeStamps
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint__TimeStamps
+  commentId: P:RateLimiter.CountByIntervalAwaitableConstraint._TimeStamps
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint._TimeStamps
+  nameWithType: CountByIntervalAwaitableConstraint._TimeStamps
+- uid: RateLimiter.CountByIntervalAwaitableConstraint._TimeStamps*
+  name: _TimeStamps
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint__TimeStamps_
+  commentId: Overload:RateLimiter.CountByIntervalAwaitableConstraint._TimeStamps
+  isSpec: "True"
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint._TimeStamps
+  nameWithType: CountByIntervalAwaitableConstraint._TimeStamps
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  name: OnEnded(DateTime)
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_OnEnded_DateTime_
+  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  nameWithType: CountByIntervalAwaitableConstraint.OnEnded(DateTime)
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded*
+  name: OnEnded
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_OnEnded_
+  commentId: Overload:RateLimiter.CountByIntervalAwaitableConstraint.OnEnded
+  isSpec: "True"
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded
+  nameWithType: CountByIntervalAwaitableConstraint.OnEnded
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.TimeStamps
+  name: TimeStamps
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_TimeStamps
+  commentId: P:RateLimiter.CountByIntervalAwaitableConstraint.TimeStamps
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.TimeStamps
+  nameWithType: CountByIntervalAwaitableConstraint.TimeStamps
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.TimeStamps*
+  name: TimeStamps
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_TimeStamps_
+  commentId: Overload:RateLimiter.CountByIntervalAwaitableConstraint.TimeStamps
+  isSpec: "True"
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.TimeStamps
+  nameWithType: CountByIntervalAwaitableConstraint.TimeStamps
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
+  name: WaitForReadiness(CancellationToken)
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_WaitForReadiness_CancellationToken_
+  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
+  nameWithType: CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness*
+  name: WaitForReadiness
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_WaitForReadiness_
+  commentId: Overload:RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness
+  isSpec: "True"
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness
+  nameWithType: CountByIntervalAwaitableConstraint.WaitForReadiness
+- uid: RateLimiter.IAwaitableConstraint
+  name: IAwaitableConstraint
+  href: api/RateLimiter.IAwaitableConstraint.html
+  commentId: T:RateLimiter.IAwaitableConstraint
+  fullName: RateLimiter.IAwaitableConstraint
+  nameWithType: IAwaitableConstraint
+- uid: RateLimiter.IAwaitableConstraint.WaitForReadiness(CancellationToken)
+  name: WaitForReadiness(CancellationToken)
+  href: api/RateLimiter.IAwaitableConstraint.html#RateLimiter_IAwaitableConstraint_WaitForReadiness_CancellationToken_
+  commentId: M:RateLimiter.IAwaitableConstraint.WaitForReadiness(CancellationToken)
+  fullName: RateLimiter.IAwaitableConstraint.WaitForReadiness(CancellationToken)
+  nameWithType: IAwaitableConstraint.WaitForReadiness(CancellationToken)
+- uid: RateLimiter.IAwaitableConstraint.WaitForReadiness*
+  name: WaitForReadiness
+  href: api/RateLimiter.IAwaitableConstraint.html#RateLimiter_IAwaitableConstraint_WaitForReadiness_
+  commentId: Overload:RateLimiter.IAwaitableConstraint.WaitForReadiness
+  isSpec: "True"
+  fullName: RateLimiter.IAwaitableConstraint.WaitForReadiness
+  nameWithType: IAwaitableConstraint.WaitForReadiness
+- uid: RateLimiter.IRateLimiter
+  name: IRateLimiter
+  href: api/RateLimiter.IRateLimiter.html
+  commentId: T:RateLimiter.IRateLimiter
+  fullName: RateLimiter.IRateLimiter
+  nameWithType: IRateLimiter
+- uid: RateLimiter.IRateLimiter.Perform(Action)
+  name: Perform(Action)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Action_
+  commentId: M:RateLimiter.IRateLimiter.Perform(Action)
+  fullName: RateLimiter.IRateLimiter.Perform(Action)
+  nameWithType: IRateLimiter.Perform(Action)
+- uid: RateLimiter.IRateLimiter.Perform(Action,CancellationToken)
+  name: Perform(Action, CancellationToken)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Action_CancellationToken_
+  commentId: M:RateLimiter.IRateLimiter.Perform(Action,CancellationToken)
+  fullName: RateLimiter.IRateLimiter.Perform(Action, CancellationToken)
+  nameWithType: IRateLimiter.Perform(Action, CancellationToken)
+- uid: RateLimiter.IRateLimiter.Perform(Func{Task})
+  name: Perform(Func<Task>)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Func_Task__
+  commentId: M:RateLimiter.IRateLimiter.Perform(Func{Task})
+  name.vb: Perform(Func(Of Task))
+  fullName: RateLimiter.IRateLimiter.Perform(Func<Task>)
+  fullName.vb: RateLimiter.IRateLimiter.Perform(Func(Of Task))
+  nameWithType: IRateLimiter.Perform(Func<Task>)
+  nameWithType.vb: IRateLimiter.Perform(Func(Of Task))
+- uid: RateLimiter.IRateLimiter.Perform(Func{Task},CancellationToken)
+  name: Perform(Func<Task>, CancellationToken)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Func_Task__CancellationToken_
+  commentId: M:RateLimiter.IRateLimiter.Perform(Func{Task},CancellationToken)
+  name.vb: Perform(Func(Of Task), CancellationToken)
+  fullName: RateLimiter.IRateLimiter.Perform(Func<Task>, CancellationToken)
+  fullName.vb: RateLimiter.IRateLimiter.Perform(Func(Of Task), CancellationToken)
+  nameWithType: IRateLimiter.Perform(Func<Task>, CancellationToken)
+  nameWithType.vb: IRateLimiter.Perform(Func(Of Task), CancellationToken)
+- uid: RateLimiter.IRateLimiter.Perform*
+  name: Perform
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_
+  commentId: Overload:RateLimiter.IRateLimiter.Perform
+  isSpec: "True"
+  fullName: RateLimiter.IRateLimiter.Perform
+  nameWithType: IRateLimiter.Perform
+- uid: RateLimiter.IRateLimiter.Perform``1(Func{``0})
+  name: Perform<T>(Func<T>)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func___0__
+  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{``0})
+  name.vb: Perform(Of T)(Func(Of T))
+  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<T>)
+  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of T))
+  nameWithType: IRateLimiter.Perform<T>(Func<T>)
+  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of T))
+- uid: RateLimiter.IRateLimiter.Perform``1(Func{``0},CancellationToken)
+  name: Perform<T>(Func<T>, CancellationToken)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func___0__CancellationToken_
+  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{``0},CancellationToken)
+  name.vb: Perform(Of T)(Func(Of T), CancellationToken)
+  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<T>, CancellationToken)
+  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of T), CancellationToken)
+  nameWithType: IRateLimiter.Perform<T>(Func<T>, CancellationToken)
+  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of T), CancellationToken)
+- uid: RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}})
+  name: Perform<T>(Func<Task<T>>)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func_Task___0___
+  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}})
+  name.vb: Perform(Of T)(Func(Of Task(Of T)))
+  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<Task<T>>)
+  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of Task(Of T)))
+  nameWithType: IRateLimiter.Perform<T>(Func<Task<T>>)
+  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of Task(Of T)))
+- uid: RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}},CancellationToken)
+  name: Perform<T>(Func<Task<T>>, CancellationToken)
+  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func_Task___0___CancellationToken_
+  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}},CancellationToken)
+  name.vb: Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
+  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
+  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
+  nameWithType: IRateLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
+  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
+- uid: RateLimiter.ITime
+  name: ITime
+  href: api/RateLimiter.ITime.html
+  commentId: T:RateLimiter.ITime
+  fullName: RateLimiter.ITime
+  nameWithType: ITime
+- uid: RateLimiter.ITime.GetDelay(TimeSpan,CancellationToken)
+  name: GetDelay(TimeSpan, CancellationToken)
+  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetDelay_TimeSpan_CancellationToken_
+  commentId: M:RateLimiter.ITime.GetDelay(TimeSpan,CancellationToken)
+  fullName: RateLimiter.ITime.GetDelay(TimeSpan, CancellationToken)
+  nameWithType: ITime.GetDelay(TimeSpan, CancellationToken)
+- uid: RateLimiter.ITime.GetDelay*
+  name: GetDelay
+  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetDelay_
+  commentId: Overload:RateLimiter.ITime.GetDelay
+  isSpec: "True"
+  fullName: RateLimiter.ITime.GetDelay
+  nameWithType: ITime.GetDelay
+- uid: RateLimiter.ITime.GetNow
+  name: GetNow()
+  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetNow
+  commentId: M:RateLimiter.ITime.GetNow
+  fullName: RateLimiter.ITime.GetNow()
+  nameWithType: ITime.GetNow()
+- uid: RateLimiter.ITime.GetNow*
+  name: GetNow
+  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetNow_
+  commentId: Overload:RateLimiter.ITime.GetNow
+  isSpec: "True"
+  fullName: RateLimiter.ITime.GetNow
+  nameWithType: ITime.GetNow
+- uid: RateLimiter.LimitedSizeStack`1
+  name: LimitedSizeStack<T>
+  href: api/RateLimiter.LimitedSizeStack-1.html
+  commentId: T:RateLimiter.LimitedSizeStack`1
+  name.vb: LimitedSizeStack(Of T)
+  fullName: RateLimiter.LimitedSizeStack<T>
+  fullName.vb: RateLimiter.LimitedSizeStack(Of T)
+  nameWithType: LimitedSizeStack<T>
+  nameWithType.vb: LimitedSizeStack(Of T)
+- uid: RateLimiter.LimitedSizeStack`1.#ctor(System.Int32)
+  name: LimitedSizeStack(Int32)
+  href: api/RateLimiter.LimitedSizeStack-1.html#RateLimiter_LimitedSizeStack_1__ctor_System_Int32_
+  commentId: M:RateLimiter.LimitedSizeStack`1.#ctor(System.Int32)
+  fullName: RateLimiter.LimitedSizeStack<T>.LimitedSizeStack(System.Int32)
+  fullName.vb: RateLimiter.LimitedSizeStack(Of T).LimitedSizeStack(System.Int32)
+  nameWithType: LimitedSizeStack<T>.LimitedSizeStack(Int32)
+  nameWithType.vb: LimitedSizeStack(Of T).LimitedSizeStack(Int32)
+- uid: RateLimiter.LimitedSizeStack`1.#ctor*
+  name: LimitedSizeStack
+  href: api/RateLimiter.LimitedSizeStack-1.html#RateLimiter_LimitedSizeStack_1__ctor_
+  commentId: Overload:RateLimiter.LimitedSizeStack`1.#ctor
+  isSpec: "True"
+  fullName: RateLimiter.LimitedSizeStack<T>.LimitedSizeStack
+  fullName.vb: RateLimiter.LimitedSizeStack(Of T).LimitedSizeStack
+  nameWithType: LimitedSizeStack<T>.LimitedSizeStack
+  nameWithType.vb: LimitedSizeStack(Of T).LimitedSizeStack
+- uid: RateLimiter.LimitedSizeStack`1.Push(`0)
+  name: Push(T)
+  href: api/RateLimiter.LimitedSizeStack-1.html#RateLimiter_LimitedSizeStack_1_Push__0_
+  commentId: M:RateLimiter.LimitedSizeStack`1.Push(`0)
+  fullName: RateLimiter.LimitedSizeStack<T>.Push(T)
+  fullName.vb: RateLimiter.LimitedSizeStack(Of T).Push(T)
+  nameWithType: LimitedSizeStack<T>.Push(T)
+  nameWithType.vb: LimitedSizeStack(Of T).Push(T)
+- uid: RateLimiter.LimitedSizeStack`1.Push*
+  name: Push
+  href: api/RateLimiter.LimitedSizeStack-1.html#RateLimiter_LimitedSizeStack_1_Push_
+  commentId: Overload:RateLimiter.LimitedSizeStack`1.Push
+  isSpec: "True"
+  fullName: RateLimiter.LimitedSizeStack<T>.Push
+  fullName.vb: RateLimiter.LimitedSizeStack(Of T).Push
+  nameWithType: LimitedSizeStack<T>.Push
+  nameWithType.vb: LimitedSizeStack(Of T).Push
+- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint
+  name: PersistentCountByIntervalAwaitableConstraint
+  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html
+  commentId: T:RateLimiter.PersistentCountByIntervalAwaitableConstraint
+  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint
+  nameWithType: PersistentCountByIntervalAwaitableConstraint
+- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+  name: PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
+  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint__ctor_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__
+  commentId: M:RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+  name.vb: PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(System.Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
+  fullName.vb: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(System.Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+  nameWithType: PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
+  nameWithType.vb: PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor*
+  name: PersistentCountByIntervalAwaitableConstraint
+  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint__ctor_
+  commentId: Overload:RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor
+  isSpec: "True"
+  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint
+  nameWithType: PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint
+- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  name: OnEnded(DateTime)
+  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint_OnEnded_DateTime_
+  commentId: M:RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  nameWithType: PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
+- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded*
+  name: OnEnded
+  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint_OnEnded_
+  commentId: Overload:RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded
+  isSpec: "True"
+  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded
+  nameWithType: PersistentCountByIntervalAwaitableConstraint.OnEnded
+- uid: RateLimiter.TimeLimiter
+  name: TimeLimiter
+  href: api/RateLimiter.TimeLimiter.html
+  commentId: T:RateLimiter.TimeLimiter
+  fullName: RateLimiter.TimeLimiter
+  nameWithType: TimeLimiter
+- uid: RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint[])
+  name: Compose(IAwaitableConstraint[])
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___
+  commentId: M:RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint[])
+  name.vb: Compose(IAwaitableConstraint())
+  fullName: RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint[])
+  fullName.vb: RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint())
+  nameWithType: TimeLimiter.Compose(IAwaitableConstraint[])
+  nameWithType.vb: TimeLimiter.Compose(IAwaitableConstraint())
+- uid: RateLimiter.TimeLimiter.Compose*
+  name: Compose
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Compose_
+  commentId: Overload:RateLimiter.TimeLimiter.Compose
+  isSpec: "True"
+  fullName: RateLimiter.TimeLimiter.Compose
+  nameWithType: TimeLimiter.Compose
+- uid: RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)
+  name: GetFromMaxCountByInterval(Int32, TimeSpan)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_
+  commentId: M:RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)
+  fullName: RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32, TimeSpan)
+  nameWithType: TimeLimiter.GetFromMaxCountByInterval(Int32, TimeSpan)
+- uid: RateLimiter.TimeLimiter.GetFromMaxCountByInterval*
+  name: GetFromMaxCountByInterval
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetFromMaxCountByInterval_
+  commentId: Overload:RateLimiter.TimeLimiter.GetFromMaxCountByInterval
+  isSpec: "True"
+  fullName: RateLimiter.TimeLimiter.GetFromMaxCountByInterval
+  nameWithType: TimeLimiter.GetFromMaxCountByInterval
+- uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime})
+  name: GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__
+  commentId: M:RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime})
+  name.vb: GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime))
+  fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action<DateTime>)
+  fullName.vb: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action(Of DateTime))
+  nameWithType: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>)
+  nameWithType.vb: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime))
+- uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+  name: GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__
+  commentId: M:RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+  name.vb: GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+  fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
+  fullName.vb: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+  nameWithType: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
+  nameWithType.vb: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+- uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter*
+  name: GetPersistentTimeLimiter
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetPersistentTimeLimiter_
+  commentId: Overload:RateLimiter.TimeLimiter.GetPersistentTimeLimiter
+  isSpec: "True"
+  fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter
+  nameWithType: TimeLimiter.GetPersistentTimeLimiter
+- uid: RateLimiter.TimeLimiter.Perform(Action)
+  name: Perform(Action)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Action_
+  commentId: M:RateLimiter.TimeLimiter.Perform(Action)
+  fullName: RateLimiter.TimeLimiter.Perform(Action)
+  nameWithType: TimeLimiter.Perform(Action)
+- uid: RateLimiter.TimeLimiter.Perform(Action,CancellationToken)
+  name: Perform(Action, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Action_CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Perform(Action,CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Perform(Action, CancellationToken)
+  nameWithType: TimeLimiter.Perform(Action, CancellationToken)
+- uid: RateLimiter.TimeLimiter.Perform(Func{Task})
+  name: Perform(Func<Task>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Func_Task__
+  commentId: M:RateLimiter.TimeLimiter.Perform(Func{Task})
+  name.vb: Perform(Func(Of Task))
+  fullName: RateLimiter.TimeLimiter.Perform(Func<Task>)
+  fullName.vb: RateLimiter.TimeLimiter.Perform(Func(Of Task))
+  nameWithType: TimeLimiter.Perform(Func<Task>)
+  nameWithType.vb: TimeLimiter.Perform(Func(Of Task))
+- uid: RateLimiter.TimeLimiter.Perform(Func{Task},CancellationToken)
+  name: Perform(Func<Task>, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Func_Task__CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Perform(Func{Task},CancellationToken)
+  name.vb: Perform(Func(Of Task), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Perform(Func<Task>, CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Perform(Func(Of Task), CancellationToken)
+  nameWithType: TimeLimiter.Perform(Func<Task>, CancellationToken)
+  nameWithType.vb: TimeLimiter.Perform(Func(Of Task), CancellationToken)
+- uid: RateLimiter.TimeLimiter.Perform*
+  name: Perform
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_
+  commentId: Overload:RateLimiter.TimeLimiter.Perform
+  isSpec: "True"
+  fullName: RateLimiter.TimeLimiter.Perform
+  nameWithType: TimeLimiter.Perform
+- uid: RateLimiter.TimeLimiter.Perform``1(Func{``0})
+  name: Perform<T>(Func<T>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func___0__
+  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{``0})
+  name.vb: Perform(Of T)(Func(Of T))
+  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<T>)
+  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of T))
+  nameWithType: TimeLimiter.Perform<T>(Func<T>)
+  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of T))
+- uid: RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)
+  name: Perform<T>(Func<T>, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)
+  name.vb: Perform(Of T)(Func(Of T), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<T>, CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of T), CancellationToken)
+  nameWithType: TimeLimiter.Perform<T>(Func<T>, CancellationToken)
+  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of T), CancellationToken)
+- uid: RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}})
+  name: Perform<T>(Func<Task<T>>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func_Task___0___
+  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}})
+  name.vb: Perform(Of T)(Func(Of Task(Of T)))
+  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<Task<T>>)
+  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of Task(Of T)))
+  nameWithType: TimeLimiter.Perform<T>(Func<Task<T>>)
+  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of Task(Of T)))
+- uid: RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}},CancellationToken)
+  name: Perform<T>(Func<Task<T>>, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func_Task___0___CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}},CancellationToken)
+  name.vb: Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
+  nameWithType: TimeLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
+  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
