@@ -243,3 +243,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/coverage.xml
+/RateLimiter.Documentation/log.txt
