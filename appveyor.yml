@@ -1,0 +1,12 @@
+before_build:
+ - nuget restore
+build_script:
+ - msbuild /verbosity:quiet "RateLimiter.sln"
+test_script:
+ - .\packages\opencover\4.7.922\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"RateLimiter.Tests\bin\Debug\net472\RateLimiter.Tests.dll -noshadow" -output:".\coverage.xml" -filter:"+[RateLimiter*]* -[RateLimiter.Test*]*"
+# use codecov bash script. Requires powershell and bash to be installed, which both are on the AppVeyor machine image
+after_test:
+  - ps: |
+      $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
+      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+      bash codecov.sh -f "coverage.xml"
