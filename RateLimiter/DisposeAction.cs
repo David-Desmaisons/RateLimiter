@@ -2,7 +2,7 @@
 
 namespace RateLimiter 
 {
-    public class DisposeAction : IDisposable
+    internal class DisposeAction : IDisposable
     {
         private Action _Act;
 

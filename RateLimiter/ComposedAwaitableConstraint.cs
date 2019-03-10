@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace RateLimiter
 {
-    public class ComposedAwaitableConstraint : IAwaitableConstraint
+    internal class ComposedAwaitableConstraint : IAwaitableConstraint
     {
-        private IAwaitableConstraint _AwaitableConstraint1;
-        private IAwaitableConstraint _AwaitableConstraint2;
-        private readonly SemaphoreSlim _Semafore = new SemaphoreSlim(1, 1);
+        private readonly IAwaitableConstraint _AwaitableConstraint1;
+        private readonly IAwaitableConstraint _AwaitableConstraint2;
+        private readonly SemaphoreSlim _Semaphore = new SemaphoreSlim(1, 1);
 
         internal ComposedAwaitableConstraint(IAwaitableConstraint awaitableConstraint1, IAwaitableConstraint awaitableConstraint2)
         {
@@ -18,24 +18,24 @@ namespace RateLimiter
 
         public async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
         {
-            await _Semafore.WaitAsync(cancellationToken);
-            IDisposable[] diposables;
+            await _Semaphore.WaitAsync(cancellationToken);
+            IDisposable[] disposables;
             try 
             {
-                diposables = await Task.WhenAll(_AwaitableConstraint1.WaitForReadiness(cancellationToken), _AwaitableConstraint2.WaitForReadiness(cancellationToken));
+                disposables = await Task.WhenAll(_AwaitableConstraint1.WaitForReadiness(cancellationToken), _AwaitableConstraint2.WaitForReadiness(cancellationToken));
             }
             catch (Exception) 
             {
-                _Semafore.Release();
+                _Semaphore.Release();
                 throw;
             } 
             return new DisposeAction(() => 
             {
-                foreach (var diposable in diposables)
+                foreach (var disposable in disposables)
                 {
-                    diposable.Dispose();
+                    disposable.Dispose();
                 }
-                _Semafore.Release();
+                _Semaphore.Release();
             });
         }
     }

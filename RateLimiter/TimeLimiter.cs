@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace RateLimiter
 {
+    /// <summary>
+    /// <see cref="IRateLimiter"/> implementation
+    /// </summary>
     public class TimeLimiter : IRateLimiter
     {
         private readonly IAwaitableConstraint _AwaitableConstraint;
@@ -14,16 +18,35 @@ namespace RateLimiter
             _AwaitableConstraint = awaitableConstraint;
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <param name="perform"></param>
+        /// <returns></returns>
         public Task Perform(Func<Task> perform) 
         {
             return Perform(perform, CancellationToken.None);
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="perform"></param>
+        /// <returns></returns>
         public Task<T> Perform<T>(Func<Task<T>> perform) 
         {
             return Perform(perform, CancellationToken.None);
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// </summary>
+        /// <param name="perform"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task Perform(Func<Task> perform, CancellationToken cancellationToken) 
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -33,6 +56,14 @@ namespace RateLimiter
             }
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="perform"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task<T> Perform<T>(Func<Task<T>> perform, CancellationToken cancellationToken) 
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -47,35 +78,75 @@ namespace RateLimiter
             return () => { act(); return Task.FromResult(0); };
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="compute"></param>
+        /// <returns></returns>
         private static Func<Task<T>> Transform<T>(Func<T> compute) 
         {
             return () =>  Task.FromResult(compute()); 
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// </summary>
+        /// <param name="perform"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public Task Perform(Action perform, CancellationToken cancellationToken) 
         {
            var transformed = Transform(perform);
            return Perform(transformed, cancellationToken);
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// </summary>
+        /// <param name="perform"></param>
+        /// <returns></returns>
         public Task Perform(Action perform) 
         {
             var transformed = Transform(perform);
             return Perform(transformed);
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="perform"></param>
+        /// <returns></returns>
         public Task<T> Perform<T>(Func<T> perform) 
         {
             var transformed = Transform(perform);
             return Perform(transformed);
         }
 
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="perform"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public Task<T> Perform<T>(Func<T> perform, CancellationToken cancellationToken) 
         {
             var transformed = Transform(perform);
             return Perform(transformed, cancellationToken);
         }
 
+        /// <summary>
+        /// Returns a TimeLimiter based on a maximum number of times
+        /// during a given period
+        /// </summary>
+        /// <param name="maxCount"></param>
+        /// <param name="timeSpan"></param>
+        /// <returns></returns>
         public static TimeLimiter GetFromMaxCountByInterval(int maxCount, TimeSpan timeSpan)
         {
             return new TimeLimiter(new CountByIntervalAwaitableConstraint(maxCount, timeSpan));
@@ -108,14 +179,16 @@ namespace RateLimiter
             return new TimeLimiter(new PersistentCountByIntervalAwaitableConstraint(maxCount, timeSpan, saveStateAction, initialTimeStamps));
         }
 
+        /// <summary>
+        /// Compose various IAwaitableConstraint in a TimeLimiter
+        /// </summary>
+        /// <param name="constraints"></param>
+        /// <returns></returns>
         public static TimeLimiter Compose(params IAwaitableConstraint[] constraints)
         {
-            IAwaitableConstraint current = null;
-            foreach (var constraint in constraints)
-            {
-                current = (current == null) ? constraint : current.Compose(constraint);
-            }
-            return new TimeLimiter(current);
+            var composed = constraints.Aggregate(default(IAwaitableConstraint), 
+                (accumulated, current) => (accumulated == null) ? current : accumulated.Compose(current));
+            return new TimeLimiter(composed);
         }
     }
 }

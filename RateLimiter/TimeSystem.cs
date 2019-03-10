@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace RateLimiter
 {
-    public class TimeSystem : ITime
+    internal class TimeSystem : ITime
     {
         public static ITime StandardTime { get; }
 

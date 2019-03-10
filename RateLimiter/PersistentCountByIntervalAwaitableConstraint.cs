@@ -6,9 +6,9 @@ namespace RateLimiter
     /// <summary>
     /// <see cref="CountByIntervalAwaitableConstraint"/> that is able to save own state.
     /// </summary>
-    public class PersistentCountByIntervalAwaitableConstraint : CountByIntervalAwaitableConstraint
+    public sealed class PersistentCountByIntervalAwaitableConstraint : CountByIntervalAwaitableConstraint
     {
-        private readonly Action<DateTime> _saveStateAction;
+        private readonly Action<DateTime> _SaveStateAction;
 
         /// <summary>
         /// Create an instance of <see cref="PersistentCountByIntervalAwaitableConstraint"/>.
@@ -18,9 +18,9 @@ namespace RateLimiter
         /// <param name="saveStateAction">Action is used to save state.</param>
         /// <param name="initialTimeStamps">Initial timestamps.</param>
         public PersistentCountByIntervalAwaitableConstraint(int count, TimeSpan timeSpan,
-            Action<DateTime> saveStateAction, IEnumerable<DateTime> initialTimeStamps, ITime time = null) : base(count, timeSpan, time)
+            Action<DateTime> saveStateAction, IEnumerable<DateTime> initialTimeStamps) : base(count, timeSpan)
         {
-            _saveStateAction = saveStateAction;
+            _SaveStateAction = saveStateAction;
 
             if (initialTimeStamps == null)
                 return;
@@ -36,7 +36,7 @@ namespace RateLimiter
         /// </summary>
         protected override void OnEnded(DateTime now)
         {
-            _saveStateAction(now);
+            _SaveStateAction(now);
         }
     }
 }
