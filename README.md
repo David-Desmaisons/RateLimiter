@@ -1,6 +1,7 @@
 # RateLimiter
 
 [![build](https://img.shields.io/appveyor/ci/David-Desmaisons/RateLimiter.svg)](https://ci.appveyor.com/project/David-Desmaisons/RateLimiter)
+[![codecov](https://codecov.io/gh/David-Desmaisons/RateLimiter/branch/master/graph/badge.svg)](https://codecov.io/gh/David-Desmaisons/RateLimiter)
 [![NuGet Badge](https://buildstats.info/nuget/RateLimiter)](https://www.nuget.org/packages/RateLimiter/)
 [![MIT License](https://img.shields.io/github/license/David-Desmaisons/RateLimiter.svg)](https://github.com/David-Desmaisons/RateLimiter/blob/master/LICENSE)
 
