@@ -8,7 +8,7 @@ before_build:
  - choco install opencover.portable
 
 build_script:
- - dotnet build "RateLimiter.sln" -verbosity m
+ - dotnet build "RateLimiter.sln" -verbosity normal
 
 test_script:
  - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.exe" -targetargs:"RateLimiter.Tests\bin\Debug\net472\RateLimiter.Tests.dll -noshadow" -output:".\coverage.xml" -filter:"+[RateLimiter*]* -[RateLimiter.Test*]*"
