@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -7,7 +8,7 @@ using Xunit;
 
 namespace RateLimiter.Tests
 {
-    public class RateLimiterTest
+    public class TimeLimiterTest
     {
         private readonly TimeLimiter _TimeConstraint;
         private readonly IAwaitableConstraint _IAwaitableConstraint;
@@ -15,7 +16,7 @@ namespace RateLimiter.Tests
         private readonly Func<Task<int>> _FuncTaskInt;
         private readonly IDisposable _Diposable;
 
-        public RateLimiterTest()
+        public TimeLimiterTest()
         {
             _FuncTask = Substitute.For<Func<Task>>();
             _FuncTaskInt = Substitute.For<Func<Task<int>>>();
@@ -180,6 +181,27 @@ namespace RateLimiter.Tests
             SetUpAwaitableConstraintIsCancelled();
             Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
             act.Should().Throw<TaskCanceledException>();
+        }
+
+        [Fact]
+        public async Task Compose_composes_the_contraints()
+        {
+            var constraints = Enumerable.Range(0, 3).Select(_ => GetSubstituteAwaitableConstraint()).ToArray();
+            var composed = TimeLimiter.Compose(constraints);
+
+            await composed.Perform(() => { });
+
+            await Task.WhenAll(
+                constraints.Select(c => c.Received().WaitForReadiness(Arg.Any<CancellationToken>())).ToArray()
+            );
+        }
+
+        private static IAwaitableConstraint GetSubstituteAwaitableConstraint()
+        {
+            var constraint = Substitute.For<IAwaitableConstraint>();
+            var disposable = Substitute.For<IDisposable>();
+            constraint.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(constraint));
+            return constraint;
         }
 
         private void SetUpAwaitableConstraintIsCancelled()
