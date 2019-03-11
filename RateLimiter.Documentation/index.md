@@ -18,6 +18,12 @@ However this helper can also be also in other scenarios where you need to tempor
 * Thread safe so you can share time contraints object to rate limit diferent threads using the same resource
 * Composable: ability to compose diferent rate limits in one constraint
 
+## Installation
+```bash
+Install-Package RateLimiter -Version 1.1.1	
+
+```
+
 ## Sample usage
 
 ### Basic
