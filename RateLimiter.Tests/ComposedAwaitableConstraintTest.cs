@@ -9,21 +9,21 @@ namespace RateLimiter.Tests
 {
     public class ComposedAwaitableConstraintTest
     {
-        private readonly IAwaitableConstraint _IAwaitableConstraint1;
-        private readonly IAwaitableConstraint _IAwaitableConstraint2;
-        private readonly IDisposable _Diposable1;
-        private readonly IDisposable _Diposable2;
+        private readonly IAwaitableConstraint _AwaitableConstraint1;
+        private readonly IAwaitableConstraint _AwaitableConstraint2;
+        private readonly IDisposable _Disposable1;
+        private readonly IDisposable _Disposable2;
         private readonly ComposedAwaitableConstraint _Composed;
 
         public ComposedAwaitableConstraintTest()
         {
-            _IAwaitableConstraint1 = Substitute.For<IAwaitableConstraint>();
-            _IAwaitableConstraint2 = Substitute.For<IAwaitableConstraint>();
-            _Diposable1 = Substitute.For<IDisposable>();
-            _Diposable2 = Substitute.For<IDisposable>();
-            _IAwaitableConstraint1.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Diposable1));
-            _IAwaitableConstraint2.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Diposable2));
-            _Composed = new ComposedAwaitableConstraint(_IAwaitableConstraint1, _IAwaitableConstraint2);
+            _AwaitableConstraint1 = Substitute.For<IAwaitableConstraint>();
+            _AwaitableConstraint2 = Substitute.For<IAwaitableConstraint>();
+            _Disposable1 = Substitute.For<IDisposable>();
+            _Disposable2 = Substitute.For<IDisposable>();
+            _AwaitableConstraint1.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Disposable1));
+            _AwaitableConstraint2.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Disposable2));
+            _Composed = new ComposedAwaitableConstraint(_AwaitableConstraint1, _AwaitableConstraint2);
         }
 
         [Fact]
@@ -31,8 +31,8 @@ namespace RateLimiter.Tests
         {
             await _Composed.WaitForReadiness(CancellationToken.None);
 
-            await _IAwaitableConstraint1.Received(1).WaitForReadiness(CancellationToken.None);
-            await _IAwaitableConstraint2.Received(1).WaitForReadiness(CancellationToken.None);
+            await _AwaitableConstraint1.Received(1).WaitForReadiness(CancellationToken.None);
+            await _AwaitableConstraint2.Received(1).WaitForReadiness(CancellationToken.None);
         }
 
         [Fact]
@@ -91,8 +91,8 @@ namespace RateLimiter.Tests
             var disp = await _Composed.WaitForReadiness(CancellationToken.None);
             disp.Dispose();
 
-            _Diposable1.Received(1).Dispose();
-            _Diposable2.Received(1).Dispose();
+            _Disposable1.Received(1).Dispose();
+            _Disposable2.Received(1).Dispose();
         }
     }
 }

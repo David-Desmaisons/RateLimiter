@@ -6,7 +6,7 @@
     public static class AwaitableConstraintExtension
     {
         /// <summary>
-        /// Compose two awaitable contraint in a new one
+        /// Compose two awaitable constraint in a new one
         /// </summary>
         /// <param name="awaitableConstraint1"></param>
         /// <param name="awaitableConstraint2"></param>
