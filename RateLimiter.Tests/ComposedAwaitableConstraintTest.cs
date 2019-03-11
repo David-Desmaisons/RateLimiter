@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace RateLimiter.Tests
@@ -93,6 +94,18 @@ namespace RateLimiter.Tests
 
             _Disposable1.Received(1).Dispose();
             _Disposable2.Received(1).Dispose();
+        }
+
+        [Fact]
+        public async Task Execute_Rethrows_error()
+        {
+            var exception = new Exception();
+            _AwaitableConstraint1.WaitForReadiness(Arg.Any<CancellationToken>()).Throws(exception);
+
+            Func<Task> wait = async () => await _Composed.WaitForReadiness(CancellationToken.None);
+
+            var exceptionAssertion = await wait.Should().ThrowAsync<Exception>();
+            exceptionAssertion.Where(ex => ex == exception);
         }
     }
 }
