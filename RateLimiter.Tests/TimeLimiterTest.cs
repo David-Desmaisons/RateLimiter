@@ -14,11 +14,13 @@ namespace RateLimiter.Tests
         private readonly IAwaitableConstraint _IAwaitableConstraint;
         private readonly Func<Task> _FuncTask;
         private readonly Func<Task<int>> _FuncTaskInt;
+        private readonly Func<int> _FuncInt;
         private readonly IDisposable _Diposable;
 
         public TimeLimiterTest()
         {
             _FuncTask = Substitute.For<Func<Task>>();
+            _FuncInt = Substitute.For<Func<int>>();
             _FuncTaskInt = Substitute.For<Func<Task<int>>>();
             _IAwaitableConstraint = Substitute.For<IAwaitableConstraint>();
             _Diposable = Substitute.For<IDisposable>();
@@ -118,6 +120,14 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
+        public async Task PerformGeneric_Returns_Func_result()
+        {
+            _FuncTaskInt().Returns(Task.FromResult(555));
+            var res = await _TimeConstraint.Perform(_FuncTaskInt);
+            res.Should().Be(555);
+        }
+
+        [Fact]
         public void PerformGeneric_InCaseOfException_rethrowException()
         {
             _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
@@ -184,6 +194,88 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
+        public async Task PerformGeneric_WithoutTask_CallFuncAndIAwaitableConstraintMethods()
+        {
+            await _TimeConstraint.Perform(_FuncInt);
+
+            CheckGenericSequence_WithoutTask();
+        }
+
+        [Fact]
+        public async Task PerformGeneric_WithoutTask_Returns_Func_result()
+        {
+            _FuncInt().Returns(8889);
+            var res = await _TimeConstraint.Perform(_FuncInt);
+            res.Should().Be(8889);
+        }
+
+        [Fact]
+        public void PerformGeneric_WithoutTask_InCaseOfException_rethrowException()
+        {
+            _FuncInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
+
+            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncInt);
+            act.Should().Throw<Exception>();
+        }
+
+        [Fact]
+        public async Task PerformGeneric_WithoutTask_CallExcecuteInCaseOfException()
+        {
+            _FuncInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
+            try
+            {
+                await _TimeConstraint.Perform(_FuncInt);
+            }
+            catch
+            {
+            }
+
+            CheckGenericSequence_WithoutTask();
+        }
+
+        [Fact]
+        public void PerformGeneric_WithoutTask_WhenCancelled_ThrowException()
+        {
+            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+            act.Should().Throw<TaskCanceledException>();
+        }
+
+        [Fact]
+        public async void PerformGeneric_WithoutTask_WhenCancelled_DoNotCallFunction()
+        {
+            try
+            {
+                await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+            }
+            catch
+            {
+            }
+            _FuncInt.DidNotReceive().Invoke();
+        }
+
+        [Fact]
+        public async Task PerformGeneric_WithoutTask_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
+        {
+            SetUpAwaitableConstraintIsCancelled();
+            try
+            {
+                await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+            }
+            catch
+            {
+            }
+            _FuncInt.DidNotReceive().Invoke();
+        }
+
+        [Fact]
+        public void PerformGeneric_WithoutTask_WhenAwaitableConstraintIsCancelled_ThrowException()
+        {
+            SetUpAwaitableConstraintIsCancelled();
+            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+            act.Should().Throw<TaskCanceledException>();
+        }
+
+        [Fact]
         public async Task Compose_composes_the_contraints()
         {
             var constraints = Enumerable.Range(0, 3).Select(_ => GetSubstituteAwaitableConstraint()).ToArray();
@@ -214,6 +306,15 @@ namespace RateLimiter.Tests
             Received.InOrder(() => {
                 _IAwaitableConstraint.WaitForReadiness(CancellationToken.None);
                 _FuncTaskInt.Invoke();
+                _Diposable.Dispose();
+            });
+        }
+
+        private void CheckGenericSequence_WithoutTask()
+        {
+            Received.InOrder(() => {
+                _IAwaitableConstraint.WaitForReadiness(CancellationToken.None);
+                _FuncInt.Invoke();
                 _Diposable.Dispose();
             });
         }
