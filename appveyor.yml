@@ -1,3 +1,5 @@
+image: Visual Studio 2017
+
 before_build:
  - dotnet --version
  - dotnet restore ./RateLimiter/RateLimiter.csproj --verbosity m
@@ -6,10 +8,10 @@ before_build:
  - choco install opencover.portable
 
 build_script:
- - dotnet build /verbosity:quiet "RateLimiter.sln"
+ - dotnet build "RateLimiter.sln"
 
 test_script:
- - OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:"test --logger:trx;LogFileName=results.trx /p:DebugType=full RateLimiter.Tests\RateLimiter.Tests.csproj" -filter:"+[RateLimiter*]* -[RateLimiter.Test*]*" -output:".\coverage.xml"
+ - OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:"test RateLimiter.Tests\RateLimiter.Tests.csproj" -filter:"+[RateLimiter*]* -[RateLimiter.Test*]*" -output:".\coverage.xml" -oldstyle
 # use codecov bash script. Requires powershell and bash to be installed, which both are on the AppVeyor machine image
 
 after_test:
