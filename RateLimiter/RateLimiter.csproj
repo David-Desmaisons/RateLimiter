@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.1;net45</TargetFrameworks>
+    <DebugType>full</DebugType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>RateLimiter</AssemblyName>
     <RootNamespace>RateLimiter</RootNamespace>
