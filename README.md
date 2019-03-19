@@ -65,6 +65,22 @@ Output
 ...
 ```
 
+### Basic - Awaiting on the TimeLimiter object
+```C#
+    //Create Time constraint: max five times by second
+    var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+
+    //Use it
+    for(int i=0; i<1000; i++)
+    {
+        await timeconstraint;
+        Trace.WriteLine(string.Format("{0:MM/dd/yyy HH:mm:ss.fff}", DateTime.Now));
+    }
+
+```
+
+Produces the same output of the Basic example.
+
 ### Composed
 
 ```C#
@@ -97,3 +113,4 @@ Output
 05/21/2016 23:52:49.942
 ...
 ```
+

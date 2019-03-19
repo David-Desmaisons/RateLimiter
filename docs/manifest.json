@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "F:/source/RateLimiter/RateLimiter.Documentation",
+  "source_base_path": "C:/hi/git/RateLimiter/RateLimiter.Documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -12,7 +12,7 @@
           "hash": "Eq5Lx1ZnKbpNMps+0vy29g=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -24,7 +24,7 @@
           "hash": "/WIW8/iYPUsatZi1oV2jIw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -36,7 +36,7 @@
           "hash": "DGwubpF1xNzij1f3xEj8ZQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -48,7 +48,7 @@
           "hash": "L7WHSejQUUdPQsy/+fz5Sw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -60,7 +60,7 @@
           "hash": "lOAi1GKufkif1/M8PFQuyA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -72,7 +72,7 @@
           "hash": "Z+TAxeIiVhFTkKAjMm4zvg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -84,7 +84,7 @@
           "hash": "HAxzwyhbNhwlespoyPtU4w=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -93,10 +93,34 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.TimeLimiter.html",
-          "hash": "VAOCptJbH780Rum2ftvHNQ=="
+          "hash": "IQ/MfowGYY1Ik5X21WE7VA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RateLimiter.TimeLimiterAwaiter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RateLimiter.TimeLimiterAwaiter.html",
+          "hash": "LUkm4opuVXlen/4WfQRK3Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RateLimiter.TimeLimiterExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RateLimiter.TimeLimiterExtension.html",
+          "hash": "jtQ/NLH+EN3W1slAQRQCVA=="
+        }
+      },
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -105,10 +129,10 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.html",
-          "hash": "vix22zHoeBcM8q//N+/HNw=="
+          "hash": "Gy/9f/i1Lya0SbDZdWM7jg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -117,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "svi2bsbVQtGF2kwBPGHpNw=="
+          "hash": "jwK/rX07i25qkSY+8ke7xw=="
         }
       },
       "is_incremental": false,
@@ -132,7 +156,7 @@
           "hash": "tNv0m3d9hjc6ITRTval2nQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -154,12 +178,10 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Disable incremental build by force rebuild option.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "ForceRebuild"
+        "skipped_file_count": 0
       },
       "processors": {
         "TocDocumentProcessor": {
@@ -170,23 +192,23 @@
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 9,
-          "skipped_file_count": 0
+          "total_file_count": 11,
+          "skipped_file_count": 11
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 0
+          "skipped_file_count": 1
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
