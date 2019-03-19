@@ -11,7 +11,7 @@ namespace RateLimiter
     /// </summary>
     public class TimeLimiter : IRateLimiter
     {
-        private readonly IAwaitableConstraint _AwaitableConstraint;
+        internal readonly IAwaitableConstraint _AwaitableConstraint;
 
         internal TimeLimiter(IAwaitableConstraint awaitableConstraint)
         {
