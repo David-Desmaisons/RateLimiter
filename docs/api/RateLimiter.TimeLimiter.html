@@ -77,33 +77,23 @@
   
   <h1 id="RateLimiter_TimeLimiter" data-uid="RateLimiter.TimeLimiter" class="text-break">Class TimeLimiter
   </h1>
-  <div class="markdown level0 summary"><p><a class="xref" href="RateLimiter.IRateLimiter.html">IRateLimiter</a> implementation</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">TimeLimiter</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="RateLimiter.IRateLimiter.html">IRateLimiter</a></div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RateLimiter.html">RateLimiter</a></h6>
   <h6><strong>Assembly</strong>: RateLimiter.dll</h6>
   <h5 id="RateLimiter_TimeLimiter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TimeLimiter : object, IRateLimiter</code></pre>
+    <pre><code class="lang-csharp hljs">public class TimeLimiter : ICancellableDispatcher</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L187">View Source</a>
-  </span>
+  
+  
   <a id="RateLimiter_TimeLimiter_Compose_" data-uid="RateLimiter.TimeLimiter.Compose*"></a>
   <h4 id="RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___" data-uid="RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint[])">Compose(IAwaitableConstraint[])</h4>
   <div class="markdown level1 summary"><p>Compose various IAwaitableConstraint in a TimeLimiter</p>
@@ -145,13 +135,353 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32%2CTimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L150">View Source</a>
-  </span>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Dispatch_" data-uid="RateLimiter.TimeLimiter.Dispatch*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Dispatch_Action_" data-uid="RateLimiter.TimeLimiter.Dispatch(Action)">Dispatch(Action)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispatch(Action action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_Action_" data-uid="RateLimiter.TimeLimiter.Enqueue(Action)">Enqueue(Action)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Action perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_Func_Task__" data-uid="RateLimiter.TimeLimiter.Enqueue(Func{Task})">Enqueue(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Func&lt;Task&gt; perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_Func_Task__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue(Func{Task},CancellationToken)">Enqueue(Func&lt;Task&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Func&lt;Task&gt; perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_Func___0__" data-uid="RateLimiter.TimeLimiter.Enqueue``1(Func{``0})">Enqueue&lt;T&gt;(Func&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;T&gt; perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_Func_Task___0___" data-uid="RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}})">Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_Func_Task___0___CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}},CancellationToken)">Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RateLimiter_TimeLimiter_GetFromMaxCountByInterval_" data-uid="RateLimiter.TimeLimiter.GetFromMaxCountByInterval*"></a>
   <h4 id="RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_" data-uid="RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)">GetFromMaxCountByInterval(Int32, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Returns a TimeLimiter based on a maximum number of times
@@ -199,13 +529,8 @@ during a given period</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CTimeSpan%2CAction%7BDateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L162">View Source</a>
-  </span>
+  
+  
   <a id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter*"></a>
   <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;)</h4>
   <div class="markdown level1 summary"><p>Create <a class="xref" href="RateLimiter.TimeLimiter.html">TimeLimiter</a> that will save state using action passed through <code data-dev-comment-type="paramref" class="paramref">saveStateAction</code> parameter.</p>
@@ -261,13 +586,8 @@ during a given period</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CTimeSpan%2CAction%7BDateTime%7D%2CIEnumerable%7BDateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L176">View Source</a>
-  </span>
+  
+  
   <a id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter*"></a>
   <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;, IEnumerable&lt;DateTime&gt;)</h4>
   <div class="markdown level1 summary"><p>Create <a class="xref" href="RateLimiter.TimeLimiter.html">TimeLimiter</a> with initial timestamps that will save state using action passed through <code data-dev-comment-type="paramref" class="paramref">saveStateAction</code> parameter.</p>
@@ -329,61 +649,8 @@ during a given period</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Action_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L110">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Action_" data-uid="RateLimiter.TimeLimiter.Perform(Action)">Perform(Action)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Action perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Action</span></td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Action_CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Action%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L99">View Source</a>
-  </span>
+  
+  
   <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
   <h4 id="RateLimiter_TimeLimiter_Perform_Action_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform(Action,CancellationToken)">Perform(Action, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
@@ -430,179 +697,8 @@ during a given period</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Func_Task__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Func%7BTask%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L27">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Func_Task__" data-uid="RateLimiter.TimeLimiter.Perform(Func{Task})">Perform(Func&lt;Task&gt;)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Func&lt;Task&gt; perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Func_Task__CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Func%7BTask%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L50">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Func_Task__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform(Func{Task},CancellationToken)">Perform(Func&lt;Task&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Func&lt;Task&gt; perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func___0__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L123">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func___0__" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{``0})">Perform&lt;T&gt;(Func&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;T&gt; perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7B%60%600%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L137">View Source</a>
-  </span>
+  
+  
   <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
   <h4 id="RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)">Perform&lt;T&gt;(Func&lt;T&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
@@ -665,143 +761,6 @@ returning the result of given function</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func_Task___0___.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7BTask%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L39">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func_Task___0___" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}})">Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T&gt;&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func_Task___0___CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7BTask%7B%60%600%7D%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L67">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func_Task___0___CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}},CancellationToken)">Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T&gt;&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="RateLimiter.IRateLimiter.html">IRateLimiter</a>
-  </div>
 </article>
           </div>
           
@@ -809,12 +768,6 @@ returning the result of given function</p>
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L12" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

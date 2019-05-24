@@ -116,85 +116,6 @@ references:
   isSpec: "True"
   fullName: RateLimiter.IAwaitableConstraint.WaitForReadiness
   nameWithType: IAwaitableConstraint.WaitForReadiness
-- uid: RateLimiter.IRateLimiter
-  name: IRateLimiter
-  href: api/RateLimiter.IRateLimiter.html
-  commentId: T:RateLimiter.IRateLimiter
-  fullName: RateLimiter.IRateLimiter
-  nameWithType: IRateLimiter
-- uid: RateLimiter.IRateLimiter.Perform(Action)
-  name: Perform(Action)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Action_
-  commentId: M:RateLimiter.IRateLimiter.Perform(Action)
-  fullName: RateLimiter.IRateLimiter.Perform(Action)
-  nameWithType: IRateLimiter.Perform(Action)
-- uid: RateLimiter.IRateLimiter.Perform(Action,CancellationToken)
-  name: Perform(Action, CancellationToken)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Action_CancellationToken_
-  commentId: M:RateLimiter.IRateLimiter.Perform(Action,CancellationToken)
-  fullName: RateLimiter.IRateLimiter.Perform(Action, CancellationToken)
-  nameWithType: IRateLimiter.Perform(Action, CancellationToken)
-- uid: RateLimiter.IRateLimiter.Perform(Func{Task})
-  name: Perform(Func<Task>)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Func_Task__
-  commentId: M:RateLimiter.IRateLimiter.Perform(Func{Task})
-  name.vb: Perform(Func(Of Task))
-  fullName: RateLimiter.IRateLimiter.Perform(Func<Task>)
-  fullName.vb: RateLimiter.IRateLimiter.Perform(Func(Of Task))
-  nameWithType: IRateLimiter.Perform(Func<Task>)
-  nameWithType.vb: IRateLimiter.Perform(Func(Of Task))
-- uid: RateLimiter.IRateLimiter.Perform(Func{Task},CancellationToken)
-  name: Perform(Func<Task>, CancellationToken)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_Func_Task__CancellationToken_
-  commentId: M:RateLimiter.IRateLimiter.Perform(Func{Task},CancellationToken)
-  name.vb: Perform(Func(Of Task), CancellationToken)
-  fullName: RateLimiter.IRateLimiter.Perform(Func<Task>, CancellationToken)
-  fullName.vb: RateLimiter.IRateLimiter.Perform(Func(Of Task), CancellationToken)
-  nameWithType: IRateLimiter.Perform(Func<Task>, CancellationToken)
-  nameWithType.vb: IRateLimiter.Perform(Func(Of Task), CancellationToken)
-- uid: RateLimiter.IRateLimiter.Perform*
-  name: Perform
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform_
-  commentId: Overload:RateLimiter.IRateLimiter.Perform
-  isSpec: "True"
-  fullName: RateLimiter.IRateLimiter.Perform
-  nameWithType: IRateLimiter.Perform
-- uid: RateLimiter.IRateLimiter.Perform``1(Func{``0})
-  name: Perform<T>(Func<T>)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func___0__
-  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{``0})
-  name.vb: Perform(Of T)(Func(Of T))
-  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<T>)
-  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of T))
-  nameWithType: IRateLimiter.Perform<T>(Func<T>)
-  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of T))
-- uid: RateLimiter.IRateLimiter.Perform``1(Func{``0},CancellationToken)
-  name: Perform<T>(Func<T>, CancellationToken)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func___0__CancellationToken_
-  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{``0},CancellationToken)
-  name.vb: Perform(Of T)(Func(Of T), CancellationToken)
-  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<T>, CancellationToken)
-  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of T), CancellationToken)
-  nameWithType: IRateLimiter.Perform<T>(Func<T>, CancellationToken)
-  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of T), CancellationToken)
-- uid: RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}})
-  name: Perform<T>(Func<Task<T>>)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func_Task___0___
-  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}})
-  name.vb: Perform(Of T)(Func(Of Task(Of T)))
-  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<Task<T>>)
-  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of Task(Of T)))
-  nameWithType: IRateLimiter.Perform<T>(Func<Task<T>>)
-  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of Task(Of T)))
-- uid: RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}},CancellationToken)
-  name: Perform<T>(Func<Task<T>>, CancellationToken)
-  href: api/RateLimiter.IRateLimiter.html#RateLimiter_IRateLimiter_Perform__1_Func_Task___0___CancellationToken_
-  commentId: M:RateLimiter.IRateLimiter.Perform``1(Func{Task{``0}},CancellationToken)
-  name.vb: Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
-  fullName: RateLimiter.IRateLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
-  fullName.vb: RateLimiter.IRateLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
-  nameWithType: IRateLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
-  nameWithType.vb: IRateLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
 - uid: RateLimiter.ITime
   name: ITime
   href: api/RateLimiter.ITime.html
@@ -327,6 +248,77 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.Compose
   nameWithType: TimeLimiter.Compose
+- uid: RateLimiter.TimeLimiter.Dispatch(Action)
+  name: Dispatch(Action)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Dispatch_Action_
+  commentId: M:RateLimiter.TimeLimiter.Dispatch(Action)
+  fullName: RateLimiter.TimeLimiter.Dispatch(Action)
+  nameWithType: TimeLimiter.Dispatch(Action)
+- uid: RateLimiter.TimeLimiter.Dispatch*
+  name: Dispatch
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Dispatch_
+  commentId: Overload:RateLimiter.TimeLimiter.Dispatch
+  isSpec: "True"
+  fullName: RateLimiter.TimeLimiter.Dispatch
+  nameWithType: TimeLimiter.Dispatch
+- uid: RateLimiter.TimeLimiter.Enqueue(Action)
+  name: Enqueue(Action)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Action_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(Action)
+  fullName: RateLimiter.TimeLimiter.Enqueue(Action)
+  nameWithType: TimeLimiter.Enqueue(Action)
+- uid: RateLimiter.TimeLimiter.Enqueue(Func{Task})
+  name: Enqueue(Func<Task>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Func_Task__
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(Func{Task})
+  name.vb: Enqueue(Func(Of Task))
+  fullName: RateLimiter.TimeLimiter.Enqueue(Func<Task>)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Func(Of Task))
+  nameWithType: TimeLimiter.Enqueue(Func<Task>)
+  nameWithType.vb: TimeLimiter.Enqueue(Func(Of Task))
+- uid: RateLimiter.TimeLimiter.Enqueue(Func{Task},CancellationToken)
+  name: Enqueue(Func<Task>, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Func_Task__CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(Func{Task},CancellationToken)
+  name.vb: Enqueue(Func(Of Task), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue(Func<Task>, CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Func(Of Task), CancellationToken)
+  nameWithType: TimeLimiter.Enqueue(Func<Task>, CancellationToken)
+  nameWithType.vb: TimeLimiter.Enqueue(Func(Of Task), CancellationToken)
+- uid: RateLimiter.TimeLimiter.Enqueue*
+  name: Enqueue
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_
+  commentId: Overload:RateLimiter.TimeLimiter.Enqueue
+  isSpec: "True"
+  fullName: RateLimiter.TimeLimiter.Enqueue
+  nameWithType: TimeLimiter.Enqueue
+- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{``0})
+  name: Enqueue<T>(Func<T>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func___0__
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{``0})
+  name.vb: Enqueue(Of T)(Func(Of T))
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<T>)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of T))
+  nameWithType: TimeLimiter.Enqueue<T>(Func<T>)
+  nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of T))
+- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}})
+  name: Enqueue<T>(Func<Task<T>>)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func_Task___0___
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}})
+  name.vb: Enqueue(Of T)(Func(Of Task(Of T)))
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<Task<T>>)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)))
+  nameWithType: TimeLimiter.Enqueue<T>(Func<Task<T>>)
+  nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)))
+- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}},CancellationToken)
+  name: Enqueue<T>(Func<Task<T>>, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func_Task___0___CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}},CancellationToken)
+  name.vb: Enqueue(Of T)(Func(Of Task(Of T)), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<Task<T>>, CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)), CancellationToken)
+  nameWithType: TimeLimiter.Enqueue<T>(Func<Task<T>>, CancellationToken)
+  nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)), CancellationToken)
 - uid: RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)
   name: GetFromMaxCountByInterval(Int32, TimeSpan)
   href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_
@@ -365,36 +357,12 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter
   nameWithType: TimeLimiter.GetPersistentTimeLimiter
-- uid: RateLimiter.TimeLimiter.Perform(Action)
-  name: Perform(Action)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Action_
-  commentId: M:RateLimiter.TimeLimiter.Perform(Action)
-  fullName: RateLimiter.TimeLimiter.Perform(Action)
-  nameWithType: TimeLimiter.Perform(Action)
 - uid: RateLimiter.TimeLimiter.Perform(Action,CancellationToken)
   name: Perform(Action, CancellationToken)
   href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Action_CancellationToken_
   commentId: M:RateLimiter.TimeLimiter.Perform(Action,CancellationToken)
   fullName: RateLimiter.TimeLimiter.Perform(Action, CancellationToken)
   nameWithType: TimeLimiter.Perform(Action, CancellationToken)
-- uid: RateLimiter.TimeLimiter.Perform(Func{Task})
-  name: Perform(Func<Task>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Func_Task__
-  commentId: M:RateLimiter.TimeLimiter.Perform(Func{Task})
-  name.vb: Perform(Func(Of Task))
-  fullName: RateLimiter.TimeLimiter.Perform(Func<Task>)
-  fullName.vb: RateLimiter.TimeLimiter.Perform(Func(Of Task))
-  nameWithType: TimeLimiter.Perform(Func<Task>)
-  nameWithType.vb: TimeLimiter.Perform(Func(Of Task))
-- uid: RateLimiter.TimeLimiter.Perform(Func{Task},CancellationToken)
-  name: Perform(Func<Task>, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Func_Task__CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Perform(Func{Task},CancellationToken)
-  name.vb: Perform(Func(Of Task), CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Perform(Func<Task>, CancellationToken)
-  fullName.vb: RateLimiter.TimeLimiter.Perform(Func(Of Task), CancellationToken)
-  nameWithType: TimeLimiter.Perform(Func<Task>, CancellationToken)
-  nameWithType.vb: TimeLimiter.Perform(Func(Of Task), CancellationToken)
 - uid: RateLimiter.TimeLimiter.Perform*
   name: Perform
   href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_
@@ -402,15 +370,6 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.Perform
   nameWithType: TimeLimiter.Perform
-- uid: RateLimiter.TimeLimiter.Perform``1(Func{``0})
-  name: Perform<T>(Func<T>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func___0__
-  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{``0})
-  name.vb: Perform(Of T)(Func(Of T))
-  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<T>)
-  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of T))
-  nameWithType: TimeLimiter.Perform<T>(Func<T>)
-  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of T))
 - uid: RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)
   name: Perform<T>(Func<T>, CancellationToken)
   href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_
@@ -420,21 +379,3 @@ references:
   fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of T), CancellationToken)
   nameWithType: TimeLimiter.Perform<T>(Func<T>, CancellationToken)
   nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of T), CancellationToken)
-- uid: RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}})
-  name: Perform<T>(Func<Task<T>>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func_Task___0___
-  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}})
-  name.vb: Perform(Of T)(Func(Of Task(Of T)))
-  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<Task<T>>)
-  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of Task(Of T)))
-  nameWithType: TimeLimiter.Perform<T>(Func<Task<T>>)
-  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of Task(Of T)))
-- uid: RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}},CancellationToken)
-  name: Perform<T>(Func<Task<T>>, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func_Task___0___CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}},CancellationToken)
-  name.vb: Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
-  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)
-  nameWithType: TimeLimiter.Perform<T>(Func<Task<T>>, CancellationToken)
-  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of Task(Of T)), CancellationToken)

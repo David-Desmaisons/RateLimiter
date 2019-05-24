@@ -29,29 +29,29 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task Perform_CallFuncAndIAwaitableConstraintMethods()
+        public async Task Enqueue_CallFuncAndIAwaitableConstraintMethods()
         {
-            await _TimeConstraint.Perform(_FuncTask);
+            await _TimeConstraint.Enqueue(_FuncTask);
 
             CheckSequence();
         }
 
         [Fact]
-        public void Perform_InCaseOfException_rethrowException()
+        public void Enqueue_InCaseOfException_rethrowException()
         {
             _FuncTask.When(ft => ft.Invoke()).Do(_ => throw new Exception());
 
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask);
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncTask);
             act.Should().Throw<Exception>();
         }
 
         [Fact]
-        public async Task Perform_CallExcecuteInCaseOfException()
+        public async Task Enqueue_CallExcecuteInCaseOfException()
         {
             _FuncTask.When(ft => ft.Invoke()).Do(_ => throw new Exception());
             try
             {
-                await _TimeConstraint.Perform(_FuncTask);
+                await _TimeConstraint.Enqueue(_FuncTask);
             }
             catch
             {
@@ -112,27 +112,27 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task PerformGeneric_CallFuncAndIAwaitableConstraintMethods()
+        public async Task EnqueueGeneric_CallFuncAndIAwaitableConstraintMethods()
         {
-            await _TimeConstraint.Perform(_FuncTaskInt);
+            await _TimeConstraint.Enqueue(_FuncTaskInt);
 
             CheckGenericSequence();
         }
 
         [Fact]
-        public async Task PerformGeneric_Returns_Func_result()
+        public async Task EnqueueGeneric_Returns_Func_result()
         {
             _FuncTaskInt().Returns(Task.FromResult(555));
-            var res = await _TimeConstraint.Perform(_FuncTaskInt);
+            var res = await _TimeConstraint.Enqueue(_FuncTaskInt);
             res.Should().Be(555);
         }
 
         [Fact]
-        public void PerformGeneric_InCaseOfException_rethrowException()
+        public void EnqueueGeneric_InCaseOfException_rethrowException()
         {
             _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
 
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt);
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncTaskInt);
             act.Should().Throw<Exception>();
         }
 
@@ -142,7 +142,7 @@ namespace RateLimiter.Tests
             _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
             try
             {
-                await _TimeConstraint.Perform(_FuncTaskInt);
+                await _TimeConstraint.Enqueue(_FuncTaskInt);
             }
             catch
             {
@@ -189,14 +189,14 @@ namespace RateLimiter.Tests
         public void PerformGeneric_WhenAwaitableConstraintIsCancelled_ThrowException()
         {
             SetUpAwaitableConstraintIsCancelled();
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncTaskInt, new CancellationToken(true));
             act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
         public async Task PerformGeneric_WithoutTask_CallFuncAndIAwaitableConstraintMethods()
         {
-            await _TimeConstraint.Perform(_FuncInt);
+            await _TimeConstraint.Enqueue(_FuncInt);
 
             CheckGenericSequence_WithoutTask();
         }
@@ -205,7 +205,7 @@ namespace RateLimiter.Tests
         public async Task PerformGeneric_WithoutTask_Returns_Func_result()
         {
             _FuncInt().Returns(8889);
-            var res = await _TimeConstraint.Perform(_FuncInt);
+            var res = await _TimeConstraint.Enqueue(_FuncInt);
             res.Should().Be(8889);
         }
 
@@ -214,7 +214,7 @@ namespace RateLimiter.Tests
         {
             _FuncInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
 
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncInt);
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncInt);
             act.Should().Throw<Exception>();
         }
 
@@ -224,7 +224,7 @@ namespace RateLimiter.Tests
             _FuncInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
             try
             {
-                await _TimeConstraint.Perform(_FuncInt);
+                await _TimeConstraint.Enqueue(_FuncInt);
             }
             catch
             {
@@ -281,7 +281,7 @@ namespace RateLimiter.Tests
             var constraints = Enumerable.Range(0, 3).Select(_ => GetSubstituteAwaitableConstraint()).ToArray();
             var composed = TimeLimiter.Compose(constraints);
 
-            await composed.Perform(() => { });
+            await composed.Enqueue(() => { });
 
             await Task.WhenAll(
                 constraints.Select(c => c.Received().WaitForReadiness(Arg.Any<CancellationToken>())).ToArray()

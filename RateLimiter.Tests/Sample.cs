@@ -28,7 +28,7 @@ namespace RateLimiter.Tests
 
             for (int i = 0; i < 1000; i++)
             {
-                await timeConstraint.Perform(() => ConsoleIt());
+                await timeConstraint.Enqueue(() => ConsoleIt());
             }
         }
 
@@ -61,7 +61,7 @@ namespace RateLimiter.Tests
 
             for (var i = 0; i < 1000; i++)
             {
-                await timeConstraint.Perform(() => ConsoleIt());
+                await timeConstraint.Enqueue(() => ConsoleIt());
             }
         }
 
@@ -80,7 +80,7 @@ namespace RateLimiter.Tests
                 {
                     for (int j = 0; j < 10; j++)
                     {
-                        await timeConstraint.Perform(() => ConsoleIt());
+                        await timeConstraint.Enqueue(() => ConsoleIt());
                     }
                 }));
             }

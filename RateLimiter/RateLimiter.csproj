@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.1;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2;net461</TargetFrameworks>
     <DebugType>full</DebugType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>RateLimiter</AssemblyName>
@@ -26,5 +26,9 @@ Features:
     <FileVersion>1.1.1.0</FileVersion>
     <PackageReleaseNotes>.NET Standard support</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ComposableAsync.Core" Version="1.0.0-alpha.1" />
+  </ItemGroup>
 
 </Project>
