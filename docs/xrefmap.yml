@@ -267,6 +267,12 @@ references:
   commentId: M:RateLimiter.TimeLimiter.Enqueue(Action)
   fullName: RateLimiter.TimeLimiter.Enqueue(Action)
   nameWithType: TimeLimiter.Enqueue(Action)
+- uid: RateLimiter.TimeLimiter.Enqueue(Action,CancellationToken)
+  name: Enqueue(Action, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Action_CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(Action,CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue(Action, CancellationToken)
+  nameWithType: TimeLimiter.Enqueue(Action, CancellationToken)
 - uid: RateLimiter.TimeLimiter.Enqueue(Func{Task})
   name: Enqueue(Func<Task>)
   href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Func_Task__
@@ -301,6 +307,15 @@ references:
   fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of T))
   nameWithType: TimeLimiter.Enqueue<T>(Func<T>)
   nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of T))
+- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{``0},CancellationToken)
+  name: Enqueue<T>(Func<T>, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func___0__CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{``0},CancellationToken)
+  name.vb: Enqueue(Of T)(Func(Of T), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<T>, CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of T), CancellationToken)
+  nameWithType: TimeLimiter.Enqueue<T>(Func<T>, CancellationToken)
+  nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of T), CancellationToken)
 - uid: RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}})
   name: Enqueue<T>(Func<Task<T>>)
   href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func_Task___0___
@@ -357,25 +372,3 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter
   nameWithType: TimeLimiter.GetPersistentTimeLimiter
-- uid: RateLimiter.TimeLimiter.Perform(Action,CancellationToken)
-  name: Perform(Action, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_Action_CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Perform(Action,CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Perform(Action, CancellationToken)
-  nameWithType: TimeLimiter.Perform(Action, CancellationToken)
-- uid: RateLimiter.TimeLimiter.Perform*
-  name: Perform
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform_
-  commentId: Overload:RateLimiter.TimeLimiter.Perform
-  isSpec: "True"
-  fullName: RateLimiter.TimeLimiter.Perform
-  nameWithType: TimeLimiter.Perform
-- uid: RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)
-  name: Perform<T>(Func<T>, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)
-  name.vb: Perform(Of T)(Func(Of T), CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Perform<T>(Func<T>, CancellationToken)
-  fullName.vb: RateLimiter.TimeLimiter.Perform(Of T)(Func(Of T), CancellationToken)
-  nameWithType: TimeLimiter.Perform<T>(Func<T>, CancellationToken)
-  nameWithType.vb: TimeLimiter.Perform(Of T)(Func(Of T), CancellationToken)

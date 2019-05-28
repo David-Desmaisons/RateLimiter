@@ -27,7 +27,7 @@ namespace RateLimiter
         /// <returns></returns>
         public Task Enqueue(Func<Task> perform) 
         {
-            return Perform(perform, CancellationToken.None);
+            return Enqueue(perform, CancellationToken.None);
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace RateLimiter
         /// <param name="perform"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public Task<T> Perform<T>(Func<T> perform, CancellationToken cancellationToken) 
+        public Task<T> Enqueue<T>(Func<T> perform, CancellationToken cancellationToken) 
         {
             var transformed = Transform(perform);
             return Enqueue(transformed, cancellationToken);
@@ -144,10 +144,10 @@ namespace RateLimiter
         /// <param name="perform"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public Task Perform(Action perform, CancellationToken cancellationToken) 
+        public Task Enqueue(Action perform, CancellationToken cancellationToken) 
         {
            var transformed = Transform(perform);
-           return Perform(transformed, cancellationToken);
+           return Enqueue(transformed, cancellationToken);
         }
 
         /// <summary>

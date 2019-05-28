@@ -43,7 +43,7 @@ namespace RateLimiter.Tests
             {
                 try
                 {
-                    await timeConstraint.Perform(() => ConsoleIt(), cts.Token);
+                    await timeConstraint.Enqueue(() => ConsoleIt(), cts.Token);
                 }
                 catch (Exception)
                 {

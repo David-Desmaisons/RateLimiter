@@ -61,18 +61,18 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public void Perform_WhenCancelled_ThrowException()
+        public void Enqueue_WhenCancelled_ThrowException()
         {
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncTask, new CancellationToken(true));
             act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
-        public async Task Perform_WhenCancelled_DoNotCallFunction()
+        public async Task Enqueue_WhenCancelled_DoNotCallFunction()
         {
             try
             {
-                await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+                await _TimeConstraint.Enqueue(_FuncTask, new CancellationToken(true));
             }
             catch
             {
@@ -81,20 +81,20 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public void Perform_WhenAwaitableConstraintIsCancelled_ThrowException()
+        public void Enqueue_WhenAwaitableConstraintIsCancelled_ThrowException()
         {
             SetUpAwaitableConstraintIsCancelled();
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncTask, new CancellationToken(true));
             act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
-        public async Task Perform_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
+        public async Task Enqueue_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
         {
             SetUpAwaitableConstraintIsCancelled();
             try
             {
-                await _TimeConstraint.Perform(_FuncTask, new CancellationToken(true));
+                await _TimeConstraint.Enqueue(_FuncTask, new CancellationToken(true));
             }
             catch
             {
@@ -137,7 +137,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task PerformGeneric_CallExcecuteInCaseOfException()
+        public async Task EnqueueGeneric_CallExcecuteInCaseOfException()
         {
             _FuncTaskInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
             try
@@ -152,18 +152,18 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public void PerformGeneric_WhenCancelled_ThrowException()
+        public void EnqueueGeneric_WhenCancelled_ThrowException()
         {
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncTaskInt, new CancellationToken(true));
             act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
-        public async Task PerformGeneric_WhenCancelled_DoNotCallFunction()
+        public async Task EnqueueGeneric_WhenCancelled_DoNotCallFunction()
         {
             try
             {
-                await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+                await _TimeConstraint.Enqueue(_FuncTaskInt, new CancellationToken(true));
             }
             catch
             {
@@ -172,12 +172,12 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task PerformGeneric_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
+        public async Task EnqueueGeneric_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
         {
             SetUpAwaitableConstraintIsCancelled();
             try
             {
-                await _TimeConstraint.Perform(_FuncTaskInt, new CancellationToken(true));
+                await _TimeConstraint.Enqueue(_FuncTaskInt, new CancellationToken(true));
             }
             catch
             {
@@ -186,7 +186,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public void PerformGeneric_WhenAwaitableConstraintIsCancelled_ThrowException()
+        public void EnqueueGeneric_WhenAwaitableConstraintIsCancelled_ThrowException()
         {
             SetUpAwaitableConstraintIsCancelled();
             Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncTaskInt, new CancellationToken(true));
@@ -194,7 +194,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task PerformGeneric_WithoutTask_CallFuncAndIAwaitableConstraintMethods()
+        public async Task EnqueueGeneric_WithoutTask_CallFuncAndIAwaitableConstraintMethods()
         {
             await _TimeConstraint.Enqueue(_FuncInt);
 
@@ -202,7 +202,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task PerformGeneric_WithoutTask_Returns_Func_result()
+        public async Task EnqueueGeneric_WithoutTask_Returns_Func_result()
         {
             _FuncInt().Returns(8889);
             var res = await _TimeConstraint.Enqueue(_FuncInt);
@@ -210,7 +210,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public void PerformGeneric_WithoutTask_InCaseOfException_rethrowException()
+        public void EnqueueGeneric_WithoutTask_InCaseOfException_rethrowException()
         {
             _FuncInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
 
@@ -219,7 +219,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task PerformGeneric_WithoutTask_CallExcecuteInCaseOfException()
+        public async Task EnqueueGeneric_WithoutTask_CallExcecuteInCaseOfException()
         {
             _FuncInt.When(ft => ft.Invoke()).Do(_ => throw new Exception());
             try
@@ -234,18 +234,18 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public void PerformGeneric_WithoutTask_WhenCancelled_ThrowException()
+        public void EnqueueGeneric_WithoutTask_WhenCancelled_ThrowException()
         {
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncInt, new CancellationToken(true));
             act.Should().Throw<TaskCanceledException>();
         }
 
         [Fact]
-        public async void PerformGeneric_WithoutTask_WhenCancelled_DoNotCallFunction()
+        public async void EnqueueGeneric_WithoutTask_WhenCancelled_DoNotCallFunction()
         {
             try
             {
-                await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+                await _TimeConstraint.Enqueue(_FuncInt, new CancellationToken(true));
             }
             catch
             {
@@ -254,12 +254,12 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task PerformGeneric_WithoutTask_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
+        public async Task EnqueueGeneric_WithoutTask_WhenAwaitableConstraintIsCancelled_DoNotCallFunction()
         {
             SetUpAwaitableConstraintIsCancelled();
             try
             {
-                await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+                await _TimeConstraint.Enqueue(_FuncInt, new CancellationToken(true));
             }
             catch
             {
@@ -268,10 +268,10 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public void PerformGeneric_WithoutTask_WhenAwaitableConstraintIsCancelled_ThrowException()
+        public void EnqueueGeneric_WithoutTask_WhenAwaitableConstraintIsCancelled_ThrowException()
         {
             SetUpAwaitableConstraintIsCancelled();
-            Func<Task> act = async () => await _TimeConstraint.Perform(_FuncInt, new CancellationToken(true));
+            Func<Task> act = async () => await _TimeConstraint.Enqueue(_FuncInt, new CancellationToken(true));
             act.Should().Throw<TaskCanceledException>();
         }
 

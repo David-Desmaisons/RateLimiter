@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TimeLimiter
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -77,7 +77,8 @@
   
   <h1 id="RateLimiter_TimeLimiter" data-uid="RateLimiter.TimeLimiter" class="text-break">Class TimeLimiter
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>TimeLimiter implementation</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -187,6 +188,54 @@
       <tr>
         <td><span class="xref">Action</span></td>
         <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_Action_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue(Action,CancellationToken)">Enqueue(Action, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Action perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -323,6 +372,70 @@ returning the result of given function</p>
       <tr>
         <td><span class="xref">Func</span>&lt;T&gt;</td>
         <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_Func___0__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue``1(Func{``0},CancellationToken)">Enqueue&lt;T&gt;(Func&lt;T&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;T&gt; perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -646,118 +759,6 @@ during a given period</p>
         <td><a class="xref" href="RateLimiter.TimeLimiter.html">TimeLimiter</a></td>
         <td><p><a class="xref" href="RateLimiter.TimeLimiter.html">TimeLimiter</a> instance with <a class="xref" href="RateLimiter.PersistentCountByIntervalAwaitableConstraint.html">PersistentCountByIntervalAwaitableConstraint</a>.</p>
 </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Action_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform(Action,CancellationToken)">Perform(Action, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Action perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Action</span></td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)">Perform&lt;T&gt;(Func&lt;T&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;T&gt; perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
