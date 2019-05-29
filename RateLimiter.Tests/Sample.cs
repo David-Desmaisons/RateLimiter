@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
+using ComposableAsync;
 
 namespace RateLimiter.Tests
 {
@@ -49,6 +50,20 @@ namespace RateLimiter.Tests
                 {
                     // ignored
                 }
+            }
+        }
+
+        [Fact]
+        public async Task SimpleUsageAwaitable()
+        {
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+            var cts = new CancellationTokenSource();
+            cts.CancelAfter(TimeSpan.FromSeconds(2));
+
+            for (var i = 0; i < 50; i++)
+            {
+                await timeConstraint;                
+                ConsoleIt();
             }
         }
 
