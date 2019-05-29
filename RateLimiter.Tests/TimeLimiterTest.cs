@@ -16,6 +16,7 @@ namespace RateLimiter.Tests
         private readonly Func<Task> _FuncTask;
         private readonly Func<Task<int>> _FuncTaskInt;
         private readonly Func<int> _FuncInt;
+        private readonly Action _Action;
         private readonly IDisposable _Diposable;
 
         public TimeLimiterTest()
@@ -23,6 +24,7 @@ namespace RateLimiter.Tests
             _FuncTask = Substitute.For<Func<Task>>();
             _FuncInt = Substitute.For<Func<int>>();
             _FuncTaskInt = Substitute.For<Func<Task<int>>>();
+            _Action = Substitute.For<Action>();
             _IAwaitableConstraint = Substitute.For<IAwaitableConstraint>();
             _Diposable = Substitute.For<IDisposable>();
             _IAwaitableConstraint.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Diposable));
@@ -277,6 +279,22 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
+        public async Task Enqueue_CallActionAndIAwaitableConstraintMethods()
+        {
+            await _TimeConstraint.Enqueue(_Action);
+
+            CheckActionSequence();
+        }
+
+        [Fact]
+        public void Dispatch_CallActionAndIAwaitableConstraintMethods()
+        {
+            _TimeConstraint.Dispatch(_Action);
+
+            CheckActionSequence();
+        }
+
+        [Fact]
         public async Task Compose_composes_the_contraints()
         {
             var constraints = Enumerable.Range(0, 3).Select(_ => GetSubstituteAwaitableConstraint()).ToArray();
@@ -321,6 +339,15 @@ namespace RateLimiter.Tests
             Received.InOrder(() => {
                 _IAwaitableConstraint.WaitForReadiness(CancellationToken.None);
                 _FuncTaskInt.Invoke();
+                _Diposable.Dispose();
+            });
+        }
+
+        private void CheckActionSequence()
+        {
+            Received.InOrder(() => {
+                _IAwaitableConstraint.WaitForReadiness(CancellationToken.None);
+                _Action.Invoke();
                 _Diposable.Dispose();
             });
         }
