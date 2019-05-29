@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -286,6 +287,20 @@ namespace RateLimiter.Tests
             await Task.WhenAll(
                 constraints.Select(c => c.Received().WaitForReadiness(Arg.Any<CancellationToken>())).ToArray()
             );
+        }
+
+        [Fact]
+        public void GetPersistentTimeLimiter_returns_a_TimeLimiter()
+        {
+            var persistent = TimeLimiter.GetPersistentTimeLimiter(1, TimeSpan.FromSeconds(1),_ => { });
+            persistent.Should().BeOfType<TimeLimiter>();
+        }
+
+        [Fact]
+        public void GetPersistentTimeLimiter_with_enumerable_returns_a_TimeLimiter()
+        {
+            var persistent = TimeLimiter.GetPersistentTimeLimiter(1, TimeSpan.FromSeconds(1), _ => { }, new List<DateTime>());
+            persistent.Should().BeOfType<TimeLimiter>();
         }
 
         private static IAwaitableConstraint GetSubstituteAwaitableConstraint()
