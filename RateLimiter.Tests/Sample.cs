@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 using ComposableAsync;
+using FluentAssertions;
 
 namespace RateLimiter.Tests
 {
@@ -37,8 +38,7 @@ namespace RateLimiter.Tests
         public async Task SimpleUsageWithCancellation()
         {
             var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
-            var cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(10));
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
 
             for (var i = 0; i < 1000; i++)
             {
@@ -57,13 +57,39 @@ namespace RateLimiter.Tests
         public async Task SimpleUsageAwaitable()
         {
             var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
-            var cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(2));
-
             for (var i = 0; i < 50; i++)
             {
-                await timeConstraint;                
+                await timeConstraint;
                 ConsoleIt();
+            }
+        }
+
+        [Fact]
+        public async Task SimpleUsageAwaitableCancellable()
+        {
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1.1));
+            var count = new Count();
+
+            Func<Task> cancellable = () => DoUntil(timeConstraint, cts.Token, count);
+
+            await cancellable.Should().ThrowAsync<OperationCanceledException>();
+            count.Value.Should().Be(10);
+        }
+
+        public class Count
+        {
+            public int Value { get; set; }
+        }
+
+        private async Task DoUntil(ICancellableDispatcher timeConstraint, CancellationToken token, Count count)
+        {
+            while (true)
+            {
+                await timeConstraint;
+                token.ThrowIfCancellationRequested();
+                ConsoleIt();
+                count.Value++;
             }
         }
 
