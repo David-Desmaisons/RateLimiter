@@ -7,7 +7,7 @@ namespace RateLimiter
     /// <summary>
     /// Time abstraction
     /// </summary>
-    public interface ITime
+    internal interface ITime
     {
         /// <summary>
         /// Return Now DateTime
