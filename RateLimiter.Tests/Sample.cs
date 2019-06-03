@@ -6,6 +6,8 @@ using Xunit;
 using Xunit.Abstractions;
 using ComposableAsync;
 using FluentAssertions;
+using RateLimiter.Tests.TestClass;
+using ComposableAsync.Factory;
 
 namespace RateLimiter.Tests
 {
@@ -91,6 +93,37 @@ namespace RateLimiter.Tests
                 ConsoleIt();
                 count.Value++;
             }
+        }
+
+        
+        [Fact]
+        public async Task UsageWithFactory()
+        {
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromMilliseconds(100));
+            var proxyFactoryBuilder = new ProxyFactoryBuilder();
+            var proxyFactory = proxyFactoryBuilder.GetManagedProxyFactory(timeConstraint);
+            var wrapped = new TimeLimited(_Output);
+            var timeLimited = proxyFactory.Build<ITimeLimited>(wrapped);
+
+            for (var i = 0; i < 50; i++)
+            {
+                await timeLimited.GetValue();
+            }
+
+            var cts = new CancellationTokenSource(TimeSpan.FromMilliseconds(110));
+
+            Func<Task> cancellable = async () =>
+            {
+                while (true) 
+                {
+                    await timeLimited.GetValue(cts.Token);
+                }
+            };
+
+            await cancellable.Should().ThrowAsync<OperationCanceledException>();
+             
+            var res = await timeLimited.GetValue();
+            res.Should().Be(56);
         }
 
         [Fact(Skip = "for demo purpose only")]

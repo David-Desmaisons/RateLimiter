@@ -28,7 +28,7 @@ Features:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ComposableAsync.Core" Version="1.0.0-alpha.3" />
+    <PackageReference Include="ComposableAsync.Core" Version="1.0.0-alpha.4" />
   </ItemGroup>
 
 </Project>
