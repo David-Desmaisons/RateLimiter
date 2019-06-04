@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/david.desmaisons/Documents/project/source/RateLimiter/RateLimiter.Documentation",
+  "source_base_path": "C:/Users/David/Documents/Source/RateLimiter/RateLimiter.Documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.AwaitableConstraintExtension.html",
-          "hash": "pve9i52DAcAaAYbX6Eu/wA=="
+          "hash": "6tFzTkLMmfOANnseN5fOOg=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.CountByIntervalAwaitableConstraint.html",
-          "hash": "EW5/UiX3//Araz4EM1jpxQ=="
+          "hash": "tGxPu/05UqyD25xIb341Kg=="
         }
       },
       "is_incremental": false,
@@ -33,19 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.IAwaitableConstraint.html",
-          "hash": "zivA1qz8lr9YZaaT7AJjwQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.ITime.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.ITime.html",
-          "hash": "vxcpVeuiCBcLdO11Ds8akg=="
+          "hash": "oiKLNDuWiu8Ucb8VApEoCA=="
         }
       },
       "is_incremental": false,
@@ -57,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.LimitedSizeStack-1.html",
-          "hash": "wXg8fxayNtLAjh0H0HK1+A=="
+          "hash": "pjsRRfz+p9ryKT8jKcfQqA=="
         }
       },
       "is_incremental": false,
@@ -69,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html",
-          "hash": "yLl4ZPJuIVSt8J4XANlwxA=="
+          "hash": "8RkMsjcyPyVBtZw5asQE/Q=="
         }
       },
       "is_incremental": false,
@@ -81,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.TimeLimiter.html",
-          "hash": "8DsVg4D8LPOmnPe9d/49sw=="
+          "hash": "1JIgkS47uNdST7bJ4d5WHg=="
         }
       },
       "is_incremental": false,
@@ -93,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RateLimiter.html",
-          "hash": "jtB8VG6zf4KDnkITPaX7Dg=="
+          "hash": "Ra+AdiHlz5CWR5snkdzEjQ=="
         }
       },
       "is_incremental": false,
@@ -105,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "FJYwZWLKbf4pMa+YWjuitg=="
+          "hash": "2wIOOS3z/EgwCelqX90CWQ=="
         }
       },
       "is_incremental": false,
@@ -117,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "jZxRQSXfmR5Dvu7dsBAuNw=="
+          "hash": "qsWKJYT5d5lHtqp/VFyiXw=="
         }
       },
       "is_incremental": false,
@@ -157,16 +145,16 @@
           "total_file_count": 0,
           "skipped_file_count": 0
         },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 8,
-          "skipped_file_count": 0
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 1,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 7,
           "skipped_file_count": 0
         }
       }

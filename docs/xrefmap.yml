@@ -116,38 +116,6 @@ references:
   isSpec: "True"
   fullName: RateLimiter.IAwaitableConstraint.WaitForReadiness
   nameWithType: IAwaitableConstraint.WaitForReadiness
-- uid: RateLimiter.ITime
-  name: ITime
-  href: api/RateLimiter.ITime.html
-  commentId: T:RateLimiter.ITime
-  fullName: RateLimiter.ITime
-  nameWithType: ITime
-- uid: RateLimiter.ITime.GetDelay(TimeSpan,CancellationToken)
-  name: GetDelay(TimeSpan, CancellationToken)
-  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetDelay_TimeSpan_CancellationToken_
-  commentId: M:RateLimiter.ITime.GetDelay(TimeSpan,CancellationToken)
-  fullName: RateLimiter.ITime.GetDelay(TimeSpan, CancellationToken)
-  nameWithType: ITime.GetDelay(TimeSpan, CancellationToken)
-- uid: RateLimiter.ITime.GetDelay*
-  name: GetDelay
-  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetDelay_
-  commentId: Overload:RateLimiter.ITime.GetDelay
-  isSpec: "True"
-  fullName: RateLimiter.ITime.GetDelay
-  nameWithType: ITime.GetDelay
-- uid: RateLimiter.ITime.GetNow
-  name: GetNow()
-  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetNow
-  commentId: M:RateLimiter.ITime.GetNow
-  fullName: RateLimiter.ITime.GetNow()
-  nameWithType: ITime.GetNow()
-- uid: RateLimiter.ITime.GetNow*
-  name: GetNow
-  href: api/RateLimiter.ITime.html#RateLimiter_ITime_GetNow_
-  commentId: Overload:RateLimiter.ITime.GetNow
-  isSpec: "True"
-  fullName: RateLimiter.ITime.GetNow
-  nameWithType: ITime.GetNow
 - uid: RateLimiter.LimitedSizeStack`1
   name: LimitedSizeStack<T>
   href: api/RateLimiter.LimitedSizeStack-1.html

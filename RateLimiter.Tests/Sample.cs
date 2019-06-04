@@ -91,8 +91,7 @@ namespace RateLimiter.Tests
         public async Task UsageWithFactory()
         {
             var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromMilliseconds(100));
-            var proxyFactoryBuilder = new ProxyFactoryBuilder();
-            var proxyFactory = proxyFactoryBuilder.GetManagedProxyFactory(timeConstraint);
+            var proxyFactory = new ProxyFactory(timeConstraint);
             var wrapped = new TimeLimited(_Output);
             var timeLimited = proxyFactory.Build<ITimeLimited>(wrapped);
 
