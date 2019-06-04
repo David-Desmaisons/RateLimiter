@@ -71,31 +71,22 @@ namespace RateLimiter.Tests
         {
             var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1.1));
-            var count = new Count();
+            var token = cts.Token;
+            var count = 0;
 
-            Func<Task> cancellable = () => DoUntil(timeConstraint, cts.Token, count);
+            Func<Task> cancellable = async () => {
+                while (true) {
+                    await timeConstraint;
+                    token.ThrowIfCancellationRequested();
+                    ConsoleIt();
+                    count++;
+                }
+            };
 
             await cancellable.Should().ThrowAsync<OperationCanceledException>();
-            count.Value.Should().Be(10);
+            count.Should().Be(10);
         }
-
-        public class Count
-        {
-            public int Value { get; set; }
-        }
-
-        private async Task DoUntil(ICancellableDispatcher timeConstraint, CancellationToken token, Count count)
-        {
-            while (true)
-            {
-                await timeConstraint;
-                token.ThrowIfCancellationRequested();
-                ConsoleIt();
-                count.Value++;
-            }
-        }
-
-        
+       
         [Fact]
         public async Task UsageWithFactory()
         {
