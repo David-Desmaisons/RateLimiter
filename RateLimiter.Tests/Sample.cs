@@ -8,6 +8,7 @@ using ComposableAsync;
 using FluentAssertions;
 using RateLimiter.Tests.TestClass;
 using ComposableAsync.Factory;
+using System.Diagnostics;
 
 namespace RateLimiter.Tests
 {
@@ -95,10 +96,16 @@ namespace RateLimiter.Tests
             var wrapped = new TimeLimited(_Output);
             var timeLimited = proxyFactory.Build<ITimeLimited>(wrapped);
 
+            var watch = Stopwatch.StartNew();
+
             for (var i = 0; i < 50; i++)
             {
                 await timeLimited.GetValue();
             }
+
+            watch.Stop();
+            watch.Elapsed.Should().BeGreaterThan(TimeSpan.FromMilliseconds(900));
+            _Output.WriteLine($"Elapsed: {watch.Elapsed}");
 
             var cts = new CancellationTokenSource(TimeSpan.FromMilliseconds(110));
 
@@ -114,6 +121,8 @@ namespace RateLimiter.Tests
              
             var res = await timeLimited.GetValue();
             res.Should().Be(56);
+
+            await proxyFactory.DisposeAsync();
         }
 
         [Fact(Skip = "for demo purpose only")]
