@@ -75,8 +75,10 @@ namespace RateLimiter.Tests
             var token = cts.Token;
             var count = 0;
 
-            Func<Task> cancellable = async () => {
-                while (true) {
+            Func<Task> cancellable = async () =>
+            {
+                while (true)
+                {
                     await timeConstraint;
                     token.ThrowIfCancellationRequested();
                     ConsoleIt();
@@ -91,10 +93,9 @@ namespace RateLimiter.Tests
         [Fact]
         public async Task UsageWithFactory()
         {
-            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromMilliseconds(100));
-            var proxyFactory = new ProxyFactory(timeConstraint);
             var wrapped = new TimeLimited(_Output);
-            var timeLimited = proxyFactory.Build<ITimeLimited>(wrapped);
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromMilliseconds(100));
+            var timeLimited = timeConstraint.Proxify<ITimeLimited>(wrapped);
 
             var watch = Stopwatch.StartNew();
 
@@ -121,8 +122,6 @@ namespace RateLimiter.Tests
              
             var res = await timeLimited.GetValue();
             res.Should().Be(56);
-
-            await proxyFactory.DisposeAsync();
         }
 
         [Fact(Skip = "for demo purpose only")]
