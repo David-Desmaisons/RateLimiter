@@ -19,5 +19,11 @@ namespace RateLimiter
         /// A disposable that should be disposed upon task completion
         /// </returns>
         Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Returns a new IAwaitableConstraint with same constraints but unused
+        /// </summary>
+        /// <returns></returns>
+        IAwaitableConstraint Clone();
     }
 }

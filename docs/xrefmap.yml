@@ -103,6 +103,19 @@ references:
   commentId: T:RateLimiter.IAwaitableConstraint
   fullName: RateLimiter.IAwaitableConstraint
   nameWithType: IAwaitableConstraint
+- uid: RateLimiter.IAwaitableConstraint.Clone
+  name: Clone()
+  href: api/RateLimiter.IAwaitableConstraint.html#RateLimiter_IAwaitableConstraint_Clone
+  commentId: M:RateLimiter.IAwaitableConstraint.Clone
+  fullName: RateLimiter.IAwaitableConstraint.Clone()
+  nameWithType: IAwaitableConstraint.Clone()
+- uid: RateLimiter.IAwaitableConstraint.Clone*
+  name: Clone
+  href: api/RateLimiter.IAwaitableConstraint.html#RateLimiter_IAwaitableConstraint_Clone_
+  commentId: Overload:RateLimiter.IAwaitableConstraint.Clone
+  isSpec: "True"
+  fullName: RateLimiter.IAwaitableConstraint.Clone
+  nameWithType: IAwaitableConstraint.Clone
 - uid: RateLimiter.IAwaitableConstraint.WaitForReadiness(CancellationToken)
   name: WaitForReadiness(CancellationToken)
   href: api/RateLimiter.IAwaitableConstraint.html#RateLimiter_IAwaitableConstraint_WaitForReadiness_CancellationToken_
