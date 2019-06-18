@@ -10,7 +10,7 @@ namespace RateLimiter
     /// <summary>
     /// TimeLimiter implementation
     /// </summary>
-    public class TimeLimiter : ICancellableDispatcher
+    public class TimeLimiter : IDispatcher
     {
         private readonly IAwaitableConstraint _AwaitableConstraint;
 
@@ -73,6 +73,8 @@ namespace RateLimiter
                 return await perform();
             }
         }
+
+        public IDispatcher Clone() => new TimeLimiter(_AwaitableConstraint.Clone());
 
         private static Func<Task> Transform(Action act) 
         {

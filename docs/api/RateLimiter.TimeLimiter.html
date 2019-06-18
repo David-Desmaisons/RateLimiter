@@ -89,16 +89,46 @@
   <h6><strong>Assembly</strong>: RateLimiter.dll</h6>
   <h5 id="RateLimiter_TimeLimiter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TimeLimiter : ICancellableDispatcher</code></pre>
+    <pre><code class="lang-csharp hljs">public class TimeLimiter : IDispatcher</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Clone.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L77">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Clone_" data-uid="RateLimiter.TimeLimiter.Clone*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Clone" data-uid="RateLimiter.TimeLimiter.Clone">Clone()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDispatcher Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDispatcher</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L197">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L199">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_Compose_" data-uid="RateLimiter.TimeLimiter.Compose*"></a>
   <h4 id="RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___" data-uid="RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint[])">Compose(IAwaitableConstraint[])</h4>
@@ -146,7 +176,7 @@
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Dispatch_Action_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Dispatch(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L109">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L111">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_Dispatch_" data-uid="RateLimiter.TimeLimiter.Dispatch*"></a>
   <h4 id="RateLimiter_TimeLimiter_Dispatch_Action_" data-uid="RateLimiter.TimeLimiter.Dispatch(Action)">Dispatch(Action)</h4>
@@ -179,7 +209,7 @@
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue_Action_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L99">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L101">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
   <h4 id="RateLimiter_TimeLimiter_Enqueue_Action_" data-uid="RateLimiter.TimeLimiter.Enqueue(Action)">Enqueue(Action)</h4>
@@ -227,7 +257,7 @@
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue_Action_CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue(Action%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L147">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L149">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
   <h4 id="RateLimiter_TimeLimiter_Enqueue_Action_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue(Action,CancellationToken)">Enqueue(Action, CancellationToken)</h4>
@@ -382,7 +412,7 @@ returning the result of given function</p>
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue__1_Func___0__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L121">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L123">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
   <h4 id="RateLimiter_TimeLimiter_Enqueue__1_Func___0__" data-uid="RateLimiter.TimeLimiter.Enqueue``1(Func{``0})">Enqueue&lt;T&gt;(Func&lt;T&gt;)</h4>
@@ -446,7 +476,7 @@ returning the result of given function</p>
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue__1_Func___0__CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue%60%601(Func%7B%60%600%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L135">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L137">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
   <h4 id="RateLimiter_TimeLimiter_Enqueue__1_Func___0__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue``1(Func{``0},CancellationToken)">Enqueue&lt;T&gt;(Func&lt;T&gt;, CancellationToken)</h4>
@@ -648,7 +678,7 @@ returning the result of given function</p>
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32%2CTimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L160">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L162">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_GetFromMaxCountByInterval_" data-uid="RateLimiter.TimeLimiter.GetFromMaxCountByInterval*"></a>
   <h4 id="RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_" data-uid="RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)">GetFromMaxCountByInterval(Int32, TimeSpan)</h4>
@@ -702,7 +732,7 @@ during a given period</p>
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CTimeSpan%2CAction%7BDateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L172">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L174">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter*"></a>
   <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;)</h4>
@@ -764,7 +794,7 @@ during a given period</p>
     <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CTimeSpan%2CAction%7BDateTime%7D%2CIEnumerable%7BDateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L186">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L188">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter*"></a>
   <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;, IEnumerable&lt;DateTime&gt;)</h4>

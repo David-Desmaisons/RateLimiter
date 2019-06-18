@@ -58,6 +58,19 @@ references:
   isSpec: "True"
   fullName: RateLimiter.CountByIntervalAwaitableConstraint._TimeStamps
   nameWithType: CountByIntervalAwaitableConstraint._TimeStamps
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.Clone
+  name: Clone()
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_Clone
+  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.Clone
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.Clone()
+  nameWithType: CountByIntervalAwaitableConstraint.Clone()
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.Clone*
+  name: Clone
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_Clone_
+  commentId: Overload:RateLimiter.CountByIntervalAwaitableConstraint.Clone
+  isSpec: "True"
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.Clone
+  nameWithType: CountByIntervalAwaitableConstraint.Clone
 - uid: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(DateTime)
   name: OnEnded(DateTime)
   href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_OnEnded_DateTime_
@@ -213,6 +226,19 @@ references:
   commentId: T:RateLimiter.TimeLimiter
   fullName: RateLimiter.TimeLimiter
   nameWithType: TimeLimiter
+- uid: RateLimiter.TimeLimiter.Clone
+  name: Clone()
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Clone
+  commentId: M:RateLimiter.TimeLimiter.Clone
+  fullName: RateLimiter.TimeLimiter.Clone()
+  nameWithType: TimeLimiter.Clone()
+- uid: RateLimiter.TimeLimiter.Clone*
+  name: Clone
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Clone_
+  commentId: Overload:RateLimiter.TimeLimiter.Clone
+  isSpec: "True"
+  fullName: RateLimiter.TimeLimiter.Clone
+  nameWithType: TimeLimiter.Clone
 - uid: RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint[])
   name: Compose(IAwaitableConstraint[])
   href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___
