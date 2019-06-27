@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiter", "RateLimiter\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiter.Tests", "RateLimiter.Tests\RateLimiter.Tests.csproj", "{A42DCD64-6A45-405C-A50A-EEF9660FDC00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimiter.Documentation", "RateLimiter.Documentation\RateLimiter.Documentation.csproj", "{B38A99EB-823B-4848-B109-263EEB694C30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiter.Documentation", "RateLimiter.Documentation\RateLimiter.Documentation.csproj", "{B38A99EB-823B-4848-B109-263EEB694C30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimiter.Example", "RateLimiter.Example\RateLimiter.Example.csproj", "{DBDA5E30-34CE-4738-BC0A-5DFD7FB0CE16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B38A99EB-823B-4848-B109-263EEB694C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B38A99EB-823B-4848-B109-263EEB694C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B38A99EB-823B-4848-B109-263EEB694C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBDA5E30-34CE-4738-BC0A-5DFD7FB0CE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDA5E30-34CE-4738-BC0A-5DFD7FB0CE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDA5E30-34CE-4738-BC0A-5DFD7FB0CE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDA5E30-34CE-4738-BC0A-5DFD7FB0CE16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
