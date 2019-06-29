@@ -32,11 +32,11 @@ references:
   commentId: T:RateLimiter.CountByIntervalAwaitableConstraint
   fullName: RateLimiter.CountByIntervalAwaitableConstraint
   nameWithType: CountByIntervalAwaitableConstraint
-- uid: RateLimiter.CountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan)
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.#ctor(System.Int32,System.TimeSpan)
   name: CountByIntervalAwaitableConstraint(Int32, TimeSpan)
-  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint__ctor_System_Int32_TimeSpan_
-  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan)
-  fullName: RateLimiter.CountByIntervalAwaitableConstraint.CountByIntervalAwaitableConstraint(System.Int32, TimeSpan)
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint__ctor_System_Int32_System_TimeSpan_
+  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.#ctor(System.Int32,System.TimeSpan)
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.CountByIntervalAwaitableConstraint(System.Int32, System.TimeSpan)
   nameWithType: CountByIntervalAwaitableConstraint.CountByIntervalAwaitableConstraint(Int32, TimeSpan)
 - uid: RateLimiter.CountByIntervalAwaitableConstraint.#ctor*
   name: CountByIntervalAwaitableConstraint
@@ -71,11 +71,11 @@ references:
   isSpec: "True"
   fullName: RateLimiter.CountByIntervalAwaitableConstraint.Clone
   nameWithType: CountByIntervalAwaitableConstraint.Clone
-- uid: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(DateTime)
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(System.DateTime)
   name: OnEnded(DateTime)
-  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_OnEnded_DateTime_
-  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(DateTime)
-  fullName: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_OnEnded_System_DateTime_
+  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(System.DateTime)
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded(System.DateTime)
   nameWithType: CountByIntervalAwaitableConstraint.OnEnded(DateTime)
 - uid: RateLimiter.CountByIntervalAwaitableConstraint.OnEnded*
   name: OnEnded
@@ -97,11 +97,11 @@ references:
   isSpec: "True"
   fullName: RateLimiter.CountByIntervalAwaitableConstraint.TimeStamps
   nameWithType: CountByIntervalAwaitableConstraint.TimeStamps
-- uid: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
+- uid: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(System.Threading.CancellationToken)
   name: WaitForReadiness(CancellationToken)
-  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_WaitForReadiness_CancellationToken_
-  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
-  fullName: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
+  href: api/RateLimiter.CountByIntervalAwaitableConstraint.html#RateLimiter_CountByIntervalAwaitableConstraint_WaitForReadiness_System_Threading_CancellationToken_
+  commentId: M:RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(System.Threading.CancellationToken)
+  fullName: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness(System.Threading.CancellationToken)
   nameWithType: CountByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken)
 - uid: RateLimiter.CountByIntervalAwaitableConstraint.WaitForReadiness*
   name: WaitForReadiness
@@ -129,11 +129,11 @@ references:
   isSpec: "True"
   fullName: RateLimiter.IAwaitableConstraint.Clone
   nameWithType: IAwaitableConstraint.Clone
-- uid: RateLimiter.IAwaitableConstraint.WaitForReadiness(CancellationToken)
+- uid: RateLimiter.IAwaitableConstraint.WaitForReadiness(System.Threading.CancellationToken)
   name: WaitForReadiness(CancellationToken)
-  href: api/RateLimiter.IAwaitableConstraint.html#RateLimiter_IAwaitableConstraint_WaitForReadiness_CancellationToken_
-  commentId: M:RateLimiter.IAwaitableConstraint.WaitForReadiness(CancellationToken)
-  fullName: RateLimiter.IAwaitableConstraint.WaitForReadiness(CancellationToken)
+  href: api/RateLimiter.IAwaitableConstraint.html#RateLimiter_IAwaitableConstraint_WaitForReadiness_System_Threading_CancellationToken_
+  commentId: M:RateLimiter.IAwaitableConstraint.WaitForReadiness(System.Threading.CancellationToken)
+  fullName: RateLimiter.IAwaitableConstraint.WaitForReadiness(System.Threading.CancellationToken)
   nameWithType: IAwaitableConstraint.WaitForReadiness(CancellationToken)
 - uid: RateLimiter.IAwaitableConstraint.WaitForReadiness*
   name: WaitForReadiness
@@ -191,13 +191,13 @@ references:
   commentId: T:RateLimiter.PersistentCountByIntervalAwaitableConstraint
   fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint
   nameWithType: PersistentCountByIntervalAwaitableConstraint
-- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor(System.Int32,System.TimeSpan,System.Action{System.DateTime},System.Collections.Generic.IEnumerable{System.DateTime})
   name: PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
-  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint__ctor_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__
-  commentId: M:RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint__ctor_System_Int32_System_TimeSpan_System_Action_System_DateTime__System_Collections_Generic_IEnumerable_System_DateTime__
+  commentId: M:RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor(System.Int32,System.TimeSpan,System.Action{System.DateTime},System.Collections.Generic.IEnumerable{System.DateTime})
   name.vb: PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
-  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(System.Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
-  fullName.vb: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(System.Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(System.Int32, System.TimeSpan, System.Action<System.DateTime>, System.Collections.Generic.IEnumerable<System.DateTime>)
+  fullName.vb: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(System.Int32, System.TimeSpan, System.Action(Of System.DateTime), System.Collections.Generic.IEnumerable(Of System.DateTime))
   nameWithType: PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
   nameWithType.vb: PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
 - uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.#ctor*
@@ -207,11 +207,11 @@ references:
   isSpec: "True"
   fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint
   nameWithType: PersistentCountByIntervalAwaitableConstraint.PersistentCountByIntervalAwaitableConstraint
-- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
+- uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(System.DateTime)
   name: OnEnded(DateTime)
-  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint_OnEnded_DateTime_
-  commentId: M:RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
-  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
+  href: api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html#RateLimiter_PersistentCountByIntervalAwaitableConstraint_OnEnded_System_DateTime_
+  commentId: M:RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(System.DateTime)
+  fullName: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded(System.DateTime)
   nameWithType: PersistentCountByIntervalAwaitableConstraint.OnEnded(DateTime)
 - uid: RateLimiter.PersistentCountByIntervalAwaitableConstraint.OnEnded*
   name: OnEnded
@@ -255,11 +255,11 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.Compose
   nameWithType: TimeLimiter.Compose
-- uid: RateLimiter.TimeLimiter.Dispatch(Action)
+- uid: RateLimiter.TimeLimiter.Dispatch(System.Action)
   name: Dispatch(Action)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Dispatch_Action_
-  commentId: M:RateLimiter.TimeLimiter.Dispatch(Action)
-  fullName: RateLimiter.TimeLimiter.Dispatch(Action)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Dispatch_System_Action_
+  commentId: M:RateLimiter.TimeLimiter.Dispatch(System.Action)
+  fullName: RateLimiter.TimeLimiter.Dispatch(System.Action)
   nameWithType: TimeLimiter.Dispatch(Action)
 - uid: RateLimiter.TimeLimiter.Dispatch*
   name: Dispatch
@@ -268,34 +268,34 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.Dispatch
   nameWithType: TimeLimiter.Dispatch
-- uid: RateLimiter.TimeLimiter.Enqueue(Action)
+- uid: RateLimiter.TimeLimiter.Enqueue(System.Action)
   name: Enqueue(Action)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Action_
-  commentId: M:RateLimiter.TimeLimiter.Enqueue(Action)
-  fullName: RateLimiter.TimeLimiter.Enqueue(Action)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_System_Action_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(System.Action)
+  fullName: RateLimiter.TimeLimiter.Enqueue(System.Action)
   nameWithType: TimeLimiter.Enqueue(Action)
-- uid: RateLimiter.TimeLimiter.Enqueue(Action,CancellationToken)
+- uid: RateLimiter.TimeLimiter.Enqueue(System.Action,System.Threading.CancellationToken)
   name: Enqueue(Action, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Action_CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Enqueue(Action,CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Enqueue(Action, CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_System_Action_System_Threading_CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(System.Action,System.Threading.CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue(System.Action, System.Threading.CancellationToken)
   nameWithType: TimeLimiter.Enqueue(Action, CancellationToken)
-- uid: RateLimiter.TimeLimiter.Enqueue(Func{Task})
+- uid: RateLimiter.TimeLimiter.Enqueue(System.Func{System.Threading.Tasks.Task})
   name: Enqueue(Func<Task>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Func_Task__
-  commentId: M:RateLimiter.TimeLimiter.Enqueue(Func{Task})
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_System_Func_System_Threading_Tasks_Task__
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(System.Func{System.Threading.Tasks.Task})
   name.vb: Enqueue(Func(Of Task))
-  fullName: RateLimiter.TimeLimiter.Enqueue(Func<Task>)
-  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Func(Of Task))
+  fullName: RateLimiter.TimeLimiter.Enqueue(System.Func<System.Threading.Tasks.Task>)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(System.Func(Of System.Threading.Tasks.Task))
   nameWithType: TimeLimiter.Enqueue(Func<Task>)
   nameWithType.vb: TimeLimiter.Enqueue(Func(Of Task))
-- uid: RateLimiter.TimeLimiter.Enqueue(Func{Task},CancellationToken)
+- uid: RateLimiter.TimeLimiter.Enqueue(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name: Enqueue(Func<Task>, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_Func_Task__CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Enqueue(Func{Task},CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name.vb: Enqueue(Func(Of Task), CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Enqueue(Func<Task>, CancellationToken)
-  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Func(Of Task), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue(System.Func<System.Threading.Tasks.Task>, System.Threading.CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(System.Func(Of System.Threading.Tasks.Task), System.Threading.CancellationToken)
   nameWithType: TimeLimiter.Enqueue(Func<Task>, CancellationToken)
   nameWithType.vb: TimeLimiter.Enqueue(Func(Of Task), CancellationToken)
 - uid: RateLimiter.TimeLimiter.Enqueue*
@@ -305,47 +305,47 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.Enqueue
   nameWithType: TimeLimiter.Enqueue
-- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{``0})
+- uid: RateLimiter.TimeLimiter.Enqueue``1(System.Func{``0})
   name: Enqueue<T>(Func<T>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func___0__
-  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{``0})
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_System_Func___0__
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(System.Func{``0})
   name.vb: Enqueue(Of T)(Func(Of T))
-  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<T>)
-  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of T))
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(System.Func<T>)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(System.Func(Of T))
   nameWithType: TimeLimiter.Enqueue<T>(Func<T>)
   nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of T))
-- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{``0},CancellationToken)
+- uid: RateLimiter.TimeLimiter.Enqueue``1(System.Func{``0},System.Threading.CancellationToken)
   name: Enqueue<T>(Func<T>, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func___0__CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{``0},CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_System_Func___0__System_Threading_CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(System.Func{``0},System.Threading.CancellationToken)
   name.vb: Enqueue(Of T)(Func(Of T), CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<T>, CancellationToken)
-  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of T), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(System.Func<T>, System.Threading.CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(System.Func(Of T), System.Threading.CancellationToken)
   nameWithType: TimeLimiter.Enqueue<T>(Func<T>, CancellationToken)
   nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of T), CancellationToken)
-- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}})
+- uid: RateLimiter.TimeLimiter.Enqueue``1(System.Func{System.Threading.Tasks.Task{``0}})
   name: Enqueue<T>(Func<Task<T>>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func_Task___0___
-  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}})
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_System_Func_System_Threading_Tasks_Task___0___
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(System.Func{System.Threading.Tasks.Task{``0}})
   name.vb: Enqueue(Of T)(Func(Of Task(Of T)))
-  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<Task<T>>)
-  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)))
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(System.Func<System.Threading.Tasks.Task<T>>)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(System.Func(Of System.Threading.Tasks.Task(Of T)))
   nameWithType: TimeLimiter.Enqueue<T>(Func<Task<T>>)
   nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)))
-- uid: RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}},CancellationToken)
+- uid: RateLimiter.TimeLimiter.Enqueue``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
   name: Enqueue<T>(Func<Task<T>>, CancellationToken)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_Func_Task___0___CancellationToken_
-  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(Func{Task{``0}},CancellationToken)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_Enqueue__1_System_Func_System_Threading_Tasks_Task___0___System_Threading_CancellationToken_
+  commentId: M:RateLimiter.TimeLimiter.Enqueue``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
   name.vb: Enqueue(Of T)(Func(Of Task(Of T)), CancellationToken)
-  fullName: RateLimiter.TimeLimiter.Enqueue<T>(Func<Task<T>>, CancellationToken)
-  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)), CancellationToken)
+  fullName: RateLimiter.TimeLimiter.Enqueue<T>(System.Func<System.Threading.Tasks.Task<T>>, System.Threading.CancellationToken)
+  fullName.vb: RateLimiter.TimeLimiter.Enqueue(Of T)(System.Func(Of System.Threading.Tasks.Task(Of T)), System.Threading.CancellationToken)
   nameWithType: TimeLimiter.Enqueue<T>(Func<Task<T>>, CancellationToken)
   nameWithType.vb: TimeLimiter.Enqueue(Of T)(Func(Of Task(Of T)), CancellationToken)
-- uid: RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)
+- uid: RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,System.TimeSpan)
   name: GetFromMaxCountByInterval(Int32, TimeSpan)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_
-  commentId: M:RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)
-  fullName: RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32, TimeSpan)
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_System_TimeSpan_
+  commentId: M:RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,System.TimeSpan)
+  fullName: RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32, System.TimeSpan)
   nameWithType: TimeLimiter.GetFromMaxCountByInterval(Int32, TimeSpan)
 - uid: RateLimiter.TimeLimiter.GetFromMaxCountByInterval*
   name: GetFromMaxCountByInterval
@@ -354,22 +354,22 @@ references:
   isSpec: "True"
   fullName: RateLimiter.TimeLimiter.GetFromMaxCountByInterval
   nameWithType: TimeLimiter.GetFromMaxCountByInterval
-- uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime})
+- uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,System.TimeSpan,System.Action{System.DateTime})
   name: GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__
-  commentId: M:RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime})
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_System_TimeSpan_System_Action_System_DateTime__
+  commentId: M:RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,System.TimeSpan,System.Action{System.DateTime})
   name.vb: GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime))
-  fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action<DateTime>)
-  fullName.vb: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action(Of DateTime))
+  fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, System.TimeSpan, System.Action<System.DateTime>)
+  fullName.vb: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, System.TimeSpan, System.Action(Of System.DateTime))
   nameWithType: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>)
   nameWithType.vb: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime))
-- uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+- uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,System.TimeSpan,System.Action{System.DateTime},System.Collections.Generic.IEnumerable{System.DateTime})
   name: GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
-  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__
-  commentId: M:RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})
+  href: api/RateLimiter.TimeLimiter.html#RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_System_TimeSpan_System_Action_System_DateTime__System_Collections_Generic_IEnumerable_System_DateTime__
+  commentId: M:RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,System.TimeSpan,System.Action{System.DateTime},System.Collections.Generic.IEnumerable{System.DateTime})
   name.vb: GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
-  fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
-  fullName.vb: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
+  fullName: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, System.TimeSpan, System.Action<System.DateTime>, System.Collections.Generic.IEnumerable<System.DateTime>)
+  fullName.vb: RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32, System.TimeSpan, System.Action(Of System.DateTime), System.Collections.Generic.IEnumerable(Of System.DateTime))
   nameWithType: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action<DateTime>, IEnumerable<DateTime>)
   nameWithType.vb: TimeLimiter.GetPersistentTimeLimiter(Int32, TimeSpan, Action(Of DateTime), IEnumerable(Of DateTime))
 - uid: RateLimiter.TimeLimiter.GetPersistentTimeLimiter*
