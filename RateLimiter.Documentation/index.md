@@ -35,7 +35,7 @@ Install-Package RateLimiter -Version 1.1.1
     //Use it
     for(int i=0; i<1000; i++)
     {
-        await timeConstraint.Perform(ConsoleIt);
+        await timeConstraint.Enqueue(ConsoleIt);
     }       
     
     ....
@@ -78,7 +78,7 @@ Output
     //Use it
     for(int i=0; i<1000; i++)
     {
-        await timeConstraint.Perform(ConsoleIt);
+        await timeConstraint.Enqueue(ConsoleIt);
     }       
 ```
 
