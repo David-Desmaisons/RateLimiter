@@ -77,10 +77,10 @@ However this helper can also be also in other scenarios where you need to tempor
 <h2 id="features">Features</h2>
 <ul>
 <li>Easy to use</li>
-<li>Fully asynchroneous: lower resource usage than thread sleep</li>
+<li>Fully asynchronous: lower resource usage than thread sleep</li>
 <li>Cancellable via CancellationToken</li>
-<li>Thread safe so you can share time contraints object to rate limit diferent threads using the same resource</li>
-<li>Composable: ability to compose diferent rate limits in one constraint</li>
+<li>Thread safe so you can share time constraints object to rate limit different threads using the same resource</li>
+<li>Composable: ability to compose different rate limits in one constraint</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <pre><code class="lang-bash">Install-Package RateLimiter -Version 1.1.1	
@@ -89,12 +89,12 @@ However this helper can also be also in other scenarios where you need to tempor
 <h2 id="sample-usage">Sample usage</h2>
 <h3 id="basic">Basic</h3>
 <pre><code class="lang-C#">    //Create Time constraint: max five times by second
-    var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+    var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
     //Use it
     for(int i=0; i&lt;1000; i++)
     {
-        await timeconstraint.Perform(ConsoleIt);
+        await timeConstraint.Perform(ConsoleIt);
     }       
     
     ....
@@ -127,12 +127,12 @@ However this helper can also be also in other scenarios where you need to tempor
     var constraint2 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
     
     //Compose the two constraints
-    var timeconstraint = TimeLimiter.Compose(constraint, constraint2);
+    var timeConstraint = TimeLimiter.Compose(constraint, constraint2);
 
     //Use it
     for(int i=0; i&lt;1000; i++)
     {
-        await timeconstraint.Perform(ConsoleIt);
+        await timeConstraint.Perform(ConsoleIt);
     }       
 </code></pre>
 <p>Output</p>

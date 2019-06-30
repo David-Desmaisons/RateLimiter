@@ -13,10 +13,10 @@ However this helper can also be also in other scenarios where you need to tempor
 
 ## Features
 * Easy to use
-* Fully asynchroneous: lower resource usage than thread sleep
+* Fully asynchronous: lower resource usage than thread sleep
 * Cancellable via CancellationToken
-* Thread safe so you can share time contraints object to rate limit diferent threads using the same resource
-* Composable: ability to compose diferent rate limits in one constraint
+* Thread safe so you can share time constraints object to rate limit different threads using the same resource
+* Composable: ability to compose different rate limits in one constraint
 
 ## Installation
 ```bash
@@ -30,12 +30,12 @@ Install-Package RateLimiter -Version 1.1.1
 
 ```C#
     //Create Time constraint: max five times by second
-    var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+    var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
     //Use it
     for(int i=0; i<1000; i++)
     {
-        await timeconstraint.Perform(ConsoleIt);
+        await timeConstraint.Perform(ConsoleIt);
     }       
     
     ....
@@ -73,12 +73,12 @@ Output
     var constraint2 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
     
     //Compose the two constraints
-    var timeconstraint = TimeLimiter.Compose(constraint, constraint2);
+    var timeConstraint = TimeLimiter.Compose(constraint, constraint2);
 
     //Use it
     for(int i=0; i<1000; i++)
     {
-        await timeconstraint.Perform(ConsoleIt);
+        await timeConstraint.Perform(ConsoleIt);
     }       
 ```
 
