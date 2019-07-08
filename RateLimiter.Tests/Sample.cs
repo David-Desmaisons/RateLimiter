@@ -40,14 +40,14 @@ namespace RateLimiter.Tests
         [Fact]
         public async Task SimpleUsageWithCancellation()
         {
-            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
-            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(3, TimeSpan.FromSeconds(1));
+            var cts = new CancellationTokenSource(1100);
 
             for (var i = 0; i < 1000; i++)
             {
                 try
                 {
-                    await timeConstraint.Enqueue(() => ConsoleIt(), cts.Token);
+                    await timeConstraint.Enqueue(() =>ConsoleIt(), cts.Token);
                 }
                 catch (Exception)
                 {
