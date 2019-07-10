@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TimeLimiter
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.42.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -77,7 +77,7 @@
   
   <h1 id="RateLimiter_TimeLimiter" data-uid="RateLimiter.TimeLimiter" class="text-break">Class TimeLimiter
   </h1>
-  <div class="markdown level0 summary"><p><a class="xref" href="RateLimiter.IRateLimiter.html">IRateLimiter</a> implementation</p>
+  <div class="markdown level0 summary"><p>TimeLimiter implementation</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -87,22 +87,76 @@
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="RateLimiter.IRateLimiter.html">IRateLimiter</a></div>
+    <div><span class="xref">ComposableAsync.IDispatcher</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RateLimiter.html">RateLimiter</a></h6>
   <h6><strong>Assembly</strong>: RateLimiter.dll</h6>
   <h5 id="RateLimiter_TimeLimiter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TimeLimiter : object, IRateLimiter</code></pre>
+    <pre><code class="lang-csharp hljs">public class TimeLimiter : IDispatcher</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Clone.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L187">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L77">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Clone_" data-uid="RateLimiter.TimeLimiter.Clone*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Clone" data-uid="RateLimiter.TimeLimiter.Clone">Clone()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDispatcher Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ComposableAsync.IDispatcher</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L199">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_Compose_" data-uid="RateLimiter.TimeLimiter.Compose*"></a>
   <h4 id="RateLimiter_TimeLimiter_Compose_RateLimiter_IAwaitableConstraint___" data-uid="RateLimiter.TimeLimiter.Compose(RateLimiter.IAwaitableConstraint[])">Compose(IAwaitableConstraint[])</h4>
@@ -147,13 +201,515 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32%2CTimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Dispatch_System_Action_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Dispatch(System.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L150">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L111">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Dispatch_" data-uid="RateLimiter.TimeLimiter.Dispatch*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Dispatch_System_Action_" data-uid="RateLimiter.TimeLimiter.Dispatch(System.Action)">Dispatch(Action)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispatch(Action action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue_System_Action_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue(System.Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L101">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_System_Action_" data-uid="RateLimiter.TimeLimiter.Enqueue(System.Action)">Enqueue(Action)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Action perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue_System_Action_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue(System.Action%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L149">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_System_Action_System_Threading_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue(System.Action,System.Threading.CancellationToken)">Enqueue(Action, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Action perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue_System_Func_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue(System.Func%7BSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L28">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_System_Func_System_Threading_Tasks_Task__" data-uid="RateLimiter.TimeLimiter.Enqueue(System.Func{System.Threading.Tasks.Task})">Enqueue(Func&lt;Task&gt;)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Func&lt;Task&gt; perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue(System.Func%7BSystem.Threading.Tasks.Task%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L51">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">Enqueue(Func&lt;Task&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Enqueue(Func&lt;Task&gt; perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue__1_System_Func___0__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L123">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_System_Func___0__" data-uid="RateLimiter.TimeLimiter.Enqueue``1(System.Func{``0})">Enqueue&lt;T&gt;(Func&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;T&gt; perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue__1_System_Func___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue%60%601(System.Func%7B%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L137">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_System_Func___0__System_Threading_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue``1(System.Func{``0},System.Threading.CancellationToken)">Enqueue&lt;T&gt;(Func&lt;T&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;T&gt; perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue__1_System_Func_System_Threading_Tasks_Task___0___.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue%60%601(System.Func%7BSystem.Threading.Tasks.Task%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L40">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_System_Func_System_Threading_Tasks_Task___0___" data-uid="RateLimiter.TimeLimiter.Enqueue``1(System.Func{System.Threading.Tasks.Task{``0}})">Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_Enqueue__1_System_Func_System_Threading_Tasks_Task___0___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Enqueue%60%601(System.Func%7BSystem.Threading.Tasks.Task%7B%60%600%7D%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L68">View Source</a>
+  </span>
+  <a id="RateLimiter_TimeLimiter_Enqueue_" data-uid="RateLimiter.TimeLimiter.Enqueue*"></a>
+  <h4 id="RateLimiter_TimeLimiter_Enqueue__1_System_Func_System_Threading_Tasks_Task___0___System_Threading_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Enqueue``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
+returning the result of given function</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Enqueue&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">perform</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_System_TimeSpan_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32%2CSystem.TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L162">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_GetFromMaxCountByInterval_" data-uid="RateLimiter.TimeLimiter.GetFromMaxCountByInterval*"></a>
-  <h4 id="RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_TimeSpan_" data-uid="RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,TimeSpan)">GetFromMaxCountByInterval(Int32, TimeSpan)</h4>
+  <h4 id="RateLimiter_TimeLimiter_GetFromMaxCountByInterval_System_Int32_System_TimeSpan_" data-uid="RateLimiter.TimeLimiter.GetFromMaxCountByInterval(System.Int32,System.TimeSpan)">GetFromMaxCountByInterval(Int32, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Returns a TimeLimiter based on a maximum number of times
 during a given period</p>
 </div>
@@ -178,7 +734,7 @@ during a given period</p>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="xref">System.TimeSpan</span></td>
         <td><span class="parametername">timeSpan</span></td>
         <td></td>
       </tr>
@@ -201,13 +757,13 @@ during a given period</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CTimeSpan%2CAction%7BDateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_System_TimeSpan_System_Action_System_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CSystem.TimeSpan%2CSystem.Action%7BSystem.DateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L162">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L174">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter*"></a>
-  <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;)</h4>
+  <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_System_TimeSpan_System_Action_System_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,System.TimeSpan,System.Action{System.DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;)</h4>
   <div class="markdown level1 summary"><p>Create <a class="xref" href="RateLimiter.TimeLimiter.html">TimeLimiter</a> that will save state using action passed through <code data-dev-comment-type="paramref" class="paramref">saveStateAction</code> parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -232,13 +788,13 @@ during a given period</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="xref">System.TimeSpan</span></td>
         <td><span class="parametername">timeSpan</span></td>
         <td><p>Time interval limits are applied for.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
         <td><span class="parametername">saveStateAction</span></td>
         <td><p>Action is used to save state.</p>
 </td>
@@ -263,13 +819,13 @@ during a given period</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CTimeSpan%2CAction%7BDateTime%7D%2CIEnumerable%7BDateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_System_TimeSpan_System_Action_System_DateTime__System_Collections_Generic_IEnumerable_System_DateTime__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32%2CSystem.TimeSpan%2CSystem.Action%7BSystem.DateTime%7D%2CSystem.Collections.Generic.IEnumerable%7BSystem.DateTime%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L176">View Source</a>
+    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L188">View Source</a>
   </span>
   <a id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter*"></a>
-  <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_TimeSpan_Action_DateTime__IEnumerable_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,TimeSpan,Action{DateTime},IEnumerable{DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;, IEnumerable&lt;DateTime&gt;)</h4>
+  <h4 id="RateLimiter_TimeLimiter_GetPersistentTimeLimiter_System_Int32_System_TimeSpan_System_Action_System_DateTime__System_Collections_Generic_IEnumerable_System_DateTime__" data-uid="RateLimiter.TimeLimiter.GetPersistentTimeLimiter(System.Int32,System.TimeSpan,System.Action{System.DateTime},System.Collections.Generic.IEnumerable{System.DateTime})">GetPersistentTimeLimiter(Int32, TimeSpan, Action&lt;DateTime&gt;, IEnumerable&lt;DateTime&gt;)</h4>
   <div class="markdown level1 summary"><p>Create <a class="xref" href="RateLimiter.TimeLimiter.html">TimeLimiter</a> with initial timestamps that will save state using action passed through <code data-dev-comment-type="paramref" class="paramref">saveStateAction</code> parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -294,19 +850,19 @@ during a given period</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="xref">System.TimeSpan</span></td>
         <td><span class="parametername">timeSpan</span></td>
         <td><p>Time interval limits are applied for.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
         <td><span class="parametername">saveStateAction</span></td>
         <td><p>Action is used to save state.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
         <td><span class="parametername">initialTimeStamps</span></td>
         <td><p>Initial timestamps.</p>
 </td>
@@ -329,478 +885,9 @@ during a given period</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Action_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L110">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Action_" data-uid="RateLimiter.TimeLimiter.Perform(Action)">Perform(Action)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Action perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Action</span></td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Action_CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Action%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L99">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Action_CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform(Action,CancellationToken)">Perform(Action, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Action perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Action</span></td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Func_Task__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Func%7BTask%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L27">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Func_Task__" data-uid="RateLimiter.TimeLimiter.Perform(Func{Task})">Perform(Func&lt;Task&gt;)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Func&lt;Task&gt; perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform_Func_Task__CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform(Func%7BTask%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L50">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform_Func_Task__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform(Func{Task},CancellationToken)">Perform(Func&lt;Task&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Perform(Func&lt;Task&gt; perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func___0__.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L123">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func___0__" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{``0})">Perform&lt;T&gt;(Func&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;T&gt; perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7B%60%600%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L137">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func___0__CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{``0},CancellationToken)">Perform&lt;T&gt;(Func&lt;T&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;T&gt; perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func_Task___0___.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7BTask%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L39">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func_Task___0___" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}})">Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T&gt;&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter_Perform__1_Func_Task___0___CancellationToken_.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter.Perform%60%601(Func%7BTask%7B%60%600%7D%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L67">View Source</a>
-  </span>
-  <a id="RateLimiter_TimeLimiter_Perform_" data-uid="RateLimiter.TimeLimiter.Perform*"></a>
-  <h4 id="RateLimiter_TimeLimiter_Perform__1_Func_Task___0___CancellationToken_" data-uid="RateLimiter.TimeLimiter.Perform``1(Func{Task{``0}},CancellationToken)">Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Perform the given task respecting the time constraint
-returning the result of given function</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; Perform&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; perform, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T&gt;&gt;</td>
-        <td><span class="parametername">perform</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="RateLimiter.IRateLimiter.html">IRateLimiter</a>
+      <span class="xref">ComposableAsync.IDispatcher</span>
   </div>
 </article>
           </div>
@@ -810,10 +897,10 @@ returning the result of given function</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/David-Desmaisons/RateLimiter/new/master/apiSpec/new?filename=RateLimiter_TimeLimiter.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/David-Desmaisons/RateLimiter/new/use-composableasync/apiSpec/new?filename=RateLimiter_TimeLimiter.md&amp;value=---%0Auid%3A%20RateLimiter.TimeLimiter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/master/RateLimiter/TimeLimiter.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/David-Desmaisons/RateLimiter/blob/use-composableasync/RateLimiter/TimeLimiter.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

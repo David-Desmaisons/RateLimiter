@@ -92,6 +92,15 @@ namespace RateLimiter
             return new DisposeAction(OnEnded);
         }
 
+        /// <summary>
+        /// Clone CountByIntervalAwaitableConstraint
+        /// </summary>
+        /// <returns></returns>
+        public IAwaitableConstraint Clone()
+        {
+            return new CountByIntervalAwaitableConstraint(_Count, _TimeSpan, _Time);
+        }
+
         private void OnEnded()
         {
             var now = _Time.GetNow();

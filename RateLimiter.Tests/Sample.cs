@@ -4,6 +4,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
+using ComposableAsync;
+using FluentAssertions;
+using RateLimiter.Tests.TestClass;
+using ComposableAsync.Factory;
+using System.Diagnostics;
 
 namespace RateLimiter.Tests
 {
@@ -28,28 +33,95 @@ namespace RateLimiter.Tests
 
             for (int i = 0; i < 1000; i++)
             {
-                await timeConstraint.Perform(() => ConsoleIt());
+                await timeConstraint.Enqueue(() => ConsoleIt());
             }
         }
 
         [Fact]
         public async Task SimpleUsageWithCancellation()
         {
-            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
-            var cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(10));
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(3, TimeSpan.FromSeconds(1));
+            var cts = new CancellationTokenSource(1100);
 
             for (var i = 0; i < 1000; i++)
             {
                 try
                 {
-                    await timeConstraint.Perform(() => ConsoleIt(), cts.Token);
+                    await timeConstraint.Enqueue(() =>ConsoleIt(), cts.Token);
                 }
                 catch (Exception)
                 {
                     // ignored
                 }
             }
+        }
+
+        [Fact]
+        public async Task SimpleUsageAwaitable()
+        {
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+            for (var i = 0; i < 50; i++)
+            {
+                await timeConstraint;
+                ConsoleIt();
+            }
+        }
+
+        [Fact]
+        public async Task SimpleUsageAwaitableCancellable()
+        {
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1.1));
+            var token = cts.Token;
+            var count = 0;
+
+            Func<Task> cancellable = async () =>
+            {
+                while (true)
+                {
+                    await timeConstraint;
+                    token.ThrowIfCancellationRequested();
+                    ConsoleIt();
+                    count++;
+                }
+            };
+
+            await cancellable.Should().ThrowAsync<OperationCanceledException>();
+            count.Should().Be(10);
+        }
+       
+        [Fact]
+        public async Task UsageWithFactory()
+        {
+            var wrapped = new TimeLimited(_Output);
+            var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromMilliseconds(100));
+            var timeLimited = timeConstraint.Proxify<ITimeLimited>(wrapped);
+
+            var watch = Stopwatch.StartNew();
+
+            for (var i = 0; i < 50; i++)
+            {
+                await timeLimited.GetValue();
+            }
+
+            watch.Stop();
+            watch.Elapsed.Should().BeGreaterThan(TimeSpan.FromMilliseconds(900));
+            _Output.WriteLine($"Elapsed: {watch.Elapsed}");
+
+            var cts = new CancellationTokenSource(TimeSpan.FromMilliseconds(110));
+
+            Func<Task> cancellable = async () =>
+            {
+                while (true) 
+                {
+                    await timeLimited.GetValue(cts.Token);
+                }
+            };
+
+            await cancellable.Should().ThrowAsync<OperationCanceledException>();
+             
+            var res = await timeLimited.GetValue();
+            res.Should().Be(56);
         }
 
         [Fact(Skip = "for demo purpose only")]
@@ -61,7 +133,7 @@ namespace RateLimiter.Tests
 
             for (var i = 0; i < 1000; i++)
             {
-                await timeConstraint.Perform(() => ConsoleIt());
+                await timeConstraint.Enqueue(() => ConsoleIt());
             }
         }
 
@@ -80,7 +152,7 @@ namespace RateLimiter.Tests
                 {
                     for (int j = 0; j < 10; j++)
                     {
-                        await timeConstraint.Perform(() => ConsoleIt());
+                        await timeConstraint.Enqueue(() => ConsoleIt());
                     }
                 }));
             }

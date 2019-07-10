@@ -12,14 +12,22 @@ namespace RateLimiter.Tests
     {
         private readonly IAwaitableConstraint _AwaitableConstraint1;
         private readonly IAwaitableConstraint _AwaitableConstraint2;
+        private readonly IAwaitableConstraint _AwaitableConstraintCloned1;
+        private readonly IAwaitableConstraint _AwaitableConstraintCloned2;
         private readonly IDisposable _Disposable1;
         private readonly IDisposable _Disposable2;
         private readonly ComposedAwaitableConstraint _Composed;
 
         public ComposedAwaitableConstraintTest()
         {
+            _AwaitableConstraintCloned1 = Substitute.For<IAwaitableConstraint>();
+            _AwaitableConstraintCloned2 = Substitute.For<IAwaitableConstraint>();
+
             _AwaitableConstraint1 = Substitute.For<IAwaitableConstraint>();
             _AwaitableConstraint2 = Substitute.For<IAwaitableConstraint>();
+            _AwaitableConstraint1.Clone().Returns(_AwaitableConstraintCloned1);
+            _AwaitableConstraint2.Clone().Returns(_AwaitableConstraintCloned2);
+
             _Disposable1 = Substitute.For<IDisposable>();
             _Disposable2 = Substitute.For<IDisposable>();
             _AwaitableConstraint1.WaitForReadiness(Arg.Any<CancellationToken>()).Returns(Task.FromResult(_Disposable1));
@@ -34,6 +42,17 @@ namespace RateLimiter.Tests
 
             await _AwaitableConstraint1.Received(1).WaitForReadiness(CancellationToken.None);
             await _AwaitableConstraint2.Received(1).WaitForReadiness(CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task Clone_WaitForReadiness_Call_ComposingElementsWaitForReadiness()
+        {
+            var clone = _Composed.Clone();
+
+            await clone.WaitForReadiness(CancellationToken.None);
+
+            await _AwaitableConstraintCloned1.Received(1).WaitForReadiness(CancellationToken.None);
+            await _AwaitableConstraintCloned2.Received(1).WaitForReadiness(CancellationToken.None);
         }
 
         [Fact]
@@ -68,7 +87,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task WaitForReadiness_BlockUntillDisposeIsCalled()
+        public async Task WaitForReadiness_BlockUntilDisposeIsCalled()
         {
             var disp = await _Composed.WaitForReadiness(CancellationToken.None);
             disp.Dispose();
@@ -82,8 +101,8 @@ namespace RateLimiter.Tests
             var task = _Composed.WaitForReadiness(CancellationToken.None);
             var timeoutTask = Task.Delay(TimeSpan.FromMilliseconds(200));
 
-            var taskcomplete = await Task.WhenAny(task, timeoutTask);
-            return taskcomplete == timeoutTask;
+            var taskComplete = await Task.WhenAny(task, timeoutTask);
+            return taskComplete == timeoutTask;
         }
 
         [Fact]

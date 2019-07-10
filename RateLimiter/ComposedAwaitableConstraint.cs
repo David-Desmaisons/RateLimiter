@@ -16,6 +16,11 @@ namespace RateLimiter
             _AwaitableConstraint2 = awaitableConstraint2;
         }
 
+        public IAwaitableConstraint Clone()
+        {
+            return new ComposedAwaitableConstraint(_AwaitableConstraint1.Clone(), _AwaitableConstraint2.Clone());
+        }
+
         public async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
         {
             await _Semaphore.WaitAsync(cancellationToken);

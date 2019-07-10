@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ComposableAsync;
 
 namespace RateLimiter
 {
     /// <summary>
-    /// <see cref="IRateLimiter"/> implementation
+    /// TimeLimiter implementation
     /// </summary>
-    public class TimeLimiter : IRateLimiter
+    public class TimeLimiter : IDispatcher
     {
         private readonly IAwaitableConstraint _AwaitableConstraint;
 
@@ -24,9 +25,9 @@ namespace RateLimiter
         /// </summary>
         /// <param name="perform"></param>
         /// <returns></returns>
-        public Task Perform(Func<Task> perform) 
+        public Task Enqueue(Func<Task> perform) 
         {
-            return Perform(perform, CancellationToken.None);
+            return Enqueue(perform, CancellationToken.None);
         }
 
         /// <summary>
@@ -36,9 +37,9 @@ namespace RateLimiter
         /// <typeparam name="T"></typeparam>
         /// <param name="perform"></param>
         /// <returns></returns>
-        public Task<T> Perform<T>(Func<Task<T>> perform) 
+        public Task<T> Enqueue<T>(Func<Task<T>> perform) 
         {
-            return Perform(perform, CancellationToken.None);
+            return Enqueue(perform, CancellationToken.None);
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace RateLimiter
         /// <param name="perform"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task Perform(Func<Task> perform, CancellationToken cancellationToken) 
+        public async Task Enqueue(Func<Task> perform, CancellationToken cancellationToken) 
         {
             cancellationToken.ThrowIfCancellationRequested();
             using (await _AwaitableConstraint.WaitForReadiness(cancellationToken)) 
@@ -64,7 +65,7 @@ namespace RateLimiter
         /// <param name="perform"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<T> Perform<T>(Func<Task<T>> perform, CancellationToken cancellationToken) 
+        public async Task<T> Enqueue<T>(Func<Task<T>> perform, CancellationToken cancellationToken) 
         {
             cancellationToken.ThrowIfCancellationRequested();
             using (await _AwaitableConstraint.WaitForReadiness(cancellationToken)) 
@@ -72,6 +73,8 @@ namespace RateLimiter
                 return await perform();
             }
         }
+
+        public IDispatcher Clone() => new TimeLimiter(_AwaitableConstraint.Clone());
 
         private static Func<Task> Transform(Action act) 
         {
@@ -94,50 +97,59 @@ namespace RateLimiter
         /// Perform the given task respecting the time constraint
         /// </summary>
         /// <param name="perform"></param>
+        /// <returns></returns>
+        public Task Enqueue(Action perform) 
+        {
+            var transformed = Transform(perform);
+            return Enqueue(transformed);
+        }
+
+        /// <summary>
+        ///  Perform the given task respecting the time constraint
+        /// </summary>
+        /// <param name="action"></param>
+        public void Dispatch(Action action)
+        {
+            Enqueue(action);
+        }
+
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="perform"></param>
+        /// <returns></returns>
+        public Task<T> Enqueue<T>(Func<T> perform) 
+        {
+            var transformed = Transform(perform);
+            return Enqueue(transformed);
+        }
+
+        /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// returning the result of given function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="perform"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public Task Perform(Action perform, CancellationToken cancellationToken) 
+        public Task<T> Enqueue<T>(Func<T> perform, CancellationToken cancellationToken) 
+        {
+            var transformed = Transform(perform);
+            return Enqueue(transformed, cancellationToken);
+        }
+
+            /// <summary>
+        /// Perform the given task respecting the time constraint
+        /// </summary>
+        /// <param name="perform"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public Task Enqueue(Action perform, CancellationToken cancellationToken) 
         {
            var transformed = Transform(perform);
-           return Perform(transformed, cancellationToken);
-        }
-
-        /// <summary>
-        /// Perform the given task respecting the time constraint
-        /// </summary>
-        /// <param name="perform"></param>
-        /// <returns></returns>
-        public Task Perform(Action perform) 
-        {
-            var transformed = Transform(perform);
-            return Perform(transformed);
-        }
-
-        /// <summary>
-        /// Perform the given task respecting the time constraint
-        /// returning the result of given function
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="perform"></param>
-        /// <returns></returns>
-        public Task<T> Perform<T>(Func<T> perform) 
-        {
-            var transformed = Transform(perform);
-            return Perform(transformed);
-        }
-
-        /// <summary>
-        /// Perform the given task respecting the time constraint
-        /// returning the result of given function
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="perform"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public Task<T> Perform<T>(Func<T> perform, CancellationToken cancellationToken) 
-        {
-            var transformed = Transform(perform);
-            return Perform(transformed, cancellationToken);
+           return Enqueue(transformed, cancellationToken);
         }
 
         /// <summary>

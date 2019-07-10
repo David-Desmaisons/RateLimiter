@@ -1,7 +1,7 @@
-﻿using System;
+﻿using FluentAssertions;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentAssertions;
 using Xunit;
 
 namespace RateLimiter.Tests
@@ -36,7 +36,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task WaitForReadinessIsSynchroneous_FirstTime()
+        public async Task WaitForReadinessIsSynchronous_FirstTime()
         {
             var task = _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             var timedOut = await TaskHasTimeOut(task, 10);
@@ -68,7 +68,7 @@ namespace RateLimiter.Tests
             await TaskHasTimeOut(secondTask, 10);
             disp.Dispose();
 
-             var timedOut = await TaskHasTimeOut(secondTask, 300);
+            var timedOut = await TaskHasTimeOut(secondTask, 300);
             timedOut.Should().BeFalse();
         }
 
@@ -97,9 +97,9 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task WaitForReadiness_WhenCancelledAfterSemaforeTaken_DoNotBlock()
+        public async Task WaitForReadiness_WhenCancelledAfterSemaphoreTaken_DoNotBlock()
         {
-            var cancellation = await SetUpForCancelledAfterSemaforeTaken();
+            var cancellation = await SetUpForCancelledAfterSemaphoreTaken();
             try
             {
                 await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
@@ -113,14 +113,14 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task WaitForReadiness_WhenCancelledAfterSemaforeTaken_ThrowException()
+        public async Task WaitForReadiness_WhenCancelledAfterSemaphoreTaken_ThrowException()
         {
-            var cancellation = await SetUpForCancelledAfterSemaforeTaken();
+            var cancellation = await SetUpForCancelledAfterSemaphoreTaken();
             Func<Task> act = async () => await _CountByIntervalAwaitableConstraint1.WaitForReadiness(cancellation);
             act.Should().Throw<TaskCanceledException>();
         }
 
-        private async Task<CancellationToken> SetUpForCancelledAfterSemaforeTaken()
+        private async Task<CancellationToken> SetUpForCancelledAfterSemaphoreTaken()
         {
             var cancellationSource = new CancellationTokenSource();
             _MockTime.OnDelay = (t, c) =>
@@ -138,14 +138,14 @@ namespace RateLimiter.Tests
         [Fact]
         public async Task WaitForReadiness_WhenLimitIsReached_CallDelayToRespectTimeConstraint()
         {
-            await SetUpSatured();
+            await SetUpSaturated(_CountByIntervalAwaitableConstraint1);
             await CheckCompletionInTime();
         }
 
         [Fact]
         public async Task WaitForReadiness_WhenLimitIsReached_CallDelayToRespectTimeConstraintWithMinimalDelay()
         {
-            await SetUpSatured();
+            await SetUpSaturated(_CountByIntervalAwaitableConstraint1);
             _MockTime.AddTime(TimeSpan.FromMilliseconds(50));
             await CheckCompletionInTime();
         }
@@ -153,7 +153,7 @@ namespace RateLimiter.Tests
         [Fact]
         public async Task WaitForReadiness_WhenLimitIsNotReached_DoNotCallDelayToRespectTimeConstraint()
         {
-            await SetUpSatured();
+            await SetUpSaturated(_CountByIntervalAwaitableConstraint1);
             _MockTime.AddTime(TimeSpan.FromMilliseconds(100));
             await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None);
             _MockTime.GetDelayCount.Should().Be(0);
@@ -166,26 +166,48 @@ namespace RateLimiter.Tests
         [InlineData(2, false)]
         [InlineData(4, false)]
         [InlineData(5, true)]
-        public async Task WaitForReadiness_LimitIsBasedOnCount(int count, bool Wait)
+        [InlineData(6, true)]
+        [InlineData(7, true)]
+        public async Task WaitForReadiness_LimitIsBasedOnCount(int count, bool wait)
         {
-            for (int i = 0; i < count; i++)
-            {
-                await SetUpSatured2();
-            }
+            await Test_WaitForReadiness_LimitIsBasedOnCount(count, _CountByIntervalAwaitableConstraint2);
 
             await _CountByIntervalAwaitableConstraint2.WaitForReadiness(CancellationToken.None);
-            _MockTime.GetDelayCount.Should().Be(Wait ? 1 : 0);
+            _MockTime.GetDelayCount.Should().Be(wait ? 1 : 0);
         }
 
-        private async Task SetUpSatured2()
+        [Theory]
+        [InlineData(0, false)]
+        [InlineData(1, false)]
+        [InlineData(3, false)]
+        [InlineData(2, false)]
+        [InlineData(4, false)]
+        [InlineData(5, true)]
+        [InlineData(6, true)]
+        [InlineData(7, true)]
+        public async Task Clone_WaitForReadiness_LimitIsBasedOnCount(int count, bool wait)
         {
-            using (await _CountByIntervalAwaitableConstraint2.WaitForReadiness(CancellationToken.None)) {
+            await Test_WaitForReadiness_LimitIsBasedOnCount(4, _CountByIntervalAwaitableConstraint2);
+
+            var cloned = _CountByIntervalAwaitableConstraint2.Clone();
+            await Test_WaitForReadiness_LimitIsBasedOnCount(count, cloned);
+
+            await cloned.WaitForReadiness(CancellationToken.None);
+            _MockTime.GetDelayCount.Should().Be(wait ? 1 : 0);
+        }
+
+        private async Task Test_WaitForReadiness_LimitIsBasedOnCount(int count, IAwaitableConstraint countByIntervalAwaitableConstraint)
+        {
+            for (var i = 0; i < count; i++)
+            {
+                await SetUpSaturated(countByIntervalAwaitableConstraint);
             }
         }
 
-        private async Task SetUpSatured()
+        private static async Task SetUpSaturated(IAwaitableConstraint countByIntervalAwaitableConstraint)
         {
-            using (await _CountByIntervalAwaitableConstraint1.WaitForReadiness(CancellationToken.None)) {               
+            using (await countByIntervalAwaitableConstraint.WaitForReadiness(CancellationToken.None))
+            {
             }
         }
 
@@ -196,13 +218,13 @@ namespace RateLimiter.Tests
             _MockTime.Now.Should().Be(_Origin.AddMilliseconds(100));
         }
 
-        private async Task<bool> TaskHasTimeOut(Task task, int milliseconTimeOut = 200)
+        private async Task<bool> TaskHasTimeOut(Task task, int millisecondTimeOut = 200)
         {
-            var ts = TimeSpan.FromMilliseconds(milliseconTimeOut);
+            var ts = TimeSpan.FromMilliseconds(millisecondTimeOut);
             var timeoutTask = Task.Delay(ts);
 
-            var taskcomplete = await Task.WhenAny(task, timeoutTask);
-            return taskcomplete == timeoutTask;
+            var taskComplete = await Task.WhenAny(task, timeoutTask);
+            return taskComplete == timeoutTask;
         }
     }
 }

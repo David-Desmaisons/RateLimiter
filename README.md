@@ -15,38 +15,33 @@ However this helper can also be also in other scenarios where you need to tempor
 
 ## Features
 * Easy to use
-* Fully asynchroneous: lower resource usage than thread sleep
+* Fully asynchronous: lower resource usage than thread sleep
 * Cancellable via CancellationToken
-* Thread safe so you can share time contraints object to rate limit diferent threads using the same resource
-* Composable: ability to compose diferent rate limits in one constraint
+* Thread safe so you can share time constraints object to rate limit different threads using the same resource
+* Composable: ability to compose different rate limits in one constraint
 
 ## Installation
 ```bash
-Install-Package RateLimiter -Version 1.1.1	
-
+Install-Package RateLimiter -Version 2.0.0
 ```
 
 ## Sample usage
 
 ### Basic
 
-```C#
-    //Create Time constraint: max five times by second
-    var timeconstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+RateLimiters are awaitable: the code executed after the await will respect the time constraint:
 
-    //Use it
+
+```C#
+    // Create Time constraint: max five times by second
+    var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
+
+    // Use it
     for(int i=0; i<1000; i++)
     {
-        await timeconstraint.Perform(ConsoleIt);
-    }       
-    
-    ....
-    private Task ConsoleIt()
-    {
+        await timeConstraint;
         Trace.WriteLine(string.Format("{0:MM/dd/yyy HH:mm:ss.fff}", DateTime.Now));
-        return Task.FromResult(0);
     }
-
 ```
 
 Output
@@ -65,22 +60,67 @@ Output
 ...
 ```
 
+### As http DelegatingHandler
+
+```C#
+    using System.Net.Http;
+
+    //...
+    var handler = TimeLimiter
+            .GetFromMaxCountByInterval(60, TimeSpan.FromMinutes(1))
+            .AsDelegatingHandler();
+    var Client = new HttpClient(handler)
+```
+
+### With cancellation token:
+
+```C#
+    // Create Time constraint: max three times by second
+    var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(3, TimeSpan.FromSeconds(1));
+    var cancellationSource = new CancellationTokenSource(1100);
+
+    // Use it
+    while(true)
+    {
+        await timeConstraint.Enqueue(ConsoleIt, cancellationSource.Token);
+    }
+    
+    //....
+    private static void ConsoleIt()
+    {
+        Trace.WriteLine(string.Format("{0:MM/dd/yyy HH:mm:ss.fff}", DateTime.Now));
+    }
+
+```
+
+Output
+```
+07/07/2019 18:09:35.645
+07/07/2019 18:09:35.648
+07/07/2019 18:09:35.648
+07/07/2019 18:09:36.649
+07/07/2019 18:09:36.650
+07/07/2019 18:09:36.650
+```
+
+
 ### Composed
 
 ```C#
-    //Create first constraint: max five times by second
+    // Create first constraint: max five times by second
     var constraint = new CountByIntervalAwaitableConstraint(5, TimeSpan.FromSeconds(1));
     
-    //Create second constraint: one time each 100 ms
+    / /Create second constraint: one time each 100 ms
     var constraint2 = new CountByIntervalAwaitableConstraint(1, TimeSpan.FromMilliseconds(100));
     
-    //Compose the two constraints
-    var timeconstraint = TimeLimiter.Compose(constraint, constraint2);
+    // Compose the two constraints
+    var timeConstraint = TimeLimiter.Compose(constraint, constraint2);
 
-    //Use it
+    // Use it
     for(int i=0; i<1000; i++)
     {
-        await timeconstraint.Perform(ConsoleIt);
+        await timeConstraint;
+        Trace.WriteLine(string.Format("{0:MM/dd/yyy HH:mm:ss.fff}", DateTime.Now));
     }       
 ```
 
