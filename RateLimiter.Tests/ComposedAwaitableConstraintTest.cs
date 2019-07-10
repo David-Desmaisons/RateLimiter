@@ -68,7 +68,7 @@ namespace RateLimiter.Tests
         }
 
         [Fact]
-        public async Task WaitForReadiness_BlockUntillDisposeIsCalled()
+        public async Task WaitForReadiness_BlockUntilDisposeIsCalled()
         {
             var disp = await _Composed.WaitForReadiness(CancellationToken.None);
             disp.Dispose();
@@ -82,8 +82,8 @@ namespace RateLimiter.Tests
             var task = _Composed.WaitForReadiness(CancellationToken.None);
             var timeoutTask = Task.Delay(TimeSpan.FromMilliseconds(200));
 
-            var taskcomplete = await Task.WhenAny(task, timeoutTask);
-            return taskcomplete == timeoutTask;
+            var taskComplete = await Task.WhenAny(task, timeoutTask);
+            return taskComplete == timeoutTask;
         }
 
         [Fact]
