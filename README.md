@@ -33,6 +33,8 @@ RateLimiters are awaitable: the code executed after the await will respect the t
 
 
 ```C#
+    using ComposableAsync;
+
     // Create Time constraint: max five times by second
     var timeConstraint = TimeLimiter.GetFromMaxCountByInterval(5, TimeSpan.FromSeconds(1));
 
