@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ComposableAsync.Core" Version="1.0.3" />
-    <PackageReference Include="ComposableAsync.Factory" Version="1.0.3" />
+    <PackageReference Include="ComposableAsync.Core" Version="1.1.0" />
+    <PackageReference Include="ComposableAsync.Factory" Version="1.1.0" />
     <PackageReference Include="FluentAssertions">
       <Version>5.6.0</Version>
     </PackageReference>
