@@ -159,5 +159,45 @@ namespace RateLimiter.Tests
 
             await Task.WhenAll(tasks.ToArray());
         }
+
+        [Fact]
+        public async Task ParallelSlowActionPerformance()
+        {
+            var stopWatch = Stopwatch.StartNew();
+            var limiter = TimeLimiter.GetFromMaxCountByInterval(100, TimeSpan.FromMinutes(1));
+            Func<Task> func = async () => await Task.Delay(300);
+
+            await Task.WhenAll(
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func));
+            stopWatch.Stop();
+
+            stopWatch.Elapsed.TotalSeconds.Should().BeLessThan(1);
+        }
+
+        [Fact]
+        public async Task ParallelSlowActionPerformaceLimited()
+        {
+            var stopWatch = Stopwatch.StartNew();
+            var limiter = TimeLimiter.GetFromMaxCountByInterval(3, TimeSpan.FromSeconds(1));
+            Func<Task> func = async () => await Task.Delay(300);
+
+            await Task.WhenAll(
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func),
+                limiter.Enqueue(func));
+            stopWatch.Stop();
+
+            stopWatch.Elapsed.TotalSeconds.Should().BeLessThan(3);
+        }
     }
 }
