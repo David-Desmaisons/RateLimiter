@@ -121,7 +121,7 @@ namespace RateLimiter.Tests
             await cancellable.Should().ThrowAsync<OperationCanceledException>();
              
             var res = await timeLimited.GetValue();
-            res.Should().Be(56);
+            res.Should().BeLessOrEqualTo(56);
         }
 
         [Fact(Skip = "for demo purpose only")]
