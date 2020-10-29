@@ -1,4 +1,4 @@
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 before_build:
  - dotnet --version
@@ -11,7 +11,7 @@ build_script:
  - dotnet build "RateLimiter.sln" --verbosity quiet --configuration Debug
 
 test_script:
- - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.exe" -targetargs:"RateLimiter.Tests\bin\Debug\net472\RateLimiter.Tests.dll -noshadow" -output:".\coverage.xml" -filter:"+[RateLimiter*]* -[RateLimiter.Test*]*"
+ - OpenCover.Console.exe -register:administrator -target:"%xunit20%\xunit.console.exe" -targetargs:"RateLimiter.Tests\bin\Debug\net472\RateLimiter.Tests.dll -noshadow" -output:".\coverage.xml" -filter:"+[RateLimiter*]* -[RateLimiter.Test*]*"
 
 # use codecov bash script. Requires powershell and bash to be installed, which both are on the AppVeyor machine image
 
