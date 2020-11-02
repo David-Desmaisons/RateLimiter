@@ -1,104 +1,8 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/David/Documents/Source/RateLimiter/RateLimiter.Documentation",
+  "source_base_path": "C:/Users/David.Desmaisons/Source/Repos/RateLimiter/RateLimiter.Documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.AwaitableConstraintExtension.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.AwaitableConstraintExtension.html",
-          "hash": "qamy3gu8gYSwElUGqi3jfw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.CountByIntervalAwaitableConstraint.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.CountByIntervalAwaitableConstraint.html",
-          "hash": "kWCoh1px4BcIeURMjz+8ew=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.IAwaitableConstraint.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.IAwaitableConstraint.html",
-          "hash": "AnSXsRNyDi9/TUDwNsEk5A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.LimitedSizeStack-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.LimitedSizeStack-1.html",
-          "hash": "vc+xJqlotWcr/AeJ1tVISw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.PersistentCountByIntervalAwaitableConstraint.html",
-          "hash": "AJULfF8xlSxGpa5IQQn17g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.TimeLimiter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.TimeLimiter.html",
-          "hash": "wY2r0yMqaKw07MiXzXmAYA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RateLimiter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RateLimiter.html",
-          "hash": "Ra+AdiHlz5CWR5snkdzEjQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "2wIOOS3z/EgwCelqX90CWQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
     {
       "type": "Conceptual",
       "source_relative_path": "index.md",
@@ -108,7 +12,7 @@
           "hash": "aRcqyU2VkRUtcXn78e3CmQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -120,7 +24,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "u7k/slcMFve7dcdc0ROHBQ=="
+          "hash": "D2g85a+lcVKKdU+wW61j5w=="
         }
       },
       "is_incremental": false,
@@ -130,39 +34,31 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Disable incremental build by force rebuild option.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "ForceRebuild"
+        "skipped_file_count": 0
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 1,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 7,
-          "skipped_file_count": 0
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 1
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
