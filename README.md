@@ -22,7 +22,7 @@ However this helper can also be also in other scenarios where you need to tempor
 
 ## Installation
 ```bash
-Install-Package RateLimiter -Version 2.0.0
+Install-Package RateLimiter -Version 2.2.0
 ```
 
 ## Sample usage
