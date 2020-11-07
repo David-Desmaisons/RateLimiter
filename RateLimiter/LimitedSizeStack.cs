@@ -31,5 +31,19 @@ namespace RateLimiter
             if (Count > _MaxSize)
                 RemoveLast();
         }
+
+        /// <summary>
+        /// Removes the last occurrence of the specified value from the System.Collections.Generic.LinkedList`1.
+        /// </summary>
+        /// <param name="currentValue">The current value.</param>
+        /// <param name="newValue">The new value.</param>
+        public bool ReplaceLast(T currentValue, T newValue)
+        {
+            LinkedListNode<T> node = FindLast(currentValue);
+            if (node == null)
+                return false;
+            node.Value = newValue;
+            return true;
+        }
     }
 }

@@ -15,16 +15,19 @@ namespace RateLimiter
         /// <summary>
         /// List of the last time stamps
         /// </summary>
-        public IReadOnlyList<DateTime> TimeStamps => _TimeStamps.ToList();
+        public IReadOnlyList<DateTime?> TimeStamps => _TimeStamps.ToList();
 
         /// <summary>
         /// Stack of the last time stamps
         /// </summary>
-        protected LimitedSizeStack<DateTime> _TimeStamps { get; }
+        protected LimitedSizeStack<DateTime?> _TimeStamps { get; }
 
         private int _Count { get; }
         private TimeSpan _TimeSpan { get; }
-        private SemaphoreSlim _Semaphore { get; } = new SemaphoreSlim(1, 1);
+
+        private SemaphoreSlim _CapacitySemaphore { get; }
+        private SemaphoreSlim _ListSemaphore { get; } = new SemaphoreSlim(1, 1);
+        private SemaphoreSlim _DelaySemaphore { get; } = new SemaphoreSlim(1, 1);
         private ITime _Time { get; }
 
         /// <summary>
@@ -46,8 +49,9 @@ namespace RateLimiter
 
             _Count = count;
             _TimeSpan = timeSpan;
-            _TimeStamps = new LimitedSizeStack<DateTime>(_Count);
+            _TimeStamps = new LimitedSizeStack<DateTime?>(_Count);
             _Time = time;
+            _CapacitySemaphore = new SemaphoreSlim(_Count, _Count);
         }
 
         /// <summary>
@@ -61,12 +65,31 @@ namespace RateLimiter
         /// </returns>
         public async Task<IDisposable> WaitForReadiness(CancellationToken cancellationToken)
         {
-            await _Semaphore.WaitAsync(cancellationToken);
+            await _CapacitySemaphore.WaitAsync(cancellationToken);
+            try
+            {
+                await _DelaySemaphore.WaitAsync(cancellationToken);
+            }
+            catch
+            {
+                _CapacitySemaphore.Release();
+                throw;
+            }
+            try
+            {
+                await _ListSemaphore.WaitAsync(cancellationToken);
+            }
+            catch
+            {
+                _DelaySemaphore.Release();
+                _CapacitySemaphore.Release();
+                throw;
+            }
             var count = 0;
             var now = _Time.GetNow();
             var target = now - _TimeSpan;
-            LinkedListNode<DateTime> element = _TimeStamps.First, last = null;
-            while ((element != null) && (element.Value > target))
+            LinkedListNode<DateTime?> element = _TimeStamps.First, last = null;
+            while ((element != null) && (element.Value == null || element.Value > target))
             {
                 last = element;
                 element = element.Next;
@@ -74,18 +97,31 @@ namespace RateLimiter
             }
 
             if (count < _Count)
+            {
+                _TimeStamps.Push(null);
+                _DelaySemaphore.Release();
+                _ListSemaphore.Release();
                 return new DisposeAction(OnEnded);
+            }
+
 
             Debug.Assert(element == null);
             Debug.Assert(last != null);
-            var timeToWait = last.Value.Add(_TimeSpan) - now;
+            Debug.Assert(last.Value != null);
+            var timeToWait = last.Value.Value.Add(_TimeSpan) - now;
+            _ListSemaphore.Release();
             try
             {
                 await _Time.GetDelay(timeToWait, cancellationToken);
+                await _ListSemaphore.WaitAsync(cancellationToken);
+                _TimeStamps.Push(null); //also removes the oldest timestamp
+                _ListSemaphore.Release();
+                _DelaySemaphore.Release();
             }
             catch (Exception)
             {
-                _Semaphore.Release();
+                _DelaySemaphore.Release();
+                _CapacitySemaphore.Release();
                 throw;
             }
 
@@ -103,10 +139,15 @@ namespace RateLimiter
 
         private void OnEnded()
         {
+            _ListSemaphore.Wait(); //always small amount of time
             var now = _Time.GetNow();
-            _TimeStamps.Push(now);
+            if (!_TimeStamps.ReplaceLast(null, now))
+            {
+                _TimeStamps.Push(now);
+            }
             OnEnded(now);
-            _Semaphore.Release();
+            _ListSemaphore.Release();
+            _CapacitySemaphore.Release();
         }
 
         /// <summary>
