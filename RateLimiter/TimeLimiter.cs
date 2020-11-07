@@ -165,6 +165,16 @@ namespace RateLimiter
         }
 
         /// <summary>
+        /// Returns a TimeLimiter based on a maximum number of parallel calls
+        /// </summary>
+        /// <param name="maxCount"></param>
+        /// <param name="timeSpan"></param>
+        /// <returns></returns>
+        public static TimeLimiter GetFromMaxCallCountByInterval(int maxCount, TimeSpan timeSpan)
+        {
+            return new TimeLimiter(new CallCountByIntervalAwaitableConstraint(maxCount, timeSpan));
+        }
+        /// <summary>
         /// Create <see cref="TimeLimiter"/> that will save state using action passed through <paramref name="saveStateAction"/> parameter.
         /// </summary>
         /// <param name="maxCount">Maximum actions allowed per time interval.</param>
